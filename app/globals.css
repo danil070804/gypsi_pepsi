@@ -31,6 +31,22 @@ body::before{
     linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,1));
 }
 
+/* Admin UI helpers */
+@layer components {
+  .admin-card {
+    @apply rounded-2xl border border-white/10 bg-slate-900/40 backdrop-blur;
+  }
+  .admin-surface {
+    @apply border border-white/10 bg-slate-900/30 backdrop-blur;
+  }
+  .admin-muted {
+    @apply text-slate-300;
+  }
+  .admin-title {
+    @apply text-sm font-semibold tracking-tight text-slate-100;
+  }
+}
+
 a { @apply hover:opacity-90; }
 
 .container {

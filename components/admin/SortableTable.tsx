@@ -11,13 +11,13 @@ function Row({ item }: { item: Item }) {
   const style: React.CSSProperties = { transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.7 : 1 };
 
   return (
-    <tr ref={setNodeRef} style={style} className="border-t border-white/10 bg-white/5">
+    <tr ref={setNodeRef} style={style} className="border-t border-white/10 bg-slate-900/30 hover:bg-slate-900/40">
       <td className="p-3 align-middle">
         <button
           type="button"
           {...attributes}
           {...listeners}
-          className="cursor-grab rounded-lg border bg-white/5 px-2 py-1 text-xs text-slate-200 active:cursor-grabbing"
+          className="cursor-grab rounded-lg border border-white/10 bg-slate-950/40 px-2 py-1 text-xs text-slate-200 hover:bg-slate-950/55 active:cursor-grabbing"
           aria-label="Drag"
         >
           ⠿
@@ -30,7 +30,7 @@ function Row({ item }: { item: Item }) {
       <td className="p-3 align-middle">{item.active === undefined ? "-" : item.active ? "Yes" : "No"}</td>
       <td className="p-3 align-middle">{item.sortOrder ?? "-"}</td>
       <td className="p-3 align-middle text-right">
-        <a href={item.editHref} className="rounded-lg border px-3 py-1.5 text-xs">Edit</a>
+        <a href={item.editHref} className="rounded-lg border border-white/10 bg-slate-950/35 px-3 py-1.5 text-xs text-slate-200 hover:bg-slate-950/50">Edit</a>
       </td>
     </tr>
   );
@@ -62,8 +62,8 @@ export default function SortableTable({
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
-      <div className="flex items-center justify-between border-b border-white/10 bg-white/5 px-4 py-2 text-xs text-slate-300">
+    <div className="admin-card overflow-hidden">
+      <div className="flex items-center justify-between border-b border-white/10 bg-slate-950/30 px-4 py-2 text-xs text-slate-300">
         <div>Drag rows to reorder</div>
         <div>{saving ? "Saving…" : "Saved"}</div>
       </div>
@@ -83,7 +83,7 @@ export default function SortableTable({
       >
         <SortableContext items={ids} strategy={verticalListSortingStrategy}>
           <table className="w-full text-left text-sm">
-            <thead className="bg-white/5 text-xs">
+            <thead className="bg-slate-950/25 text-xs text-slate-200">
               <tr>
                 <th className="p-3 w-14"></th>
                 <th className="p-3">Item</th>

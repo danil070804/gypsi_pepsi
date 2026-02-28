@@ -24,10 +24,10 @@ export default function AdminNav() {
   const pathname = h.get("x-invoke-path") || h.get("x-matched-path") || h.get("next-url") || "/admin";
 
   return (
-    <aside className="w-full border-b border-white/10 bg-white/5 p-4 backdrop-blur md:sticky md:top-0 md:h-screen md:w-72 md:border-b-0 md:border-r md:border-white/10">
+    <aside className="w-full border-b border-white/10 bg-slate-950/40 p-4 backdrop-blur md:sticky md:top-0 md:h-screen md:w-72 md:border-b-0 md:border-r md:border-white/10">
       <div className="flex items-center justify-between">
         <div className="text-sm font-semibold tracking-wide text-slate-100">Admin</div>
-        <span className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-slate-300">GYPSey</span>
+        <span className="rounded-full border border-white/10 bg-slate-900/40 px-2 py-1 text-[11px] text-slate-300">GYPSey</span>
       </div>
 
       <nav className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-1">
@@ -40,8 +40,8 @@ export default function AdminNav() {
               className={
                 "rounded-xl px-3 py-2 text-sm transition " +
                 (active
-                  ? "bg-blue-600/20 text-slate-100 ring-1 ring-blue-500/30"
-                  : "border border-white/10 bg-white/5 text-slate-200 hover:bg-white/10")
+                  ? "bg-gradient-to-r from-blue-600/25 to-indigo-600/15 text-slate-100 ring-1 ring-blue-500/30"
+                  : "border border-white/10 bg-slate-900/30 text-slate-200 hover:bg-slate-900/45")
               }
             >
               {label}
