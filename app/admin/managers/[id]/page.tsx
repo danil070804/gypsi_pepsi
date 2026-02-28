@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { Field, Input, Button } from "@/components/admin/Form";
+import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import UploadWidget from "@/components/admin/UploadWidget";
 import { notFound } from "next/navigation";
 import { updateManager, deleteManager } from "../../actions";
