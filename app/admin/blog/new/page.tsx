@@ -1,7 +1,10 @@
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
-import UploadWidget from "@/components/admin/UploadWidget";
 import { upsertBlogPost } from "../actions";
 import BlocksEditorSingle from "@/components/admin/BlocksEditorSingle";
+import CoverUploadField from "./CoverUploadField";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default function NewBlogPost() {
   return (
@@ -46,14 +49,7 @@ export default function NewBlogPost() {
             <Input id="coverImageUrl" name="coverImageUrl" />
           </Field>
 
-          <UploadWidget
-            onUploaded={(url) => {
-              const el = document.querySelector(
-                'input[name="coverImageUrl"]'
-              ) as HTMLInputElement | null;
-              if (el) el.value = url;
-            }}
-          />
+          <CoverUploadField inputName="coverImageUrl" />
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
