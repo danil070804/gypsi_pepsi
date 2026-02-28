@@ -1,12 +1,13 @@
+import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
-import { t, defaultLocale, locales, type Lang } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
 import {
   normalizeWhatsapp,
   normalizeTelegram,
   normalizeInstagram,
 } from "@/lib/contacts";
 
-type Params = Promise<{ lang: string }>;
+type Params = Promise<{ lang: Lang }>;
 
 function ManagerCard({ m, lang }: { m: any; lang: Lang }) {
   const name = lang === "ru" ? m.nameRu : m.nameEn;
@@ -65,14 +66,13 @@ export async function generateMetadata({
   params: Params;
 }) {
   const { lang } = await params;
-  const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
 
   const base = process.env.AUTH_URL || "http://localhost:3000";
 
   return {
-    title: t(safeLang, "Контакты", "Contacts"),
+    title: t(lang, "Контакты", "Contacts"),
     alternates: {
-      canonical: `${base}/${safeLang}/contact`,
+      canonical: `${base}/${lang}/contact`,
       languages: {
         ru: `${base}/ru/contact`,
         en: `${base}/en/contact`,
@@ -87,7 +87,6 @@ export default async function Contact({
   params: Params;
 }) {
   const { lang } = await params;
-  const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
 
   const managers = await prisma.manager.findMany({
     where: { isActive: true },
@@ -98,11 +97,11 @@ export default async function Contact({
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-semibold md:text-3xl">
-          {t(safeLang, "Выбор менеджера", "Choose a manager")}
+          {t(lang, "Выбор менеджера", "Choose a manager")}
         </h1>
         <p className="mt-2 text-slate-600">
           {t(
-            safeLang,
+            lang,
             "Нажмите на нужный контакт — показываются только заполненные.",
             "Tap a contact method — only filled ones are shown."
           )}
@@ -111,7 +110,7 @@ export default async function Contact({
 
       <div className="grid gap-4 md:grid-cols-3">
         {managers.map((m) => (
-          <ManagerCard key={m.id} m={m} lang={safeLang} />
+          <ManagerCard key={m.id} m={m} lang={lang} />
         ))}
       </div>
     </div>

@@ -1,9 +1,9 @@
+import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Blocks from "@/components/Blocks";
 import { notFound } from "next/navigation";
-import { defaultLocale, locales, type Lang } from "@/lib/i18n";
 
-type Params = Promise<{ lang: string; slug: string }>;
+type Params = Promise<{ lang: Lang; slug: string }>;
 
 export async function generateMetadata({
   params,
@@ -11,11 +11,10 @@ export async function generateMetadata({
   params: Params;
 }) {
   const { lang, slug } = await params;
-  const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
 
   const post = await prisma.blogPost.findFirst({
     where:
-      safeLang === "ru"
+      lang === "ru"
         ? { slugRu: slug }
         : { slugEn: slug },
   });
@@ -24,14 +23,14 @@ export async function generateMetadata({
 
   const base = process.env.AUTH_URL || "http://localhost:3000";
 
-  const title = safeLang === "ru" ? post.metaTitleRu || post.titleRu : post.metaTitleEn || post.titleEn;
-  const desc = safeLang === "ru" ? post.metaDescRu || post.excerptRu : post.metaDescEn || post.excerptEn;
+  const title = lang === "ru" ? post.metaTitleRu || post.titleRu : post.metaTitleEn || post.titleEn;
+  const desc = lang === "ru" ? post.metaDescRu || post.excerptRu : post.metaDescEn || post.excerptEn;
 
   return {
     title,
     description: desc,
     alternates: {
-      canonical: `${base}/${safeLang}/blog/${slug}`,
+      canonical: `${base}/${lang}/blog/${slug}`,
     },
   };
 }
@@ -42,18 +41,17 @@ export default async function Post({
   params: Params;
 }) {
   const { lang, slug } = await params;
-  const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
 
   const post = await prisma.blogPost.findFirst({
     where:
-      safeLang === "ru"
+      lang === "ru"
         ? { slugRu: slug }
         : { slugEn: slug },
   });
 
   if (!post || !post.isPublished) return notFound();
 
-  const blocks = safeLang === "ru" ? post.contentRu : post.contentEn;
+  const blocks = lang === "ru" ? post.contentRu : post.contentEn;
 
-  return <Blocks blocks={blocks} lang={safeLang} />;
+  return <Blocks blocks={blocks} lang={lang} />;
 }

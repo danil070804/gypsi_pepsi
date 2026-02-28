@@ -1,8 +1,9 @@
+import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { t, defaultLocale, locales, type Lang } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
 
-type Params = Promise<{ lang: string }>;
+type Params = Promise<{ lang: Lang }>;
 
 export async function generateMetadata({
   params,
@@ -10,13 +11,12 @@ export async function generateMetadata({
   params: Params;
 }) {
   const { lang } = await params;
-  const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
   const base = process.env.AUTH_URL || "http://localhost:3000";
 
   return {
-    title: t(safeLang, "Услуги", "Services"),
+    title: t(lang, "Услуги", "Services"),
     alternates: {
-      canonical: `${base}/${safeLang}/services`,
+      canonical: `${base}/${lang}/services`,
       languages: {
         ru: `${base}/ru/services`,
         en: `${base}/en/services`,
@@ -31,7 +31,6 @@ export default async function ServicesPage({
   params: Params;
 }) {
   const { lang } = await params;
-  const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
 
   const services = await prisma.service.findMany({
     where: { isPublished: true },
@@ -42,7 +41,7 @@ export default async function ServicesPage({
     <div className="space-y-10">
       <div>
         <h1 className="text-2xl font-semibold md:text-3xl">
-          {t(safeLang, "Услуги", "Services")}
+          {t(lang, "Услуги", "Services")}
         </h1>
         <p className="mt-2 text-slate-600">
           {t(
@@ -55,9 +54,9 @@ export default async function ServicesPage({
 
       <div className="grid gap-4 md:grid-cols-3">
         {services.map((s) => {
-          const title = safeLang === "ru" ? s.titleRu : s.titleEn;
-          const excerpt = safeLang === "ru" ? s.excerptRu : s.excerptEn;
-          const slug = s.slug;
+          const title = lang === "ru" ? s.titleRu : s.titleEn;
+          const excerpt = lang === "ru" ? s.excerptRu : s.excerptEn;
+          const slug = lang === "ru" ? s.slugRu : s.slugEn;
 
           return (
             <div key={s.id} className="rounded-2xl border bg-white p-5">
@@ -68,10 +67,10 @@ export default async function ServicesPage({
 
               <div className="mt-4">
                 <Link
-                  href={`/${safeLang}/services/${slug}`}
+                  href={`/${lang}/services/${slug}`}
                   className="inline-flex rounded-full border px-4 py-2 text-sm font-medium hover:bg-slate-50"
                 >
-                  {t(safeLang, "Подробнее", "Learn more")}
+                  {t(lang, "Подробнее", "Learn more")}
                 </Link>
               </div>
             </div>
@@ -81,7 +80,7 @@ export default async function ServicesPage({
 
       <div className="rounded-2xl border bg-slate-50 p-6">
         <div className="text-lg font-semibold">
-          {t(safeLang, "Нужна консультация?", "Need a consultation?")}
+          {t(lang, "Нужна консультация?", "Need a consultation?")}
         </div>
         <p className="mt-2 text-slate-600">
           {t(
@@ -92,10 +91,10 @@ export default async function ServicesPage({
         </p>
         <div className="mt-4">
           <Link
-            href={`/${safeLang}/contact`}
+            href={`/${lang}/contact`}
             className="inline-flex rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white hover:opacity-90"
           >
-            {t(safeLang, "Выбрать менеджера", "Choose a manager")}
+            {t(lang, "Выбрать менеджера", "Choose a manager")}
           </Link>
         </div>
       </div>

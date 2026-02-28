@@ -1,5 +1,5 @@
 import { Field, Input, Textarea, Button, Switch } from "@/components/admin/Form";
-import UploadWidget from "@/components/admin/UploadWidget";
+import PhotoUrlField from "../PhotoUrlField";
 import { createManager } from "../../actions";
 
 export default function NewManagerPage() {
@@ -13,13 +13,7 @@ export default function NewManagerPage() {
           <Field label="Name (EN)"><Input name="nameEn" required /></Field>
           <Field label="Role (RU)"><Input name="roleRu" /></Field>
           <Field label="Role (EN)"><Input name="roleEn" /></Field>
-          <div className="space-y-2">
-          <Field label="Photo URL (or upload)"><Input id="photoUrl" name="photoUrl" placeholder="/uploads/..." /></Field>
-          <UploadWidget onUploaded={(url) => {
-            const el = document.querySelector('input[name="photoUrl"]') as HTMLInputElement | null;
-            if (el) el.value = url;
-          }} />
-        </div>
+          <PhotoUrlField />
           <Field label="WhatsApp (number or link)"><Input name="whatsapp" /></Field>
           <Field label="Telegram (username or link)"><Input name="telegram" /></Field>
           <Field label="Instagram (username or link)"><Input name="instagram" /></Field>

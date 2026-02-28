@@ -1,8 +1,9 @@
+import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { t, defaultLocale, locales, type Lang } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
 
-type Params = Promise<{ lang: string }>;
+type Params = Promise<{ lang: Lang }>;
 
 export async function generateMetadata({
   params,
@@ -10,13 +11,12 @@ export async function generateMetadata({
   params: Params;
 }) {
   const { lang } = await params;
-  const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
   const base = process.env.AUTH_URL || "http://localhost:3000";
 
   return {
-    title: safeLang === "ru" ? "Блог" : "Blog",
+    title: lang === "ru" ? "Блог" : "Blog",
     alternates: {
-      canonical: `${base}/${safeLang}/blog`,
+      canonical: `${base}/${lang}/blog`,
       languages: {
         ru: `${base}/ru/blog`,
         en: `${base}/en/blog`,
@@ -33,7 +33,6 @@ export default async function Blog({
   searchParams: Promise<{ page?: string }>;
 }) {
   const { lang } = await params;
-  const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
   const sp = await searchParams;
 
   const page = Math.max(1, Number(sp?.page || "1"));
@@ -57,24 +56,24 @@ export default async function Blog({
     <div className="space-y-10">
       <div>
         <h1 className="text-2xl font-semibold md:text-3xl">
-          {t(safeLang, "Блог", "Blog")}
+          {t(lang, "Блог", "Blog")}
         </h1>
         <p className="mt-2 text-slate-600">
-          {t(safeLang, "Новости и полезные материалы.", "Updates and helpful materials.")}
+          {t(lang, "Новости и полезные материалы.", "Updates and helpful materials.")}
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
         {posts.map((p) => {
-          const slug = safeLang === "ru" ? p.slugRu : p.slugEn;
+          const slug = lang === "ru" ? p.slugRu : p.slugEn;
           return (
             <Link
               key={p.id}
-              href={`/${safeLang}/blog/${slug}`}
+              href={`/${lang}/blog/${slug}`}
               className="rounded-xl border p-4 hover:shadow"
             >
               <h2 className="font-semibold">
-                {safeLang === "ru" ? p.titleRu : p.titleEn}
+                {lang === "ru" ? p.titleRu : p.titleEn}
               </h2>
             </Link>
           );
@@ -86,7 +85,7 @@ export default async function Blog({
           {Array.from({ length: totalPages }).map((_, i) => (
             <Link
               key={i}
-              href={`/${safeLang}/blog?page=${i + 1}`}
+              href={`/${lang}/blog?page=${i + 1}`}
               className="px-3 py-1 border rounded"
             >
               {i + 1}

@@ -1,13 +1,11 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
+import PhotoUrlField from "../PhotoUrlField";
 import { updateManager, deleteManager } from "../../actions";
 
-type Params = Promise<{ id: string }>;
-
-export default async function EditManagerPage({ params }: { params: Params }) {
-  const { id } = await params;
-  const m = await prisma.manager.findUnique({ where: { id: id } });
+export default async function EditManagerPage({ params }: { params: { id: string } }) {
+  const m = await prisma.manager.findUnique({ where: { id } });
   if (!m) return notFound();
 
   return (
@@ -21,12 +19,8 @@ export default async function EditManagerPage({ params }: { params: Params }) {
           <Field label="Role (RU)"><Input name="roleRu" defaultValue={m.roleRu || ""} /></Field>
           <Field label="Role (EN)"><Input name="roleEn" defaultValue={m.roleEn || ""} /></Field>
           <div className="space-y-2">
-          <Field label="Photo URL"><Input id="photoUrl" name="photoUrl" defaultValue={m.photoUrl || ""} /></Field>
-          <UploadWidget onUploaded={(url) => {
-            const el = document.querySelector('input[name="photoUrl"]') as HTMLInputElement | null;
-            if (el) el.value = url;
-          }} />
-        </div>
+          <PhotoUrlField defaultValue={m.photoUrl || ""} />
+          </div>
           <Field label="WhatsApp"><Input name="whatsapp" defaultValue={m.whatsapp || ""} /></Field>
           <Field label="Telegram"><Input name="telegram" defaultValue={m.telegram || ""} /></Field>
           <Field label="Instagram"><Input name="instagram" defaultValue={m.instagram || ""} /></Field>
