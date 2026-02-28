@@ -17,7 +17,7 @@ export default async function EditPage({ params }: { params: Promise<{ key: stri
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Edit page: {key}</h1>
 
-      <form action={async (fd) => { "use server"; await upsertPage(key, fd); }} className="space-y-4 rounded-2xl border bg-white p-5">
+      <form action={async (fd) => { "use server"; await upsertPage(key, fd); }} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Title (RU)"><Input name="titleRu" defaultValue={page.titleRu} /></Field>
           <Field label="Title (EN)"><Input name="titleEn" defaultValue={page.titleEn} /></Field>

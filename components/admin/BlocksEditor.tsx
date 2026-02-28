@@ -77,11 +77,11 @@ export default function BlocksEditor({
   const Panel = ({ lang }: { lang: Lang }) => (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-2">
-        <button type="button" onClick={() => addBlock(lang, "hero")} className="rounded-lg border px-3 py-2 text-xs hover:bg-slate-50">+ hero</button>
-        <button type="button" onClick={() => addBlock(lang, "steps")} className="rounded-lg border px-3 py-2 text-xs hover:bg-slate-50">+ steps</button>
-        <button type="button" onClick={() => addBlock(lang, "bullets")} className="rounded-lg border px-3 py-2 text-xs hover:bg-slate-50">+ bullets</button>
-        <button type="button" onClick={() => addBlock(lang, "cta")} className="rounded-lg border px-3 py-2 text-xs hover:bg-slate-50">+ cta</button>
-        <button type="button" onClick={() => addBlock(lang, "richText")} className="rounded-lg border px-3 py-2 text-xs hover:bg-slate-50">+ richText (WYSIWYG)</button>
+        <button type="button" onClick={() => addBlock(lang, "hero")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ hero</button>
+        <button type="button" onClick={() => addBlock(lang, "steps")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ steps</button>
+        <button type="button" onClick={() => addBlock(lang, "bullets")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ bullets</button>
+        <button type="button" onClick={() => addBlock(lang, "cta")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ cta</button>
+        <button type="button" onClick={() => addBlock(lang, "richText")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ richText (WYSIWYG)</button>
       </div>
 
       <SortableList
@@ -112,7 +112,7 @@ export default function BlocksEditor({
 
       <input type="hidden" name={name} value={jsonValue} readOnly />
 
-      <details className="rounded-xl border bg-slate-50 p-3 text-xs text-slate-600">
+      <details className="rounded-xl border bg-white/5 p-3 text-xs text-slate-300">
         <summary className="cursor-pointer font-semibold">Raw JSON (debug)</summary>
         <pre className="mt-2 whitespace-pre-wrap">{jsonValue}</pre>
       </details>
@@ -129,19 +129,19 @@ function SortableCard({ id, children, onRemove }:{ id: string; children: React.R
   };
 
   return (
-    <div ref={setNodeRef} style={style} className="rounded-2xl border bg-white p-4">
+    <div ref={setNodeRef} style={style} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-4">
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <button
             type="button"
             {...attributes}
             {...listeners}
-            className="cursor-grab rounded-lg border bg-slate-50 px-2 py-1 text-xs text-slate-700 active:cursor-grabbing"
+            className="cursor-grab rounded-lg border bg-white/5 px-2 py-1 text-xs text-slate-200 active:cursor-grabbing"
             aria-label="Drag"
           >
             ⠿
           </button>
-          <div className="text-xs font-semibold uppercase tracking-widest text-slate-500">block</div>
+          <div className="text-xs font-semibold uppercase tracking-widest text-slate-400">block</div>
         </div>
         <button type="button" onClick={onRemove} className="rounded-lg border px-2 py-1 text-xs">Remove</button>
       </div>
@@ -155,7 +155,7 @@ function BlockEditor({ block, lang, onUpdate }:{ block: any; lang: Lang; onUpdat
 
   return (
     <div className="space-y-3">
-      <div className="text-xs font-semibold uppercase tracking-widest text-slate-500">{b.type}</div>
+      <div className="text-xs font-semibold uppercase tracking-widest text-slate-400">{b.type}</div>
 
       {b.type === "hero" ? (
         <div className="grid gap-3 md:grid-cols-2">
@@ -239,7 +239,7 @@ function BlockEditor({ block, lang, onUpdate }:{ block: any; lang: Lang; onUpdat
 function Input({ label, value, onChange }:{ label: string; value: string; onChange: (v:string)=>void }) {
   return (
     <label className="block space-y-1">
-      <div className="text-xs font-semibold text-slate-700">{label}</div>
+      <div className="text-xs font-semibold text-slate-200">{label}</div>
       <input className="w-full rounded-xl border px-3 py-2 text-sm" value={value} onChange={(e) => onChange(e.target.value)} />
     </label>
   );

@@ -24,7 +24,7 @@ export default async function FAQAdmin() {
 
       <SortableTable initialItems={items} reorderEndpoint="/api/admin/faq/reorder" />
 
-      <form action={createFAQ} className="space-y-4 rounded-2xl border bg-white p-5">
+      <form action={createFAQ} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
         <div className="text-sm font-semibold">Add FAQ</div>
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Question RU"><Input name="questionRu" required /></Field>
@@ -39,7 +39,7 @@ export default async function FAQAdmin() {
 
       <div className="space-y-4">
         {faqs.map((f) => (
-          <form key={f.id} id={`faq-${f.id}`} action={async (fd) => { "use server"; await updateFAQ(f.id, fd); }} className="space-y-3 rounded-2xl border bg-white p-5">
+          <form key={f.id} id={`faq-${f.id}`} action={async (fd) => { "use server"; await updateFAQ(f.id, fd); }} className="space-y-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
             <div className="flex items-center justify-between gap-3">
               <div className="text-sm font-semibold">FAQ item</div>
               <form action={async () => { "use server"; await deleteFAQ(f.id); }}>

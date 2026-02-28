@@ -19,10 +19,10 @@ export default function LoginClient() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 px-4 py-16">
-      <div className="mx-auto max-w-md rounded-2xl border bg-white p-6">
+    <div className="min-h-screen bg-white/5 px-4 py-16">
+      <div className="mx-auto max-w-md rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-6">
         <h1 className="text-xl font-semibold">Admin login</h1>
-        <p className="mt-1 text-sm text-slate-600">Sign in to manage content.</p>
+        <p className="mt-1 text-sm text-slate-300">Sign in to manage content.</p>
 
         <form onSubmit={onSubmit} className="mt-6 space-y-3">
           <input

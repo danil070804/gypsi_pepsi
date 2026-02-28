@@ -21,14 +21,14 @@ export default async function ManagersPage() {
     <div className="space-y-6">
       <div className="flex items-end justify-between gap-4">
         <h1 className="text-2xl font-semibold">Managers</h1>
-        <Link href="/admin/managers/new" className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white">
+        <Link href="/admin/managers/new" className="rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 hover:opacity-95">
           Add manager
         </Link>
       </div>
 
       <SortableTable initialItems={items} reorderEndpoint="/api/admin/managers/reorder" />
 
-      <div className="rounded-xl bg-slate-50 p-4 text-xs text-slate-600">
+      <div className="rounded-xl bg-white/5 p-4 text-xs text-slate-300">
         Note: delete is available on the edit page (or you can keep the old delete flow if you want).
       </div>
     </div>

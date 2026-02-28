@@ -29,7 +29,7 @@ export default async function ReviewsAdmin() {
 
       <div className="space-y-4">
         {reviews.map((r) => (
-          <form key={r.id} id={`review-${r.id}`} action={async (fd) => { "use server"; await updateReview(r.id, fd); }} className="space-y-3 rounded-2xl border bg-white p-5">
+          <form key={r.id} id={`review-${r.id}`} action={async (fd) => { "use server"; await updateReview(r.id, fd); }} className="space-y-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
             <div className="flex items-center justify-between gap-3">
               <div className="text-sm font-semibold">{r.authorName}</div>
               <form action={async () => { "use server"; await deleteReview(r.id); }}>
@@ -49,7 +49,7 @@ export default async function ReviewsAdmin() {
 
 function CreateReviewForm({ defaultSort }:{ defaultSort: number }) {
   return (
-    <form action={createReview} className="space-y-4 rounded-2xl border bg-white p-5">
+    <form action={createReview} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
       <div className="text-sm font-semibold">Add review</div>
       <ReviewFields photoDefault="" sortDefault={defaultSort} publishedDefault={true} />
       <Button type="submit">Create</Button>

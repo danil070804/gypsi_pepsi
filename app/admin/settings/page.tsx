@@ -12,7 +12,7 @@ export default async function SettingsPage() {
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Site settings</h1>
 
-      <form action={upsertSettings} className="space-y-4 rounded-2xl border bg-white p-5">
+      <form action={upsertSettings} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Brand name"><Input name="brandName" defaultValue={s?.brandName || ""} /></Field>
           <Field label="Footer email"><Input name="footerEmail" defaultValue={s?.footerEmail || ""} /></Field>

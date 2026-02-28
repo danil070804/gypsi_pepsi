@@ -7,7 +7,7 @@ export default function NewManagerPage() {
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Add manager</h1>
 
-      <form action={createManager} className="space-y-4 rounded-2xl border bg-white p-5">
+      <form action={createManager} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Name (RU)"><Input name="nameRu" required /></Field>
           <Field label="Name (EN)"><Input name="nameEn" required /></Field>
@@ -34,7 +34,7 @@ export default function NewManagerPage() {
 
 function UploadHint() {
   return (
-    <div className="rounded-xl bg-slate-50 p-4 text-xs text-slate-600">
+    <div className="rounded-xl bg-white/5 p-4 text-xs text-slate-300">
       Upload: POST multipart/form-data to <code>/api/upload</code> with field <code>file</code>.
       Response returns <code>{`{ url: "/uploads/..." }`}</code>. Put that URL into Photo URL.
     </div>

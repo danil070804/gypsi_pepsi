@@ -39,21 +39,21 @@ export default function RichTextEditor({
     if (!value && current !== "<p></p>") editor.commands.setContent("<p></p>", false);
   }, [value, editor]);
 
-  if (!editor) return <div className="rounded-xl border bg-white p-3 text-sm text-slate-500">Loading editor…</div>;
+  if (!editor) return <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-3 text-sm text-slate-400">Loading editor…</div>;
 
   const Btn = ({ onClick, active, children }:{ onClick:()=>void; active?: boolean; children: React.ReactNode }) => (
     <button
       type="button"
       onClick={onClick}
-      className={"inline-flex h-9 w-9 items-center justify-center rounded-lg border text-slate-700 hover:bg-slate-50 " + (active ? "bg-slate-900 text-white" : "bg-white")}
+      className={"inline-flex h-9 w-9 items-center justify-center rounded-lg border text-slate-200 hover:bg-white/10 " + (active ? "bg-slate-900 text-white" : "bg-white")}
     >
       {children}
     </button>
   );
 
   return (
-    <div className="rounded-2xl border bg-white">
-      <div className="flex flex-wrap gap-2 border-b p-2">
+    <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
+      <div className="flex flex-wrap gap-2 border-b border-white/10 p-2">
         <Btn onClick={() => editor.chain().focus().toggleBold().run()} active={editor.isActive("bold")}><Bold size={16} /></Btn>
         <Btn onClick={() => editor.chain().focus().toggleItalic().run()} active={editor.isActive("italic")}><Italic size={16} /></Btn>
         <Btn onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} active={editor.isActive("heading", { level: 2 })}><Heading2 size={16} /></Btn>

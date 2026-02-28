@@ -11,13 +11,13 @@ function Row({ item }: { item: Item }) {
   const style: React.CSSProperties = { transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.7 : 1 };
 
   return (
-    <tr ref={setNodeRef} style={style} className="border-t bg-white">
+    <tr ref={setNodeRef} style={style} className="border-t border-white/10 bg-white/5">
       <td className="p-3 align-middle">
         <button
           type="button"
           {...attributes}
           {...listeners}
-          className="cursor-grab rounded-lg border bg-slate-50 px-2 py-1 text-xs text-slate-700 active:cursor-grabbing"
+          className="cursor-grab rounded-lg border bg-white/5 px-2 py-1 text-xs text-slate-200 active:cursor-grabbing"
           aria-label="Drag"
         >
           ⠿
@@ -25,7 +25,7 @@ function Row({ item }: { item: Item }) {
       </td>
       <td className="p-3 align-middle">
         <div className="font-semibold">{item.primary}</div>
-        {item.secondary ? <div className="text-xs text-slate-500">{item.secondary}</div> : null}
+        {item.secondary ? <div className="text-xs text-slate-400">{item.secondary}</div> : null}
       </td>
       <td className="p-3 align-middle">{item.active === undefined ? "-" : item.active ? "Yes" : "No"}</td>
       <td className="p-3 align-middle">{item.sortOrder ?? "-"}</td>
@@ -62,8 +62,8 @@ export default function SortableTable({
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border bg-white">
-      <div className="flex items-center justify-between border-b bg-slate-50 px-4 py-2 text-xs text-slate-600">
+    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
+      <div className="flex items-center justify-between border-b border-white/10 bg-white/5 px-4 py-2 text-xs text-slate-300">
         <div>Drag rows to reorder</div>
         <div>{saving ? "Saving…" : "Saved"}</div>
       </div>
@@ -83,7 +83,7 @@ export default function SortableTable({
       >
         <SortableContext items={ids} strategy={verticalListSortingStrategy}>
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50 text-xs">
+            <thead className="bg-white/5 text-xs">
               <tr>
                 <th className="p-3 w-14"></th>
                 <th className="p-3">Item</th>
@@ -94,7 +94,7 @@ export default function SortableTable({
             </thead>
             <tbody>
               {items.map((it) => <Row key={it.id} item={it} />)}
-              {items.length === 0 ? <tr><td className="p-3 text-slate-500" colSpan={5}>No items</td></tr> : null}
+              {items.length === 0 ? <tr><td className="p-3 text-slate-400" colSpan={5}>No items</td></tr> : null}
             </tbody>
           </table>
         </SortableContext>

@@ -29,7 +29,7 @@ export default async function EditBlogPost({
           "use server";
           await upsertBlogPost(id, fd);
         }}
-        className="space-y-4 rounded-2xl border bg-white p-5"
+        className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5"
       >
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Slug RU">

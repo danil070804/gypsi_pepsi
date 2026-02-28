@@ -13,14 +13,14 @@ export default async function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">Dashboard</h1>
+      <h1 className="text-2xl font-semibold text-slate-100">Dashboard</h1>
       <div className="grid gap-4 md:grid-cols-4">
         <Card title="Pages" value={pages} />
         <Card title="Services" value={services} />
         <Card title="Managers" value={managers} />
         <Card title="Blog posts" value={posts} />
       </div>
-      <div className="rounded-2xl border bg-white p-5 text-sm text-slate-700">
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-slate-300 backdrop-blur">
         Tip: seed creates default content. Edit via the sections in the left menu.
       </div>
     </div>
@@ -29,8 +29,8 @@ export default async function AdminDashboard() {
 
 function Card({ title, value }: { title: string; value: number }) {
   return (
-    <div className="rounded-2xl border bg-white p-5">
-      <div className="text-sm text-slate-600">{title}</div>
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+      <div className="text-sm text-slate-300">{title}</div>
       <div className="mt-2 text-2xl font-semibold">{value}</div>
     </div>
   );

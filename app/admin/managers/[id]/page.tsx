@@ -16,7 +16,7 @@ export default async function EditManagerPage({ params }: { params: Promise<{ id
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Edit manager</h1>
 
-      <form action={async (fd) => { "use server"; await updateManager(id, fd); }} className="space-y-4 rounded-2xl border bg-white p-5">
+      <form action={async (fd) => { "use server"; await updateManager(id, fd); }} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Name (RU)"><Input name="nameRu" defaultValue={m.nameRu} required /></Field>
           <Field label="Name (EN)"><Input name="nameEn" defaultValue={m.nameEn} required /></Field>

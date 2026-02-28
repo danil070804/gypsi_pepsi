@@ -18,9 +18,9 @@ export default async function PagesAdmin() {
         {keys.map((k) => {
           const p = byKey.get(k);
           return (
-            <Link key={k} href={`/admin/pages/${k}`} className="rounded-2xl border bg-white p-5">
+            <Link key={k} href={`/admin/pages/${k}`} className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
               <div className="text-sm font-semibold">{k}</div>
-              <div className="mt-2 text-sm text-slate-600">{p ? `${p.titleEn} / ${p.titleRu}` : "Not created"}</div>
+              <div className="mt-2 text-sm text-slate-300">{p ? `${p.titleEn} / ${p.titleRu}` : "Not created"}</div>
             </Link>
           );
         })}

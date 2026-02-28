@@ -55,7 +55,7 @@ export default function UploadWidget({
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="rounded-lg border bg-white px-3 py-2 text-xs font-medium hover:bg-slate-50"
+        className="rounded-lg border border-white/10 bg-white/5 backdrop-blur px-3 py-2 text-xs font-medium hover:bg-white/10"
         disabled={busy}
       >
         {busy ? "Uploading…" : label}
@@ -64,7 +64,7 @@ export default function UploadWidget({
         <button
           type="button"
           onClick={() => navigator.clipboard.writeText(lastUrl)}
-          className="rounded-lg border bg-white px-3 py-2 text-xs hover:bg-slate-50"
+          className="rounded-lg border border-white/10 bg-white/5 backdrop-blur px-3 py-2 text-xs hover:bg-white/10"
         >
           Copy URL
         </button>
