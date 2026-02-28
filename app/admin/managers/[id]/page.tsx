@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
+import { Field, Input, Button } from "@/components/admin/Form";
+import UploadWidget from "@/components/admin/UploadWidget";
 import { notFound } from "next/navigation";
-import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import { updateManager, deleteManager } from "../../actions";
 
 type Params = Promise<{ id: string }>;
