@@ -1,0 +1,148 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model SiteSettings {
+  id                     Int      @id @default(1)
+  brandName              String   @default("GYPSEY EMPLOYMENT AGENCY")
+  footerEmail            String?
+  footerPhone            String?
+  footerAddressRu        String?
+  footerAddressEn        String?
+  socialsWhatsapp        String?
+  socialsTelegram        String?
+  socialsInstagram       String?
+
+  legalCompanyName       String   @default("GYPSEY EMPLOYMENT AGENCY LTD")
+  legalCompanyNumber     String   @default("04500667")
+  legalRegisteredOffice  String   @default("32 The Crescent, Spalding, Lincolnshire, PE11 1AF")
+  legalStatus            String   @default("Active")
+  legalIncorporated      String   @default("1 August 2002")
+
+  defaultMetaTitleRu        String?
+  defaultMetaTitleEn        String?
+  defaultMetaDescriptionRu  String?
+  defaultMetaDescriptionEn  String?
+
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}
+
+model Page {
+  id              String   @id @default(cuid())
+  key             String   @unique
+  titleRu         String
+  titleEn         String
+  blocksJson      Json
+  metaTitleRu     String?
+  metaTitleEn     String?
+  metaDescRu      String?
+  metaDescEn      String?
+  ogImageUrl      String?
+  isPublished     Boolean  @default(true)
+  updatedAt       DateTime @updatedAt
+  createdAt       DateTime @default(now())
+}
+
+model Service {
+  id              String  @id @default(cuid())
+  slug            String  @unique
+  titleRu         String
+  titleEn         String
+  excerptRu       String
+  excerptEn       String
+  contentRu       Json
+  contentEn       Json
+  metaTitleRu     String?
+  metaTitleEn     String?
+  metaDescRu      String?
+  metaDescEn      String?
+  ogImageUrl      String?
+  isPublished     Boolean @default(true)
+  sortOrder       Int     @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Manager {
+  id          String  @id @default(cuid())
+  nameRu      String
+  nameEn      String
+  roleRu      String?
+  roleEn      String?
+  photoUrl    String?
+  whatsapp    String?
+  telegram    String?
+  instagram   String?
+  email       String?
+  isActive    Boolean @default(true)
+  sortOrder   Int     @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Review {
+  id          String  @id @default(cuid())
+  authorName  String
+  textRu      String
+  textEn      String
+  rating      Int?
+  photoUrl    String?
+  isPublished Boolean @default(true)
+  sortOrder   Int     @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model FAQ {
+  id          String  @id @default(cuid())
+  questionRu  String
+  questionEn  String
+  answerRu    String
+  answerEn    String
+  isPublished Boolean @default(true)
+  sortOrder   Int     @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model BlogPost {
+  id              String   @id @default(cuid())
+  slugRu          String   @unique
+  slugEn          String   @unique
+  titleRu         String
+  titleEn         String
+  excerptRu       String
+  excerptEn       String
+  contentRu       Json
+  contentEn       Json
+  coverImageUrl   String?
+  publishedAt     DateTime?
+  isPublished     Boolean  @default(false)
+  metaTitleRu     String?
+  metaTitleEn     String?
+  metaDescRu      String?
+  metaDescEn      String?
+  ogImageUrl      String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
