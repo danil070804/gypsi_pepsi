@@ -9,8 +9,8 @@ import {
 type Params = Promise<{ lang: string }>;
 
 function ManagerCard({ m, lang }: { m: any; lang: Lang }) {
-  const name = safeLang === "ru" ? m.nameRu : m.nameEn;
-  const role = safeLang === "ru" ? m.roleRu : m.roleEn;
+  const name = lang === "ru" ? m.nameRu : m.nameEn;
+  const role = lang === "ru" ? m.roleRu : m.roleEn;
 
   const links = {
     whatsapp: normalizeWhatsapp(m.whatsapp),
@@ -102,7 +102,7 @@ export default async function Contact({
         </h1>
         <p className="mt-2 text-slate-600">
           {t(
-            lang,
+            safeLang,
             "Нажмите на нужный контакт — показываются только заполненные.",
             "Tap a contact method — only filled ones are shown."
           )}
@@ -111,7 +111,7 @@ export default async function Contact({
 
       <div className="grid gap-4 md:grid-cols-3">
         {managers.map((m) => (
-          <ManagerCard key={m.id} m={m} lang={lang} />
+          <ManagerCard key={m.id} m={m} lang={safeLang} />
         ))}
       </div>
     </div>

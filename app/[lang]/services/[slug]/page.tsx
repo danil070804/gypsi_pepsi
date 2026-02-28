@@ -68,5 +68,5 @@ export default async function ServicePage({
 
   const blocks = safeLang === "ru" ? service.contentRu : service.contentEn;
 
-  return <Blocks blocks={blocks} lang={lang} />;
+  return <Blocks blocks={blocks} lang={safeLang} />;
 }

@@ -55,5 +55,5 @@ export default async function Post({
 
   const blocks = safeLang === "ru" ? post.contentRu : post.contentEn;
 
-  return <Blocks blocks={blocks} lang={lang} />;
+  return <Blocks blocks={blocks} lang={safeLang} />;
 }
