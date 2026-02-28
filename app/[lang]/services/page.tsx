@@ -58,7 +58,7 @@ export default async function ServicesPage({
         {services.map((s) => {
           const title = lang === "ru" ? s.titleRu : s.titleEn;
           const excerpt = lang === "ru" ? s.excerptRu : s.excerptEn;
-          const slug = lang === "ru" ? s.slugRu : s.slugEn;
+          const slug = s.slug;
 
           return (
             <div key={s.id} className="rounded-2xl border bg-white p-5">

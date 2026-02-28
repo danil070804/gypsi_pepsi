@@ -15,12 +15,7 @@ export async function generateMetadata({
   const lang: Lang = asLang(langParam);
 
   // Ищем услугу по slug в нужном языке
-  const service = await prisma.service.findFirst({
-    where:
-      lang === "ru"
-        ? { slugRu: slug }
-        : { slugEn: slug },
-  });
+  const service = await prisma.service.findUnique({ where: { slug } });
 
   if (!service || !service.isPublished) return {};
 
@@ -42,8 +37,8 @@ export async function generateMetadata({
     alternates: {
       canonical: `${base}/${lang}/services/${slug}`,
       languages: {
-        ru: `${base}/ru/services/${lang === "ru" ? slug : service.slugRu}`,
-        en: `${base}/en/services/${lang === "en" ? slug : service.slugEn}`,
+        ru: `${base}/ru/services/${slug}`,
+        en: `${base}/en/services/${slug}`,
       },
     },
     openGraph: {
@@ -64,12 +59,7 @@ export default async function ServicePage({
   const { lang: langParam, slug } = await params;
   const lang: Lang = asLang(langParam);
 
-  const service = await prisma.service.findFirst({
-    where:
-      lang === "ru"
-        ? { slugRu: slug }
-        : { slugEn: slug },
-  });
+  const service = await prisma.service.findUnique({ where: { slug } });
 
   if (!service || !service.isPublished) return notFound();
 

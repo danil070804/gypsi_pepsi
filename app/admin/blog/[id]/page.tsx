@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
-import UploadUrlField from "@/components/admin/UploadUrlField";
+import UploadWidget from "@/components/admin/UploadWidget";
 import { upsertBlogPost } from "../actions";
 import BlocksEditorSingle from "@/components/admin/BlocksEditorSingle";
 
@@ -55,12 +55,21 @@ export default async function EditBlogPost({
         </div>
 
         <div className="space-y-2">
-           <UploadUrlField
-             name="coverImageUrl"
-             id="coverImageUrl"
-             label="Cover image URL"
-             defaultValue={p.coverImageUrl || ""}
-           />
+          <Field label="Cover image URL">
+            <Input
+              name="coverImageUrl"
+              defaultValue={p.coverImageUrl || ""}
+            />
+          </Field>
+
+          <UploadWidget
+            onUploaded={(url) => {
+              const el = document.querySelector(
+                'input[name="coverImageUrl"]'
+              ) as HTMLInputElement | null;
+              if (el) el.value = url;
+            }}
+          />
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
