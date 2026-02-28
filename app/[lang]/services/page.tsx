@@ -48,7 +48,7 @@ export default async function ServicesPage({
         <h1 className="text-2xl font-semibold md:text-3xl">
           {t(lang, "Услуги", "Services")}
         </h1>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-white/70">
           {t(
             lang,
             "Выберите нужную услугу и прочитайте подробности.",
@@ -64,16 +64,16 @@ export default async function ServicesPage({
           const slug = s.slug;
 
           return (
-            <div key={s.id} className="rounded-2xl border bg-white p-5">
+            <div key={s.id} className="rounded-2xl border border-white/10 bg-white/5 p-5">
               <div className="text-lg font-semibold">{title}</div>
               {excerpt ? (
-                <p className="mt-2 text-sm text-slate-600">{excerpt}</p>
+                <p className="mt-2 text-sm text-white/70">{excerpt}</p>
               ) : null}
 
               <div className="mt-4">
                 <Link
                   href={`/${lang}/services/${slug}`}
-                  className="inline-flex rounded-full border px-4 py-2 text-sm font-medium hover:bg-slate-50"
+                  className="inline-flex rounded-full border border-white/10 px-4 py-2 text-sm font-medium hover:bg-white/5"
                 >
                   {t(lang, "Подробнее", "Learn more")}
                 </Link>
@@ -83,11 +83,11 @@ export default async function ServicesPage({
         })}
       </div>
 
-      <div className="rounded-2xl border bg-slate-50 p-6">
+      <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
         <div className="text-lg font-semibold">
           {t(lang, "Нужна консультация?", "Need a consultation?")}
         </div>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-white/70">
           {t(
             lang,
             "Выберите менеджера и свяжитесь удобным способом.",

@@ -22,7 +22,7 @@ function ManagerCard({ m, lang }: { m: any; lang: Lang }) {
   const order = ["whatsapp", "telegram", "instagram", "email"] as const;
 
   return (
-    <div className="rounded-2xl border bg-white p-5">
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
       <div className="mb-4 aspect-square overflow-hidden rounded-xl bg-slate-100">
         {m.photoUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -35,7 +35,7 @@ function ManagerCard({ m, lang }: { m: any; lang: Lang }) {
       </div>
 
       <div className="text-base font-semibold">{name}</div>
-      {role ? <div className="mt-1 text-sm text-slate-600">{role}</div> : null}
+      {role ? <div className="mt-1 text-sm text-white/70">{role}</div> : null}
 
       <div className="mt-4 flex flex-wrap gap-2">
         {order.map((k) => {
@@ -48,7 +48,7 @@ function ManagerCard({ m, lang }: { m: any; lang: Lang }) {
               href={href}
               target={k === "email" ? undefined : "_blank"}
               rel={k === "email" ? undefined : "noreferrer"}
-              className="rounded-full border px-3 py-2 text-xs font-medium hover:bg-slate-50"
+              className="rounded-full border border-white/10 px-3 py-2 text-xs font-medium hover:bg-white/5"
             >
               {k}
             </a>
@@ -100,7 +100,7 @@ export default async function Contact({
         <h1 className="text-2xl font-semibold md:text-3xl">
           {t(lang, "Выбор менеджера", "Choose a manager")}
         </h1>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-white/70">
           {t(
             lang,
             "Нажмите на нужный контакт — показываются только заполненные.",

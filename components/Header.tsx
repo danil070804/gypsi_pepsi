@@ -11,46 +11,43 @@ export default function Header({ lang }: { lang: Lang }) {
   const [open, setOpen] = useState(false);
 
   const nav = [
-    [t(lang, "Главная", "Home"), `/${lang}`],
-    [t(lang, "О нас", "About"), `/${lang}/about`],
-    [t(lang, "Услуги", "Services"), `/${lang}/services`],
-    [t(lang, "Контакты", "Contact"), `/${lang}/contact`],
-    [t(lang, "Блог", "Blog"), `/${lang}/blog`],
-  ] as const;
+    { href: `/${lang}`, label: t(lang, "Главная", "Home") },
+    { href: `/${lang}/services`, label: t(lang, "Услуги", "Services") },
+    { href: `/${lang}/contact`, label: t(lang, "Контакты", "Contact") },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-white/70 backdrop-blur">
-      <div className="container flex items-center justify-between py-3">
-        <Link href={`/${lang}`} className="flex items-center gap-2 font-extrabold tracking-wide">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-slate-900 text-xs text-white">
-            GE
-          </span>
-          <span className="text-sm md:text-base">
-            GYPSEY <span className="text-slate-500">EMPLOYMENT</span>
-          </span>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/60 backdrop-blur">
+      <div className="container flex h-16 items-center justify-between">
+        <Link href={`/${lang}`} className="font-semibold tracking-tight">
+          <span className="text-white">GYPSEY</span>
+          <span className="text-white/70">&nbsp;EMPLOYMENT</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {nav.map(([label, href]) => (
-            <Link key={href} href={href} className="text-sm font-medium text-slate-700 hover:text-slate-900">
-              {label}
+        <nav className="hidden items-center gap-2 md:flex">
+          {nav.map((it) => (
+            <Link
+              key={it.href}
+              href={it.href}
+              className="rounded-full px-4 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              {it.label}
             </Link>
           ))}
-        </nav>
-
-        <div className="hidden items-center gap-3 md:flex">
-          <Button as="link" href={`/${lang}/contact`} className="bg-slate-900 text-white">
+          <div className="ml-1">
+            <LanguageSwitcher lang={lang} />
+          </div>
+          <Button as="link" href={`/${lang}/contact`} className="ml-1">
             {t(lang, "Консультация", "Consultation")}
           </Button>
-          <LanguageSwitcher lang={lang} />
-        </div>
+        </nav>
 
         <div className="flex items-center gap-2 md:hidden">
           <LanguageSwitcher lang={lang} />
           <button
-            onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border bg-white"
             aria-label="Menu"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -58,16 +55,23 @@ export default function Header({ lang }: { lang: Lang }) {
       </div>
 
       {open ? (
-        <div className="border-t bg-white md:hidden">
-          <div className="container flex flex-col gap-2 py-3">
-            {nav.map(([label, href]) => (
-              <Link key={href} href={href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-2 text-sm font-medium hover:bg-slate-50">
-                {label}
-              </Link>
-            ))}
-            <Button as="link" href={`/${lang}/contact`} className="mt-2" onClick={() => setOpen(false)}>
-              {t(lang, "Консультация", "Consultation")}
-            </Button>
+        <div className="border-t border-white/10 bg-slate-950/70">
+          <div className="container py-3">
+            <div className="flex flex-col gap-2">
+              {nav.map((it) => (
+                <Link
+                  key={it.href}
+                  href={it.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+                >
+                  {it.label}
+                </Link>
+              ))}
+              <Button as="link" href={`/${lang}/contact`} className="w-full justify-center">
+                {t(lang, "Консультация", "Consultation")}
+              </Button>
+            </div>
           </div>
         </div>
       ) : null}

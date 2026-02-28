@@ -11,28 +11,26 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
     const parts = pathname.split("/");
     // parts[0] = "", parts[1] = lang
     if (parts.length > 1) parts[1] = next;
-    const nextPath = parts.join("/") || `/${next}`;
-    localStorage.setItem("lang", next);
-    router.push(nextPath);
+    router.push(parts.join("/"));
   }
 
+  const Btn = ({ code }: { code: Lang }) => (
+    <button
+      onClick={() => switchTo(code)}
+      className={
+        "rounded-full px-3 py-1.5 text-xs font-semibold tracking-wide transition " +
+        (lang === code ? "bg-white/10 text-white" : "text-white/60 hover:bg-white/10 hover:text-white")
+      }
+      aria-pressed={lang === code}
+    >
+      {code.toUpperCase()}
+    </button>
+  );
+
   return (
-    <div className="flex items-center gap-2 text-sm">
-      <button
-        onClick={() => switchTo("en")}
-        className={lang === "en" ? "font-semibold underline" : "opacity-70 hover:opacity-100"}
-        aria-label="Switch to English"
-      >
-        EN
-      </button>
-      <span className="opacity-40">/</span>
-      <button
-        onClick={() => switchTo("ru")}
-        className={lang === "ru" ? "font-semibold underline" : "opacity-70 hover:opacity-100"}
-        aria-label="Переключить на русский"
-      >
-        RU
-      </button>
+    <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
+      <Btn code="en" />
+      <Btn code="ru" />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma";
 export default async function Footer({ lang }: { lang: Lang }) {
   const settings = await prisma.siteSettings.findUnique({ where: { id: 1 } });
   return (
-    <footer className="mt-16 border-t bg-slate-950 text-slate-200">
+    <footer className="mt-16 border-t border-white/10 bg-slate-950 text-slate-200">
       <div className="container grid gap-10 py-12 md:grid-cols-3">
         <div>
           <div className="text-sm font-semibold">{settings?.brandName || "GYPSEY EMPLOYMENT AGENCY"}</div>
@@ -40,7 +40,7 @@ export default async function Footer({ lang }: { lang: Lang }) {
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-5 text-center text-xs text-slate-500">
+      <div className="border-t border-white/10 border-white/10 py-5 text-center text-xs text-slate-500">
         © {new Date().getFullYear()} {settings?.brandName || "GYPSEY EMPLOYMENT AGENCY"}.
       </div>
     </footer>
