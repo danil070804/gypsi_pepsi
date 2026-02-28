@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import SortableTable from "@/components/admin/SortableTable";
 import { Field, Input, Textarea, Button, Switch } from "@/components/admin/Form";
 import { createReview, updateReview, deleteReview } from "../actions";
-import UploadWidget from "@/components/admin/UploadWidget";
+import UploadUrlField from "@/components/admin/UploadUrlField";
 
 export default async function ReviewsAdmin() {
   const reviews = await prisma.review.findMany({ orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] });
@@ -79,11 +79,12 @@ function ReviewFields({
       <Field label="Text EN"><Textarea name="textEn" rows={3} defaultValue={textEnDefault} required /></Field>
 
       <div className="space-y-2">
-        <Field label="Photo URL"><Input name="photoUrl" defaultValue={photoDefault} /></Field>
-        <UploadWidget onUploaded={(url) => {
-          const el = document.querySelector('input[name="photoUrl"]') as HTMLInputElement | null;
-          if (el) el.value = url;
-        }} />
+       <UploadUrlField
+          name="photoUrl"
+          id="photoUrl"
+          label="Photo URL"
+          defaultValue={photoDefault}
+        />
       </div>
 
       <Field label="Sort order"><Input name="sortOrder" type="number" defaultValue={sortDefault} /></Field>
