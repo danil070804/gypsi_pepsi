@@ -50,7 +50,7 @@ export default async function About({
   const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
 
   const page = await getPageByKey("about");
-  const blocks = pickLang<any>(lang, page?.blocksJson);
+  const blocks = pickLang<any>(safeLang, page?.blocksJson);
 
-  return <Blocks blocks={blocks} lang={lang} />;
+  return <Blocks blocks={blocks} lang={safeLang} />;
 }

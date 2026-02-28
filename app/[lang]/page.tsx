@@ -56,7 +56,7 @@ export default async function Home({
   const safeLang: Lang = (locales as readonly string[]).includes(lang) ? (lang as Lang) : defaultLocale;
 
   const page = await getPageByKey("home");
-  const blocks = pickLang<any>(lang, page?.blocksJson);
+  const blocks = pickLang<any>(safeLang, page?.blocksJson);
 
   const reviews = await prisma.review.findMany({
     where: { isPublished: true },
@@ -78,7 +78,7 @@ export default async function Home({
 
   return (
     <div className="space-y-12">
-      <Blocks blocks={blocks} lang={lang} />
+      <Blocks blocks={blocks} lang={safeLang} />
     </div>
   );
 }
