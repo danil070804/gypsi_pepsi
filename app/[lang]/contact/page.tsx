@@ -1,14 +1,10 @@
 import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import { asLang, t } from "@/lib/i18n";
-import {
+import { normalizeWhatsapp, normalizeTelegram, normalizeInstagram } from "@/lib/contacts";
+
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
-
-  normalizeWhatsapp,
-  normalizeTelegram,
-  normalizeInstagram,
-} from "@/lib/contacts";
 
 type Params = Promise<{ lang: string }>;
 
