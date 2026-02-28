@@ -5,15 +5,16 @@ import UploadWidget from "@/components/admin/UploadWidget";
 import { updateService } from "../../actions";
 import BlocksEditorSingle from "@/components/admin/BlocksEditorSingle";
 
-export default async function EditService({ params }: { params: { id: string } }) {
-  const s = await prisma.service.findUnique({ where: { id: params.id } });
+export default async function EditService({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const s = await prisma.service.findUnique({ where: { id: id } });
   if (!s) return notFound();
 
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Edit service</h1>
 
-      <form action={async (fd) => { "use server"; await updateService(params.id, fd); }} className="space-y-4 rounded-2xl border bg-white p-5">
+      <form action={async (fd) => { "use server"; await updateService(id, fd); }} className="space-y-4 rounded-2xl border bg-white p-5">
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Slug"><Input name="slug" defaultValue={s.slug} /></Field>
           <Field label="Sort order"><Input name="sortOrder" type="number" defaultValue={s.sortOrder} /></Field>

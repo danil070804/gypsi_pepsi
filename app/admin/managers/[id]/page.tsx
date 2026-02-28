@@ -4,7 +4,8 @@ import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import PhotoUrlField from "../PhotoUrlField";
 import { updateManager, deleteManager } from "../../actions";
 
-export default async function EditManagerPage({ params }: { params: { id: string } }) {
+export default async function EditManagerPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const m = await prisma.manager.findUnique({ where: { id } });
   if (!m) return notFound();
 

@@ -5,15 +5,16 @@ import { upsertPage } from "../../actions";
 import BlocksEditor from "@/components/admin/BlocksEditor";
 import UploadWidget from "@/components/admin/UploadWidget";
 
-export default async function EditPage({ params }: { params: { key: string } }) {
-  const page = await prisma.page.findUnique({ where: { key: params.key } });
+export default async function EditPage({ params }: { params: Promise<{ key: string }> }) {
+  const { key } = await params;
+  const page = await prisma.page.findUnique({ where: { key: key } });
   if (!page) return notFound();
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">Edit page: {params.key}</h1>
+      <h1 className="text-2xl font-semibold">Edit page: {key}</h1>
 
-      <form action={async (fd) => { "use server"; await upsertPage(params.key, fd); }} className="space-y-4 rounded-2xl border bg-white p-5">
+      <form action={async (fd) => { "use server"; await upsertPage(key, fd); }} className="space-y-4 rounded-2xl border bg-white p-5">
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Title (RU)"><Input name="titleRu" defaultValue={page.titleRu} /></Field>
           <Field label="Title (EN)"><Input name="titleEn" defaultValue={page.titleEn} /></Field>
