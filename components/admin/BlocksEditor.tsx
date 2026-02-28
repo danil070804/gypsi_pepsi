@@ -104,8 +104,8 @@ export default function BlocksEditor({
   return (
     <div className="space-y-3">
       <div className="flex gap-2">
-        <button type="button" onClick={() => setTab("en")} className={"rounded-lg border px-3 py-2 text-xs " + (tab==="en" ? "bg-slate-900 text-white" : "bg-white")}>EN</button>
-        <button type="button" onClick={() => setTab("ru")} className={"rounded-lg border px-3 py-2 text-xs " + (tab==="ru" ? "bg-slate-900 text-white" : "bg-white")}>RU</button>
+        <button type="button" onClick={() => setTab("en")} className={"rounded-lg border border-white/10 px-3 py-2 text-xs " + (tab==="en" ? "bg-slate-900 text-white" : "bg-white/5 text-slate-200 hover:bg-white/10")}>EN</button>
+        <button type="button" onClick={() => setTab("ru")} className={"rounded-lg border border-white/10 px-3 py-2 text-xs " + (tab==="ru" ? "bg-slate-900 text-white" : "bg-white/5 text-slate-200 hover:bg-white/10")}>RU</button>
       </div>
 
       {tab === "en" ? <Panel lang="en" /> : <Panel lang="ru" />}

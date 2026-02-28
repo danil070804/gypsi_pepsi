@@ -24,7 +24,7 @@ export default function AdminNav() {
   const pathname = h.get("x-invoke-path") || h.get("x-matched-path") || h.get("next-url") || "/admin";
 
   return (
-    <aside className="w-full border-b border-white/10 border-white/10 bg-white/5 p-4 backdrop-blur md:sticky md:top-0 md:h-screen md:w-72 md:border-b border-white/10-0 md:border-r border-white/10">
+    <aside className="w-full border-b border-white/10 bg-white/5 p-4 backdrop-blur md:sticky md:top-0 md:h-screen md:w-72 md:border-b-0 md:border-r md:border-white/10">
       <div className="flex items-center justify-between">
         <div className="text-sm font-semibold tracking-wide text-slate-100">Admin</div>
         <span className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-slate-300">GYPSey</span>

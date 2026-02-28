@@ -45,7 +45,7 @@ export default function RichTextEditor({
     <button
       type="button"
       onClick={onClick}
-      className={"inline-flex h-9 w-9 items-center justify-center rounded-lg border text-slate-200 hover:bg-white/10 " + (active ? "bg-slate-900 text-white" : "bg-white")}
+      className={"inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-200 hover:bg-white/10 " + (active ? "bg-slate-900 text-white" : "bg-white/5")}
     >
       {children}
     </button>

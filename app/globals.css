@@ -4,8 +4,18 @@
 
 :root { color-scheme: dark; }
 
+html, body {
+  min-height: 100%;
+}
+
 body {
-  @apply min-h-screen bg-slate-950 text-slate-100 antialiased;
+  /* Use plain CSS (not @apply) so pages never fall back to white
+     even if Tailwind compilation/purge acts up on a deployment. */
+  margin: 0;
+  background: #020617; /* slate-950 */
+  color: #e2e8f0;      /* slate-200 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Ambient background */
