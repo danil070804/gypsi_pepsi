@@ -1,5 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import SortableTable from "@/components/admin/SortableTable";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function ServicesAdmin() {
   const services = await prisma.service.findMany({ orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] });

@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { deleteBlogPost } from "./actions";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function BlogAdmin() {
   const posts = await prisma.blogPost.findMany({

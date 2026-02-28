@@ -3,6 +3,9 @@ import { asLang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Blocks from "@/components/Blocks";
 import { notFound } from "next/navigation";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 type Params = Promise<{ lang: string; slug: string }>;
 

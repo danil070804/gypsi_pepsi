@@ -2,6 +2,9 @@ import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import { asLang, t } from "@/lib/i18n";
 import {
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
   normalizeWhatsapp,
   normalizeTelegram,
   normalizeInstagram,

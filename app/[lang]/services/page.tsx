@@ -2,6 +2,9 @@ import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { asLang, t } from "@/lib/i18n";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 type Params = Promise<{ lang: string }>;
 

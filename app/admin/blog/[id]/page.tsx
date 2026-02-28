@@ -4,6 +4,9 @@ import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import UploadWidget from "@/components/admin/UploadWidget";
 import { upsertBlogPost } from "../actions";
 import BlocksEditorSingle from "@/components/admin/BlocksEditorSingle";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 type Params = Promise<{ id: string }>;
 

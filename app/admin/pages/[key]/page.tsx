@@ -4,6 +4,9 @@ import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import { upsertPage } from "../../actions";
 import BlocksEditor from "@/components/admin/BlocksEditor";
 import UploadWidget from "@/components/admin/UploadWidget";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function EditPage({ params }: { params: Promise<{ key: string }> }) {
   const { key } = await params;

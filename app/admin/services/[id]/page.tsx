@@ -4,6 +4,9 @@ import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import UploadWidget from "@/components/admin/UploadWidget";
 import { updateService } from "../../actions";
 import BlocksEditorSingle from "@/components/admin/BlocksEditorSingle";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function EditService({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

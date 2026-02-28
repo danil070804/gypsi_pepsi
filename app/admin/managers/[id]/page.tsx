@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import PhotoUrlField from "../PhotoUrlField";
 import { updateManager, deleteManager } from "../../actions";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function EditManagerPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

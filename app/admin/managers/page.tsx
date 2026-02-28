@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import SortableTable from "@/components/admin/SortableTable";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function ManagersPage() {
   const managers = await prisma.manager.findMany({ orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] });

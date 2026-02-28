@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getToken } from "next-auth/jwt";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export async function POST(req: Request) {
   const token = await getToken({ req: req as any, secret: process.env.AUTH_SECRET });

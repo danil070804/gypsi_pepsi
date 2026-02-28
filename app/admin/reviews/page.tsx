@@ -3,6 +3,9 @@ import SortableTable from "@/components/admin/SortableTable";
 import { Field, Input, Textarea, Button, Switch } from "@/components/admin/Form";
 import { createReview, updateReview, deleteReview } from "../actions";
 import UploadWidget from "@/components/admin/UploadWidget";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function ReviewsAdmin() {
   const reviews = await prisma.review.findMany({ orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] });

@@ -2,6 +2,9 @@ import { prisma } from "@/lib/prisma";
 import SortableTable from "@/components/admin/SortableTable";
 import { Field, Input, Textarea, Button, Switch } from "@/components/admin/Form";
 import { createFAQ, updateFAQ, deleteFAQ } from "../actions";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function FAQAdmin() {
   const faqs = await prisma.fAQ.findMany({ orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] });

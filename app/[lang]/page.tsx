@@ -3,6 +3,9 @@ import { getPageByKey, pickLang } from "@/lib/content";
 import Blocks from "@/components/Blocks";
 import { prisma } from "@/lib/prisma";
 import { asLang } from "@/lib/i18n";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 type Params = Promise<{ lang: string }>;
 
