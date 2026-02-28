@@ -45,7 +45,7 @@ export default async function ServicesPage({
         </h1>
         <p className="mt-2 text-slate-600">
           {t(
-            lang,
+            safeLang,
             "Выберите нужную услугу и прочитайте подробности.",
             "Choose a service and read the details."
           )}
@@ -84,7 +84,7 @@ export default async function ServicesPage({
         </div>
         <p className="mt-2 text-slate-600">
           {t(
-            lang,
+            safeLang,
             "Выберите менеджера и свяжитесь удобным способом.",
             "Choose a manager and contact us in a convenient way."
           )}
