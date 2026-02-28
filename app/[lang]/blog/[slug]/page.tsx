@@ -1,16 +1,18 @@
 import type { Lang } from "@/lib/i18n";
+import { asLang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Blocks from "@/components/Blocks";
 import { notFound } from "next/navigation";
 
-type Params = Promise<{ lang: Lang; slug: string }>;
+type Params = Promise<{ lang: string; slug: string }>;
 
 export async function generateMetadata({
   params,
 }: {
   params: Params;
 }) {
-  const { lang, slug } = await params;
+  const { lang: langParam, slug } = await params;
+  const lang: Lang = asLang(langParam);
 
   const post = await prisma.blogPost.findFirst({
     where:
@@ -40,7 +42,8 @@ export default async function Post({
 }: {
   params: Params;
 }) {
-  const { lang, slug } = await params;
+  const { lang: langParam, slug } = await params;
+  const lang: Lang = asLang(langParam);
 
   const post = await prisma.blogPost.findFirst({
     where:

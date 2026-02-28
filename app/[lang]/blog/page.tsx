@@ -1,16 +1,17 @@
 import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { t } from "@/lib/i18n";
+import { asLang, t } from "@/lib/i18n";
 
-type Params = Promise<{ lang: Lang }>;
+type Params = Promise<{ lang: string }>;
 
 export async function generateMetadata({
   params,
 }: {
   params: Params;
 }) {
-  const { lang } = await params;
+  const { lang: langParam } = await params;
+  const lang: Lang = asLang(langParam);
   const base = process.env.AUTH_URL || "http://localhost:3000";
 
   return {
@@ -32,7 +33,8 @@ export default async function Blog({
   params: Params;
   searchParams: Promise<{ page?: string }>;
 }) {
-  const { lang } = await params;
+  const { lang: langParam } = await params;
+  const lang: Lang = asLang(langParam);
   const sp = await searchParams;
 
   const page = Math.max(1, Number(sp?.page || "1"));

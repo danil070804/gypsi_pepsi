@@ -1,16 +1,18 @@
 import type { Lang } from "@/lib/i18n";
+import { asLang } from "@/lib/i18n";
 import { getPageByKey, pickLang } from "@/lib/content";
 import Blocks from "@/components/Blocks";
 import { prisma } from "@/lib/prisma";
 
-type Params = Promise<{ lang: Lang }>;
+type Params = Promise<{ lang: string }>;
 
 export async function generateMetadata({
   params,
 }: {
   params: Params;
 }) {
-  const { lang } = await params;
+  const { lang: langParam } = await params;
+  const lang: Lang = asLang(langParam);
 
   const page = await getPageByKey("about");
   const settings = await prisma.siteSettings.findUnique({ where: { id: 1 } });
@@ -45,7 +47,8 @@ export default async function About({
 }: {
   params: Params;
 }) {
-  const { lang } = await params;
+  const { lang: langParam } = await params;
+  const lang: Lang = asLang(langParam);
 
   const page = await getPageByKey("about");
   const blocks = pickLang<any>(lang, page?.blocksJson);

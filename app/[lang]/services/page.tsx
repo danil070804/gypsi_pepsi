@@ -1,16 +1,17 @@
 import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { t } from "@/lib/i18n";
+import { asLang, t } from "@/lib/i18n";
 
-type Params = Promise<{ lang: Lang }>;
+type Params = Promise<{ lang: string }>;
 
 export async function generateMetadata({
   params,
 }: {
   params: Params;
 }) {
-  const { lang } = await params;
+  const { lang: langParam } = await params;
+  const lang: Lang = asLang(langParam);
   const base = process.env.AUTH_URL || "http://localhost:3000";
 
   return {
@@ -30,7 +31,8 @@ export default async function ServicesPage({
 }: {
   params: Params;
 }) {
-  const { lang } = await params;
+  const { lang: langParam } = await params;
+  const lang: Lang = asLang(langParam);
 
   const services = await prisma.service.findMany({
     where: { isPublished: true },
@@ -45,7 +47,7 @@ export default async function ServicesPage({
         </h1>
         <p className="mt-2 text-slate-600">
           {t(
-            safeLang,
+            lang,
             "Выберите нужную услугу и прочитайте подробности.",
             "Choose a service and read the details."
           )}
@@ -84,7 +86,7 @@ export default async function ServicesPage({
         </div>
         <p className="mt-2 text-slate-600">
           {t(
-            safeLang,
+            lang,
             "Выберите менеджера и свяжитесь удобным способом.",
             "Choose a manager and contact us in a convenient way."
           )}
