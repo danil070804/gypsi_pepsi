@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
-import UploadWidget from "@/components/admin/UploadWidget";
+import UploadToInput from "@/components/admin/UploadToInput";
 import { updateService } from "../../actions";
 import BlocksEditorSingle from "@/components/admin/BlocksEditorSingle";
 export const dynamic = "force-dynamic";
@@ -31,10 +31,7 @@ export default async function EditService({ params }: { params: Promise<{ id: st
           <Field label="Meta desc (EN)"><Input name="metaDescEn" defaultValue={s.metaDescEn || ""} /></Field>
           <div className="space-y-2">
           <Field label="OG image URL"><Input id="ogImageUrl" name="ogImageUrl" defaultValue={s.ogImageUrl || ""} /></Field>
-          <UploadWidget onUploaded={(url) => {
-            const el = document.querySelector('input[name="ogImageUrl"]') as HTMLInputElement | null;
-            if (el) el.value = url;
-          }} />
+          <UploadToInput inputName="ogImageUrl" />
         </div>
           <div className="flex items-end"><Switch name="isPublished" defaultChecked={s.isPublished} /></div>
         </div>

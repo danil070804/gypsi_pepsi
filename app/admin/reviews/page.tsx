@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import SortableTable from "@/components/admin/SortableTable";
 import { Field, Input, Textarea, Button, Switch } from "@/components/admin/Form";
 import { createReview, updateReview, deleteReview } from "../actions";
-import UploadWidget from "@/components/admin/UploadWidget";
+import UploadToInput from "@/components/admin/UploadToInput";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -83,10 +83,7 @@ function ReviewFields({
 
       <div className="space-y-2">
         <Field label="Photo URL"><Input name="photoUrl" defaultValue={photoDefault} /></Field>
-        <UploadWidget onUploaded={(url) => {
-          const el = document.querySelector('input[name="photoUrl"]') as HTMLInputElement | null;
-          if (el) el.value = url;
-        }} />
+        <UploadToInput inputName="photoUrl" />
       </div>
 
       <Field label="Sort order"><Input name="sortOrder" type="number" defaultValue={sortDefault} /></Field>

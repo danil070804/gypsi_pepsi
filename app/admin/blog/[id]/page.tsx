@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
-import UploadWidget from "@/components/admin/UploadWidget";
+import UploadToInput from "@/components/admin/UploadToInput";
 import { upsertBlogPost } from "../actions";
 import BlocksEditorSingle from "@/components/admin/BlocksEditorSingle";
 export const dynamic = "force-dynamic";
@@ -65,14 +65,7 @@ export default async function EditBlogPost({
             />
           </Field>
 
-          <UploadWidget
-            onUploaded={(url) => {
-              const el = document.querySelector(
-                'input[name="coverImageUrl"]'
-              ) as HTMLInputElement | null;
-              if (el) el.value = url;
-            }}
-          />
+          <UploadToInput inputName="coverImageUrl" />
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
