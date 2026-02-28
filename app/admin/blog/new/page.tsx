@@ -1,5 +1,5 @@
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
-import UploadWidget from "@/components/admin/UploadWidget";
+import UploadUrlField from "@/components/admin/UploadUrlField";
 import { upsertBlogPost } from "../actions";
 import BlocksEditorSingle from "@/components/admin/BlocksEditorSingle";
 
@@ -40,21 +40,15 @@ export default function NewBlogPost() {
             <Input name="excerptEn" required />
           </Field>
         </div>
-
+        
         <div className="space-y-2">
-          <Field label="Cover image URL">
-            <Input id="coverImageUrl" name="coverImageUrl" />
-          </Field>
-
-          <UploadWidget
-            onUploaded={(url) => {
-              const el = document.querySelector(
-                'input[name="coverImageUrl"]'
-              ) as HTMLInputElement | null;
-              if (el) el.value = url;
-            }}
-          />
-        </div>
+         <UploadUrlField
+            name="coverImageUrl"
+            id="coverImageUrl"
+            label="Cover image URL"
+            defaultValue=""
+           />
+         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Published at (ISO)">
