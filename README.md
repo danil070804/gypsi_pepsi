@@ -28,7 +28,8 @@ Create `.env`:
 ```bash
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DB?schema=public"
 AUTH_SECRET="replace_with_long_random_string"
-AUTH_URL="http://localhost:3000"
+NEXT_PUBLIC_SITE_URL="https://siteemploymentltd1-production.up.railway.app"
+AUTH_URL="https://siteemploymentltd1-production.up.railway.app"
 
 # Admin seed (run once)
 ADMIN_EMAIL="admin@example.com"
@@ -46,7 +47,7 @@ npm run db:seed
 npm run dev
 ```
 
-Admin: `http://localhost:3000/admin` (redirects to login)
+Admin: `/admin` (redirects to login)
 
 ---
 

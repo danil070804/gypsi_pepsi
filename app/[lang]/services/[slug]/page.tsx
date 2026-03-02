@@ -3,6 +3,7 @@ import { asLang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Blocks from "@/components/Blocks";
 import { notFound } from "next/navigation";
+import { getSiteUrl } from "@/lib/site-url";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -22,7 +23,7 @@ export async function generateMetadata({
 
   if (!service || !service.isPublished) return {};
 
-  const base = process.env.AUTH_URL || "http://localhost:3000";
+  const base = getSiteUrl();
 
   const title =
     lang === "ru"

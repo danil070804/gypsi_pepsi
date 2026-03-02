@@ -3,6 +3,7 @@ import { getPageByKey, pickLang } from "@/lib/content";
 import Blocks from "@/components/Blocks";
 import { prisma } from "@/lib/prisma";
 import { asLang } from "@/lib/i18n";
+import { getSiteUrl } from "@/lib/site-url";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -30,7 +31,7 @@ export async function generateMetadata({
       ? page?.metaDescRu || settings?.defaultMetaDescriptionRu
       : page?.metaDescEn || settings?.defaultMetaDescriptionEn;
 
-  const base = process.env.AUTH_URL || "http://localhost:3000";
+  const base = getSiteUrl();
 
   return {
     title: title || settings?.brandName,

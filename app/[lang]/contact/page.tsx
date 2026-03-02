@@ -2,6 +2,7 @@ import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import { asLang, t } from "@/lib/i18n";
 import { normalizeWhatsapp, normalizeTelegram, normalizeInstagram } from "@/lib/contacts";
+import { getSiteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -67,7 +68,7 @@ export async function generateMetadata({
   const { lang: langParam } = await params;
   const lang: Lang = asLang(langParam);
 
-  const base = process.env.AUTH_URL || "http://localhost:3000";
+  const base = getSiteUrl();
 
   return {
     title: t(lang, "Контакты", "Contacts"),

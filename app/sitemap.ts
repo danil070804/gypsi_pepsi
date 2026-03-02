@@ -1,10 +1,11 @@
 import { prisma } from "@/lib/prisma";
+import { getSiteUrl } from "@/lib/site-url";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 
 export default async function sitemap() {
-  const base = process.env.AUTH_URL || "http://localhost:3000";
+  const base = getSiteUrl();
 
   const staticPaths = [
     "", "/about", "/services", "/contact", "/blog", "/privacy", "/cookies",
