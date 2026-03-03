@@ -85,6 +85,7 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
                       width={900}
                       height={700}
                       className="h-[320px] w-full object-cover md:h-[420px]"
+                      unoptimized
                       priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent" />
