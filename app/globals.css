@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  /* Use plain CSS (not @apply) so pages never fall back to white
+     even if Tailwind compilation/purge acts up on a deployment. */
+  margin: 0;
+  background: #020617; /* slate-950 */
+  color: #e2e8f0;      /* slate-200 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(900px 500px at 15% 10%, rgba(59,130,246,.18), transparent 60%),
+    radial-gradient(800px 500px at 85% 20%, rgba(99,102,241,.16), transparent 55%),
+    radial-gradient(900px 600px at 50% 95%, rgba(14,165,233,.10), transparent 60%),
+    linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,1));
+}
+
+/* Admin UI helpers */
+@layer components {
+  .admin-card {
+    @apply rounded-2xl border border-white/10 bg-slate-900/40 backdrop-blur;
+  }
+  .admin-surface {
+    @apply border border-white/10 bg-slate-900/30 backdrop-blur;
+  }
+  .admin-muted {
+    @apply text-slate-300;
+  }
+  .admin-title {
+    @apply text-sm font-semibold tracking-tight text-slate-100;
+  }
+}
+
+a { @apply hover:opacity-90; }
+
+.container {
+  @apply mx-auto max-w-6xl px-4;
+}
+
+/* Typography defaults */
+h1,h2,h3 { @apply tracking-tight; }
+.prose { @apply text-slate-200; }
+.prose a { @apply underline decoration-slate-500 underline-offset-4; }
+.prose strong { @apply text-slate-100; }
