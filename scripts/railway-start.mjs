@@ -29,7 +29,11 @@ async function main() {
   }
 
   // Start Next standalone server
-  const serverEnv = { ...process.env, PORT: process.env.PORT || "8080" };
+  const serverEnv = { 
+    ...process.env, 
+    PORT: process.env.PORT || "8080",
+    HOSTNAME: "0.0.0.0"
+  };
   await run("node", [".next/standalone/server.js"], { env: serverEnv });
 }
 
