@@ -1,7 +1,7 @@
 {
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "RAILPACK"
+    "builder": "nixpacks"
   },
   "deploy": {
     "runtime": "v2",
@@ -9,6 +9,7 @@
     "sleepApplication": false,
     "useLegacyStacker": false,
     "restartPolicyType": "ON_FAILURE",
-    "restartPolicyMaxRetries": 10
+    "restartPolicyMaxRetries": 10,
+    "startCommand": "node scripts/railway-start.mjs"
   }
 }

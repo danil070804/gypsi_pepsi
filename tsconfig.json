@@ -20,17 +20,11 @@
     // 🔥 ВАЖНО — вот это добавляем:
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["src/*"]
     },
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "plugins": [
-      {
-        "name": "next"
-      }
+      { "name": "next"}
     ]
   },
   "include": [
