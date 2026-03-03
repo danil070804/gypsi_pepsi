@@ -1,7 +1,7 @@
 import { spawn } from "node:child_process";
 
 // Railway provides DATABASE_URL; we also ship a sane default for absolute URLs.
-const DEFAULT_SITE_URL = "https://siteemploymentltd1-production.up.railway.app";
+const DEFAULT_SITE_URL = "https://gypseyemployment.com";
 
 function run(cmd, args, opts = {}) {
   return new Promise((resolve, reject) => {

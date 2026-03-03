@@ -1,4 +1,4 @@
-export const DEFAULT_SITE_URL = "https://siteemploymentltd1-production.up.railway.app";
+export const DEFAULT_SITE_URL = "https://gypseyemployment.com";
 
 export function getSiteUrl() {
   return (
