@@ -6,7 +6,7 @@ function isActive(pathname: string, href: string) {
   return pathname.startsWith(href);
 }
 
-export default function AdminNav() {
+export default async function AdminNav() {
   const items = [
     ["Dashboard", "/admin"],
     ["Site settings", "/admin/settings"],
@@ -18,9 +18,8 @@ export default function AdminNav() {
     ["Blog", "/admin/blog"],
   ] as const;
 
-  // Next.js doesn't expose pathname here directly in a server component.
   // We can infer it from headers in most deployments.
-  const h = headers();
+  const h = await headers();
   const pathname = h.get("x-invoke-path") || h.get("x-matched-path") || h.get("next-url") || "/admin";
 
   return (
