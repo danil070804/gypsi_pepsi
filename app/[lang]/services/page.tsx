@@ -74,7 +74,7 @@ export default async function ServicesPage({
               <div className="mt-4">
                 <Link
                   href={`/${lang}/services/${slug}`}
-                  className="inline-flex rounded-full border border-white/10 px-4 py-2 text-sm font-medium hover:bg-white/5"
+                  className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 ring-1 ring-blue-300/30 transition hover:opacity-95"
                 >
                   {t(lang, "Подробнее", "Learn more")}
                 </Link>
@@ -98,7 +98,7 @@ export default async function ServicesPage({
         <div className="mt-4">
           <Link
             href={`/${lang}/contact`}
-            className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 ring-1 ring-blue-300/30 transition hover:opacity-95"
+            className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-md shadow-blue-900/50 ring-1 ring-blue-200/40 transition hover:brightness-110"
           >
             {t(lang, "Выбрать менеджера", "Choose a manager")}
           </Link>
