@@ -14,6 +14,9 @@ export default function Header({ lang }: { lang: Lang }) {
     { href: `/${lang}`, label: t(lang, "Главная", "Home") },
     { href: `/${lang}/services`, label: t(lang, "Услуги", "Services") },
     { href: `/${lang}/contact`, label: t(lang, "Контакты", "Contact") },
+    { href: `/${lang}/blog`, label: t(lang, "Блог", "Blog") },
+    { href: `/${lang}/about`, label: t(lang, "О нас", "About Us") },
+    { href: `/${lang}/privacy`, label: t(lang, "Политика конфиденциальности", "Privacy Policy") },
   ];
 
   return (
