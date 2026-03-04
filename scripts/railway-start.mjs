@@ -1,4 +1,6 @@
 import { spawn } from "node:child_process";
+import { mkdir } from "node:fs/promises";
+import path from "node:path";
 
 // Railway provides DATABASE_URL; we also ship a sane default for absolute URLs.
 const DEFAULT_SITE_URL = "https://gypseyemployment.com";
@@ -23,6 +25,15 @@ async function main() {
   if (!process.env.NEXTAUTH_URL) {
     process.env.NEXTAUTH_URL = process.env.AUTH_URL || process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL;
   }
+
+  const isRailway = Boolean(process.env.RAILWAY_PROJECT_ID || process.env.RAILWAY_SERVICE_ID);
+  if (!process.env.UPLOAD_DIR) {
+    process.env.UPLOAD_DIR = isRailway
+      ? "/app/public/uploads"
+      : path.join(process.cwd(), "public", "uploads");
+  }
+  await mkdir(process.env.UPLOAD_DIR, { recursive: true });
+  console.log(`[railway-start] Upload dir: ${process.env.UPLOAD_DIR}`);
 
   const shouldSetupDbOnStart = process.env.RUN_DB_SETUP_ON_START === "true";
 

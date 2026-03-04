@@ -116,7 +116,15 @@ Admin: `/admin` (redirects to login)
 
 This project includes a minimal upload endpoint storing files into `public/uploads`.
 For production on Railway:
-- Mount a Railway Volume to `/app/public/uploads` so uploads persist across deployments.
+- Create a Railway **Volume** and mount it to `/app/public/uploads` so uploads persist across deployments.
+
+Railway steps:
+1. Open your service in Railway.
+2. Go to **Volumes** → **New Volume**.
+3. Set **Mount path** to `/app/public/uploads`.
+4. Redeploy the service.
+
+After redeploy, uploaded images remain available after restarts/new deploys.
 
 Env (optional):
 - `UPLOAD_DIR="/app/public/uploads"`
