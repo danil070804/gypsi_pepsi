@@ -1,6 +1,7 @@
 import type { Lang } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import ServiceCardReveal from "@/components/ServiceCardReveal";
 import { asLang, t } from "@/lib/i18n";
 import { getSiteUrl } from "@/lib/site-url";
 export const dynamic = "force-dynamic";
@@ -65,21 +66,7 @@ export default async function ServicesPage({
           const slug = s.slug;
 
           return (
-            <div key={s.id} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-              <div className="text-lg font-semibold">{title}</div>
-              {excerpt ? (
-                <p className="mt-2 text-sm text-white/70">{excerpt}</p>
-              ) : null}
-
-              <div className="mt-4">
-                <Link
-                  href={`/${lang}/services/${slug}`}
-                  className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 ring-1 ring-blue-300/30 transition hover:opacity-95"
-                >
-                  {t(lang, "Подробнее", "Learn more")}
-                </Link>
-              </div>
-            </div>
+            <ServiceCardReveal key={s.id} title={title} excerpt={excerpt} slug={slug} lang={lang} />
           );
         })}
       </div>
