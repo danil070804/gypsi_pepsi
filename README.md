@@ -93,7 +93,7 @@ Admin: `/admin` (redirects to login)
    - `ADMIN_PASSWORD` (optional, for first admin)
 
 4. Build command:
-   - `npm ci && npm run build`
+   - `rm -rf node_modules/.cache || true; npm ci --include=dev --no-audit --no-fund || npm install --include=dev --no-audit --no-fund; npm run build`
 5. Start command:
    - `npm start`
 
