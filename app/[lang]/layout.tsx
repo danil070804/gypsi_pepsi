@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 import type { Lang } from "@/lib/i18n";
 import { asLang, locales } from "@/lib/i18n";
 import type { ReactNode } from "react";
@@ -26,7 +27,9 @@ export default async function LangLayout({
   return (
     <>
       <Header lang={lang} />
-      <main className="container py-10">{children}</main>
+      <main className="container py-10">
+        <PageTransition>{children}</PageTransition>
+      </main>
       <Footer lang={lang} />
     </>
   );
