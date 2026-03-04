@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": ">=18.17 <21"
+    "node": ">20.10"
   },
   "scripts": {
   "dev": "next dev",
-  "build": "NODE_OPTIONS=--max-old-space-size=512 next build",
+  "build": "next build",
   "start": "node .next/standalone/server.js",
   "railway-start": "node scripts/railway-start.mjs",
   "lint": "next lint",
