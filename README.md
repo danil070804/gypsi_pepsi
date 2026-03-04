@@ -12,10 +12,33 @@ Next.js (App Router) + PostgreSQL + Prisma + NextAuth (Credentials) + Tailwind.
 
 ---
 
+## Quick start (cheat sheet)
+
+### Local (PowerShell, Windows)
+```powershell
+copy .env.example .env
+npm i
+npx prisma migrate dev
+npm run db:seed
+npm run dev
+```
+
+### Local production check (same flow as deploy)
+```powershell
+npm ci
+npm run build
+npm start
+```
+
+### Railway
+- Push code to repo
+- Set env vars in Railway: `DATABASE_URL`, `AUTH_SECRET`, `AUTH_URL`, `NEXT_PUBLIC_SITE_URL`
+- Deploy (commands are read from `railway.json` automatically)
+
 ## 1) Local setup
 
 ### Requirements
-- Node 18+
+- Node 20+
 - PostgreSQL
 
 ### Install
@@ -24,7 +47,12 @@ npm i
 ```
 
 ### Env
-Create `.env`:
+Copy `.env.example` to `.env` and fill values:
+```bash
+cp .env.example .env
+```
+
+Or create `.env` manually:
 ```bash
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DB?schema=public"
 AUTH_SECRET="replace_with_long_random_string"
@@ -55,24 +83,25 @@ Admin: `/admin` (redirects to login)
 
 1. Create a new Railway project and add **PostgreSQL**.
 2. Add repo and enable **Deploy on push**.
+   - Repo already includes `railway.json`, so Railway uses fixed build/start commands from code.
 3. Set variables in Railway:
    - `DATABASE_URL` (Railway provides)
    - `AUTH_SECRET`
    - `AUTH_URL` (your Railway domain, later your custom domain)
-   - (optional) `ADMIN_EMAIL`, `ADMIN_PASSWORD` to run initial seed locally or via one-off command
+   - `NEXT_PUBLIC_SITE_URL` (same value as `AUTH_URL`)
+   - `ADMIN_EMAIL` (optional, for first admin)
+   - `ADMIN_PASSWORD` (optional, for first admin)
 
-4. Build command is already set via `package.json`:
-   - `prisma migrate deploy && next build`
+4. Build command:
+   - `npm ci && npm run build`
 5. Start command:
-   - `next start`
+   - `npm start`
 
-### Seeding on Railway
-Railway does not run seeds automatically. Do it once:
-- locally against Railway DB, or
-- run a one-off command:
-```bash
-npm run db:seed
-```
+### Important runtime notes
+- `npm start` runs `scripts/railway-start.mjs`.
+- If `DATABASE_URL` exists, app will run `prisma db push` and then `node prisma/seed.mjs` on startup.
+- Seed is idempotent (safe for repeated starts).
+- If `DATABASE_URL` is missing, app still starts but logs a warning and skips db push/seed.
 
 ---
 
