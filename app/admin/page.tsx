@@ -13,15 +13,15 @@ export default async function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold text-slate-100">Dashboard</h1>
+      <h1 className="text-2xl font-semibold text-slate-100">Главная админки</h1>
       <div className="grid gap-4 md:grid-cols-4">
-        <Card title="Pages" value={pages} />
-        <Card title="Services" value={services} />
-        <Card title="Managers" value={managers} />
-        <Card title="Blog posts" value={posts} />
+        <Card title="Страницы" value={pages} />
+        <Card title="Услуги" value={services} />
+        <Card title="Менеджеры" value={managers} />
+        <Card title="Посты блога" value={posts} />
       </div>
       <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-slate-300 backdrop-blur">
-        Tip: seed creates default content. Edit via the sections in the left menu.
+        Совет: команда seed создаёт базовый контент. Редактируйте через разделы слева.
       </div>
     </div>
   );

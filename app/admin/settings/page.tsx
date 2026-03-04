@@ -10,31 +10,31 @@ export default async function SettingsPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">Site settings</h1>
+      <h1 className="text-2xl font-semibold">Настройки сайта</h1>
 
       <form action={upsertSettings} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
         <div className="grid gap-4 md:grid-cols-2">
-          <Field label="Brand name"><Input name="brandName" defaultValue={s?.brandName || ""} /></Field>
-          <Field label="Footer email"><Input name="footerEmail" defaultValue={s?.footerEmail || ""} /></Field>
-          <Field label="Footer phone"><Input name="footerPhone" defaultValue={s?.footerPhone || ""} /></Field>
-          <Field label="Footer address (RU)"><Input name="footerAddressRu" defaultValue={s?.footerAddressRu || ""} /></Field>
-          <Field label="Footer address (EN)"><Input name="footerAddressEn" defaultValue={s?.footerAddressEn || ""} /></Field>
-          <Field label="Social WhatsApp"><Input name="socialsWhatsapp" defaultValue={s?.socialsWhatsapp || ""} /></Field>
-          <Field label="Social Telegram"><Input name="socialsTelegram" defaultValue={s?.socialsTelegram || ""} /></Field>
-          <Field label="Social Instagram"><Input name="socialsInstagram" defaultValue={s?.socialsInstagram || ""} /></Field>
+          <Field label="Название бренда"><Input name="brandName" defaultValue={s?.brandName || ""} /></Field>
+          <Field label="Email в подвале"><Input name="footerEmail" defaultValue={s?.footerEmail || ""} /></Field>
+          <Field label="Телефон в подвале"><Input name="footerPhone" defaultValue={s?.footerPhone || ""} /></Field>
+          <Field label="Адрес (RU)"><Input name="footerAddressRu" defaultValue={s?.footerAddressRu || ""} /></Field>
+          <Field label="Адрес (EN)"><Input name="footerAddressEn" defaultValue={s?.footerAddressEn || ""} /></Field>
+          <Field label="WhatsApp"><Input name="socialsWhatsapp" defaultValue={s?.socialsWhatsapp || ""} /></Field>
+          <Field label="Telegram"><Input name="socialsTelegram" defaultValue={s?.socialsTelegram || ""} /></Field>
+          <Field label="Instagram"><Input name="socialsInstagram" defaultValue={s?.socialsInstagram || ""} /></Field>
         </div>
 
-        <div className="mt-6 text-sm font-semibold">Legal</div>
+        <div className="mt-6 text-sm font-semibold">Юридическая информация</div>
         <div className="grid gap-4 md:grid-cols-2">
-          <Field label="Company name"><Input name="legalCompanyName" defaultValue={s?.legalCompanyName || ""} /></Field>
-          <Field label="Company number"><Input name="legalCompanyNumber" defaultValue={s?.legalCompanyNumber || ""} /></Field>
-          <Field label="Registered office"><Input name="legalRegisteredOffice" defaultValue={s?.legalRegisteredOffice || ""} /></Field>
-          <Field label="Status"><Input name="legalStatus" defaultValue={s?.legalStatus || ""} /></Field>
-          <Field label="Incorporated"><Input name="legalIncorporated" defaultValue={s?.legalIncorporated || ""} /></Field>
+          <Field label="Название компании"><Input name="legalCompanyName" defaultValue={s?.legalCompanyName || ""} /></Field>
+          <Field label="Регистрационный номер"><Input name="legalCompanyNumber" defaultValue={s?.legalCompanyNumber || ""} /></Field>
+          <Field label="Юридический адрес"><Input name="legalRegisteredOffice" defaultValue={s?.legalRegisteredOffice || ""} /></Field>
+          <Field label="Статус"><Input name="legalStatus" defaultValue={s?.legalStatus || ""} /></Field>
+          <Field label="Дата регистрации"><Input name="legalIncorporated" defaultValue={s?.legalIncorporated || ""} /></Field>
         </div>
 
         <div className="pt-3">
-          <Button type="submit">Save</Button>
+          <Button type="submit">Сохранить</Button>
         </div>
       </form>
     </div>
