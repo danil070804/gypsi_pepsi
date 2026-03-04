@@ -3,19 +3,36 @@
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginClient() {
   const sp = useSearchParams();
+  const router = useRouter();
   const from = sp.get("from") || "/admin";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setErr(null);
-    const res = await signIn("credentials", { email, password, callbackUrl: from, redirect: true });
-    if ((res as any)?.error) setErr("Invalid credentials");
+    setSubmitting(true);
+    const res = await signIn("credentials", {
+      email,
+      password,
+      callbackUrl: from,
+      redirect: false,
+    });
+    setSubmitting(false);
+
+    if (res?.error) {
+      setErr("Неверный email или пароль. Если это первый вход на Railway — выполните db:seed.");
+      return;
+    }
+
+    router.push(res?.url || from);
+    router.refresh();
   }
 
   return (
@@ -39,7 +56,10 @@ export default function LoginClient() {
             onChange={(e) => setPassword(e.target.value)}
           />
           {err ? <div className="text-sm text-red-400">{err}</div> : null}
-          <button className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 hover:opacity-95">
+          <button
+            disabled={submitting}
+            className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-60"
+          >
             Sign in
           </button>
         </form>
