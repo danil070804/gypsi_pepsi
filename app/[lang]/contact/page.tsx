@@ -49,7 +49,7 @@ function ManagerCard({ m, lang }: { m: any; lang: Lang }) {
               href={href}
               target={k === "email" ? undefined : "_blank"}
               rel={k === "email" ? undefined : "noreferrer"}
-              className="rounded-full border border-white/10 px-3 py-2 text-xs font-medium hover:bg-white/5"
+              className="rounded-full border border-blue-300/30 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 px-3 py-2 text-xs font-semibold text-white ring-1 ring-blue-300/20 transition hover:from-blue-600/35 hover:to-indigo-600/35 hover:ring-blue-200/40"
             >
               {k}
             </a>
