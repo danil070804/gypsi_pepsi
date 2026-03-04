@@ -77,11 +77,11 @@ export default function BlocksEditor({
   const Panel = ({ lang }: { lang: Lang }) => (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-2">
-        <button type="button" onClick={() => addBlock(lang, "hero")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ hero</button>
-        <button type="button" onClick={() => addBlock(lang, "steps")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ steps</button>
-        <button type="button" onClick={() => addBlock(lang, "bullets")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ bullets</button>
-        <button type="button" onClick={() => addBlock(lang, "cta")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ cta</button>
-        <button type="button" onClick={() => addBlock(lang, "richText")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ richText (WYSIWYG)</button>
+        <button type="button" onClick={() => addBlock(lang, "hero")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ Герой-блок</button>
+        <button type="button" onClick={() => addBlock(lang, "steps")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ Шаги</button>
+        <button type="button" onClick={() => addBlock(lang, "bullets")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ Буллеты</button>
+        <button type="button" onClick={() => addBlock(lang, "cta")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ Призыв</button>
+        <button type="button" onClick={() => addBlock(lang, "richText")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ Текст (WYSIWYG)</button>
       </div>
 
       <SortableList

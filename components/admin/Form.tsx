@@ -14,18 +14,21 @@ const baseInput =
   "focus:border-blue-400/40 focus:ring-2 focus:ring-blue-500/20";
 
 export function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
-  return <input {...props} className={baseInput + " " + (props.className || "")} />;
+  // Если нет placeholder, добавим стандартный
+  const placeholder = props.placeholder || "Введите значение";
+  return <input {...props} placeholder={placeholder} className={baseInput + " " + (props.className || "")} />;
 }
 
 export function Textarea(props: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
-  return <textarea {...props} className={baseInput + " min-h-28 " + (props.className || "")} />;
+  const placeholder = props.placeholder || "Введите текст";
+  return <textarea {...props} placeholder={placeholder} className={baseInput + " min-h-28 " + (props.className || "")} />;
 }
 
 export function Switch({ name, defaultChecked }: { name: string; defaultChecked?: boolean }) {
   return (
     <label className="inline-flex items-center gap-2 text-sm text-slate-200">
       <input name={name} type="checkbox" defaultChecked={defaultChecked} className="h-4 w-4 accent-blue-500" />
-      <span>Enabled</span>
+      <span>Включено</span>
     </label>
   );
 }
@@ -40,7 +43,7 @@ export function Button({
       ? "rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
       : "rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 hover:opacity-95";
   return (
-    <button {...props} className={cls + " " + (props.className || "")}>
+    <button {...props} className={cls + " " + (props.className || "")}> 
       {children}
     </button>
   );

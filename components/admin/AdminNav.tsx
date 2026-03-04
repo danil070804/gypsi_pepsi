@@ -8,14 +8,14 @@ function isActive(pathname: string, href: string) {
 
 export default async function AdminNav() {
   const items = [
-    ["Dashboard", "/admin"],
-    ["Site settings", "/admin/settings"],
-    ["Pages", "/admin/pages"],
-    ["Services", "/admin/services"],
-    ["Managers", "/admin/managers"],
-    ["Reviews", "/admin/reviews"],
-    ["FAQ", "/admin/faq"],
-    ["Blog", "/admin/blog"],
+    ["Главная", "/admin"],
+    ["Настройки сайта", "/admin/settings"],
+    ["Страницы", "/admin/pages"],
+    ["Услуги", "/admin/services"],
+    ["Менеджеры", "/admin/managers"],
+    ["Отзывы", "/admin/reviews"],
+    ["Вопросы и ответы", "/admin/faq"],
+    ["Блог", "/admin/blog"],
   ] as const;
 
   // We can infer it from headers in most deployments.
@@ -25,7 +25,7 @@ export default async function AdminNav() {
   return (
     <aside className="w-full border-b border-white/10 bg-slate-950/40 p-4 backdrop-blur md:sticky md:top-0 md:h-screen md:w-72 md:border-b-0 md:border-r md:border-white/10">
       <div className="flex items-center justify-between">
-        <div className="text-sm font-semibold tracking-wide text-slate-100">Admin</div>
+        <div className="text-sm font-semibold tracking-wide text-slate-100">Админка</div>
         <span className="rounded-full border border-white/10 bg-slate-900/40 px-2 py-1 text-[11px] text-slate-300">GYPSey</span>
       </div>
 
@@ -51,7 +51,7 @@ export default async function AdminNav() {
 
       <form action="/api/auth/signout" method="post" className="mt-6">
         <button className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 hover:opacity-95">
-          Sign out
+          Выйти
         </button>
       </form>
     </aside>
