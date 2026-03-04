@@ -23,11 +23,11 @@ export default async function EditService({
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">Edit service</h1>
+      <h1 className="text-2xl font-semibold">Редактировать услугу</h1>
 
       {saved === "1" && (
         <div className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
-          Changes saved successfully.
+          Изменения успешно сохранены.
         </div>
       )}
 
@@ -40,18 +40,18 @@ export default async function EditService({
         className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5"
       >
         <div className="grid gap-4 md:grid-cols-2">
-          <Field label="Slug"><Input name="slug" defaultValue={s.slug} /></Field>
-          <Field label="Sort order"><Input name="sortOrder" type="number" defaultValue={s.sortOrder} /></Field>
-          <Field label="Title (RU)"><Input name="titleRu" defaultValue={s.titleRu} /></Field>
-          <Field label="Title (EN)"><Input name="titleEn" defaultValue={s.titleEn} /></Field>
-          <Field label="Excerpt (RU)"><Input name="excerptRu" defaultValue={s.excerptRu} /></Field>
-          <Field label="Excerpt (EN)"><Input name="excerptEn" defaultValue={s.excerptEn} /></Field>
-          <Field label="Meta title (RU)"><Input name="metaTitleRu" defaultValue={s.metaTitleRu || ""} /></Field>
-          <Field label="Meta title (EN)"><Input name="metaTitleEn" defaultValue={s.metaTitleEn || ""} /></Field>
-          <Field label="Meta desc (RU)"><Input name="metaDescRu" defaultValue={s.metaDescRu || ""} /></Field>
-          <Field label="Meta desc (EN)"><Input name="metaDescEn" defaultValue={s.metaDescEn || ""} /></Field>
+          <Field label="Слаг"><Input name="slug" defaultValue={s.slug} /></Field>
+          <Field label="Порядок сортировки"><Input name="sortOrder" type="number" defaultValue={s.sortOrder} /></Field>
+          <Field label="Название (RU)"><Input name="titleRu" defaultValue={s.titleRu} /></Field>
+          <Field label="Название (EN)"><Input name="titleEn" defaultValue={s.titleEn} /></Field>
+          <Field label="Краткое описание (RU)"><Input name="excerptRu" defaultValue={s.excerptRu} /></Field>
+          <Field label="Краткое описание (EN)"><Input name="excerptEn" defaultValue={s.excerptEn} /></Field>
+          <Field label="Мета-заголовок (RU)"><Input name="metaTitleRu" defaultValue={s.metaTitleRu || ""} /></Field>
+          <Field label="Мета-заголовок (EN)"><Input name="metaTitleEn" defaultValue={s.metaTitleEn || ""} /></Field>
+          <Field label="Мета-описание (RU)"><Input name="metaDescRu" defaultValue={s.metaDescRu || ""} /></Field>
+          <Field label="Мета-описание (EN)"><Input name="metaDescEn" defaultValue={s.metaDescEn || ""} /></Field>
           <div className="space-y-2">
-          <Field label="OG image URL"><Input id="ogImageUrl" name="ogImageUrl" defaultValue={s.ogImageUrl || ""} /></Field>
+          <Field label="URL изображения для OG"><Input id="ogImageUrl" name="ogImageUrl" defaultValue={s.ogImageUrl || ""} /></Field>
           <UploadToInput inputName="ogImageUrl" />
         </div>
           <div className="flex items-end"><Switch name="isPublished" defaultChecked={s.isPublished} /></div>
@@ -59,14 +59,14 @@ export default async function EditService({
 
         <div className="space-y-6 pt-2">
           <div>
-            <div className="text-sm font-semibold">Content EN (blocks, WYSIWYG richText)</div>
+            <div className="text-sm font-semibold">Контент EN (блоки, WYSIWYG редактор)</div>
             <div className="mt-2">
               <BlocksEditorSingle name="contentEn" initialArray={s.contentEn as any} lang="en" />
             </div>
           </div>
 
           <div>
-            <div className="text-sm font-semibold">Content RU (blocks, WYSIWYG richText)</div>
+            <div className="text-sm font-semibold">Контент RU (блоки, WYSIWYG редактор)</div>
             <div className="mt-2">
               <BlocksEditorSingle name="contentRu" initialArray={s.contentRu as any} lang="ru" />
             </div>
@@ -74,7 +74,7 @@ export default async function EditService({
         </div>
 
         <div className="pt-3">
-          <Button type="submit">Save</Button>
+          <Button type="submit">Сохранить</Button>
         </div>
       </form>
     </div>
