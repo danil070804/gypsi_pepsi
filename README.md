@@ -34,6 +34,7 @@ npm start
 - Push code to repo
 - Set env vars in Railway: `DATABASE_URL`, `AUTH_SECRET`, `AUTH_URL`, `NEXT_PUBLIC_SITE_URL`
 - Deploy (commands are read from `railway.json` automatically)
+- Run one-off DB setup once: `npm run db:push && npm run db:seed`
 
 ## 1) Local setup
 
@@ -91,6 +92,7 @@ Admin: `/admin` (redirects to login)
    - `NEXT_PUBLIC_SITE_URL` (same value as `AUTH_URL`)
    - `ADMIN_EMAIL` (optional, for first admin)
    - `ADMIN_PASSWORD` (optional, for first admin)
+   - `RUN_DB_SETUP_ON_START` (optional, default off; set `true` only if you intentionally want db push/seed on every start)
 
 4. Build command:
    - `rm -rf node_modules/.cache || true; npm ci --include=dev --no-audit --no-fund || npm install --include=dev --no-audit --no-fund; npm run build`
@@ -99,9 +101,9 @@ Admin: `/admin` (redirects to login)
 
 ### Important runtime notes
 - `npm start` runs `scripts/railway-start.mjs`.
-- If `DATABASE_URL` exists, app will run `prisma db push` and then `node prisma/seed.mjs` on startup.
-- Seed is idempotent (safe for repeated starts).
-- If `DATABASE_URL` is missing, app still starts but logs a warning and skips db push/seed.
+- By default app does **not** run `prisma db push/seed` on startup (faster and safer startup on Railway).
+- For first setup, run one-off command in Railway service: `npm run db:push && npm run db:seed`.
+- If you still need auto setup on every boot, set `RUN_DB_SETUP_ON_START=true`.
 
 ---
 

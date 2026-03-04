@@ -19,13 +19,16 @@ async function main() {
     process.env.NEXT_PUBLIC_SITE_URL = process.env.AUTH_URL || DEFAULT_SITE_URL;
   }
 
-  // Create/update schema in Railway Postgres (no migrations in repo).
-  if (process.env.DATABASE_URL) {
+  const shouldSetupDbOnStart = process.env.RUN_DB_SETUP_ON_START === "true";
+
+  // Optional DB setup. Keep disabled by default to avoid slow startup and SIGTERM on Railway.
+  if (shouldSetupDbOnStart && process.env.DATABASE_URL) {
     await run("npx", ["prisma", "db", "push"], { env: process.env });
-    // Seed is idempotent (upserts + count checks).
     await run("node", ["prisma/seed.mjs"], { env: process.env });
+  } else if (shouldSetupDbOnStart && !process.env.DATABASE_URL) {
+    console.warn("[railway-start] RUN_DB_SETUP_ON_START=true but DATABASE_URL is not set. Skipping prisma db push/seed.");
   } else {
-    console.warn("[railway-start] DATABASE_URL is not set. Skipping prisma db push/seed.");
+    console.log("[railway-start] Skipping prisma db push/seed on startup (RUN_DB_SETUP_ON_START is not true).");
   }
 
   // Start Next standalone server
