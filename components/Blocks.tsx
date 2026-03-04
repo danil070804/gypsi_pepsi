@@ -61,18 +61,27 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
                   </div>
 
                   <div className="mt-8 grid grid-cols-3 gap-3 text-xs text-white/65">
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                    <Link
+                      href={`/${lang}/contact`}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
+                    >
                       <div className="text-white">UK</div>
-                      <div className="mt-1">Support</div>
-                    </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                      <div className="text-white">Docs</div>
-                      <div className="mt-1">Guidance</div>
-                    </div>
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                      <div className="text-white">Jobs</div>
-                      <div className="mt-1">Matching</div>
-                    </div>
+                      <div className="mt-1">{t(lang, "Поддержка", "Support")}</div>
+                    </Link>
+                    <Link
+                      href={`/${lang}/services/documentation`}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
+                    >
+                      <div className="text-white">{t(lang, "Документы", "Docs")}</div>
+                      <div className="mt-1">{t(lang, "Сопровождение", "Guidance")}</div>
+                    </Link>
+                    <Link
+                      href={`/${lang}/services`}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
+                    >
+                      <div className="text-white">{t(lang, "Работа", "Jobs")}</div>
+                      <div className="mt-1">{t(lang, "Подбор", "Matching")}</div>
+                    </Link>
                   </div>
                 </div>
 

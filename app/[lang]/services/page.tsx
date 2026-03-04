@@ -98,7 +98,7 @@ export default async function ServicesPage({
         <div className="mt-4">
           <Link
             href={`/${lang}/contact`}
-            className="inline-flex rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white hover:opacity-90"
+            className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 ring-1 ring-blue-300/30 transition hover:opacity-95"
           >
             {t(lang, "Выбрать менеджера", "Choose a manager")}
           </Link>
