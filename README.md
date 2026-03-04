@@ -103,6 +103,7 @@ Admin: `/admin` (redirects to login)
 
 ### Important runtime notes
 - `npm start` runs `scripts/railway-start.mjs`.
+- `railway-start.mjs` launches `next start` on `0.0.0.0:$PORT`.
 - By default app does **not** run `prisma db push/seed` on startup (faster and safer startup on Railway).
 - For first setup, run one-off command in Railway service: `npm run db:push && npm run db:seed`.
 - If you still need auto setup on every boot, set `RUN_DB_SETUP_ON_START=true`.

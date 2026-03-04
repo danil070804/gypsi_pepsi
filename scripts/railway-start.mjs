@@ -31,13 +31,13 @@ async function main() {
     console.log("[railway-start] Skipping prisma db push/seed on startup (RUN_DB_SETUP_ON_START is not true).");
   }
 
-  // Start Next standalone server
+  // Start Next production server
   const serverEnv = { 
     ...process.env, 
     PORT: process.env.PORT || "8080",
     HOSTNAME: "0.0.0.0"
   };
-  await run("node", [".next/standalone/server.js"], { env: serverEnv });
+  await run("node", ["node_modules/next/dist/bin/next", "start", "-H", serverEnv.HOSTNAME, "-p", serverEnv.PORT], { env: serverEnv });
 }
 
 main().catch((err) => {
