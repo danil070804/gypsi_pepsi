@@ -19,6 +19,11 @@ async function main() {
     process.env.NEXT_PUBLIC_SITE_URL = process.env.AUTH_URL || DEFAULT_SITE_URL;
   }
 
+  // Ensure NextAuth resolves absolute URLs to production domain, not localhost.
+  if (!process.env.NEXTAUTH_URL) {
+    process.env.NEXTAUTH_URL = process.env.AUTH_URL || process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL;
+  }
+
   const shouldSetupDbOnStart = process.env.RUN_DB_SETUP_ON_START === "true";
 
   // Optional DB setup. Keep disabled by default to avoid slow startup and SIGTERM on Railway.

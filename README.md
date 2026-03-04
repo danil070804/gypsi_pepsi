@@ -32,7 +32,7 @@ npm start
 
 ### Railway
 - Push code to repo
-- Set env vars in Railway: `DATABASE_URL`, `AUTH_SECRET`, `AUTH_URL`, `NEXT_PUBLIC_SITE_URL`
+- Set env vars in Railway: `DATABASE_URL`, `AUTH_SECRET`, `AUTH_URL`, `NEXT_PUBLIC_SITE_URL`, `NEXTAUTH_URL`
 - Deploy (commands are read from `railway.json` automatically)
 - Run one-off DB setup once: `npm run db:push && npm run db:seed`
 
@@ -59,6 +59,7 @@ DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DB?schema=public"
 AUTH_SECRET="replace_with_long_random_string"
 NEXT_PUBLIC_SITE_URL="https://siteemploymentltd1-production.up.railway.app"
 AUTH_URL="https://siteemploymentltd1-production.up.railway.app"
+NEXTAUTH_URL="https://siteemploymentltd1-production.up.railway.app"
 
 # Admin seed (run once)
 ADMIN_EMAIL="admin@example.com"
@@ -90,6 +91,7 @@ Admin: `/admin` (redirects to login)
    - `AUTH_SECRET`
    - `AUTH_URL` (your Railway domain, later your custom domain)
    - `NEXT_PUBLIC_SITE_URL` (same value as `AUTH_URL`)
+   - `NEXTAUTH_URL` (same value as `AUTH_URL`)
    - `ADMIN_EMAIL` (optional, for first admin)
    - `ADMIN_PASSWORD` (optional, for first admin)
    - `RUN_DB_SETUP_ON_START` (optional, default off; set `true` only if you intentionally want db push/seed on every start)
