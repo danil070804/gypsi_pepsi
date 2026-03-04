@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import PhotoUrlField from "../PhotoUrlField";
 import { updateManager, deleteManager } from "../../actions";
@@ -7,8 +8,15 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 
-export default async function EditManagerPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function EditManagerPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ saved?: string }>;
+}) {
   const { id } = await params;
+  const { saved } = await searchParams;
   const m = await prisma.manager.findUnique({ where: { id } });
   if (!m) return notFound();
 
@@ -16,7 +24,20 @@ export default async function EditManagerPage({ params }: { params: Promise<{ id
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Edit manager</h1>
 
-      <form action={async (fd) => { "use server"; await updateManager(id, fd); }} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
+      {saved === "1" && (
+        <div className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
+          Changes saved successfully.
+        </div>
+      )}
+
+      <form
+        action={async (fd) => {
+          "use server";
+          await updateManager(id, fd);
+          redirect(`/admin/managers/${id}?saved=1`);
+        }}
+        className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5"
+      >
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Name (RU)"><Input name="nameRu" defaultValue={m.nameRu} required /></Field>
           <Field label="Name (EN)"><Input name="nameEn" defaultValue={m.nameEn} required /></Field>
