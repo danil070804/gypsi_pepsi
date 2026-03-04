@@ -8,8 +8,7 @@
   "scripts": {
   "dev": "next dev",
   "build": "next build",
-  "start": "node .next/standalone/server.js",
-  "railway-start": "node scripts/railway-start.mjs",
+  "start": "node scripts/railway-start.mjs",
   "lint": "next lint",
   "postinstall": "prisma generate",
   "db:push": "prisma db push",
