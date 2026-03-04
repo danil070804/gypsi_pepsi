@@ -1,5 +1,1 @@
-node_modules
-.next
-.env
-prisma/dev.db
-public/uploads
+
