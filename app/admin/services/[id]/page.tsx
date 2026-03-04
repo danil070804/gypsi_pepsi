@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import UploadToInput from "@/components/admin/UploadToInput";
 import { updateService } from "../../actions";
@@ -8,8 +9,15 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 
-export default async function EditService({ params }: { params: Promise<{ id: string }> }) {
+export default async function EditService({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ saved?: string }>;
+}) {
   const { id } = await params;
+  const { saved } = await searchParams;
   const s = await prisma.service.findUnique({ where: { id: id } });
   if (!s) return notFound();
 
@@ -17,7 +25,20 @@ export default async function EditService({ params }: { params: Promise<{ id: st
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Edit service</h1>
 
-      <form action={async (fd) => { "use server"; await updateService(id, fd); }} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
+      {saved === "1" && (
+        <div className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
+          Changes saved successfully.
+        </div>
+      )}
+
+      <form
+        action={async (fd) => {
+          "use server";
+          await updateService(id, fd);
+          redirect(`/admin/services/${id}?saved=1`);
+        }}
+        className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5"
+      >
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Slug"><Input name="slug" defaultValue={s.slug} /></Field>
           <Field label="Sort order"><Input name="sortOrder" type="number" defaultValue={s.sortOrder} /></Field>

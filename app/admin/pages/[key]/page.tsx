@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import { upsertPage } from "../../actions";
 import BlocksEditor from "@/components/admin/BlocksEditor";
@@ -8,8 +9,15 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 
-export default async function EditPage({ params }: { params: Promise<{ key: string }> }) {
+export default async function EditPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ key: string }>;
+  searchParams: Promise<{ saved?: string }>;
+}) {
   const { key } = await params;
+  const { saved } = await searchParams;
   const page = await prisma.page.findUnique({ where: { key: key } });
   if (!page) return notFound();
 
@@ -17,7 +25,20 @@ export default async function EditPage({ params }: { params: Promise<{ key: stri
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Edit page: {key}</h1>
 
-      <form action={async (fd) => { "use server"; await upsertPage(key, fd); }} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
+      {saved === "1" && (
+        <div className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
+          Changes saved successfully.
+        </div>
+      )}
+
+      <form
+        action={async (fd) => {
+          "use server";
+          await upsertPage(key, fd);
+          redirect(`/admin/pages/${key}?saved=1`);
+        }}
+        className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5"
+      >
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Title (RU)"><Input name="titleRu" defaultValue={page.titleRu} /></Field>
           <Field label="Title (EN)"><Input name="titleEn" defaultValue={page.titleEn} /></Field>
