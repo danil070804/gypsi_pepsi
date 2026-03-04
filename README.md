@@ -95,7 +95,7 @@ Admin: `/admin` (redirects to login)
    - `RUN_DB_SETUP_ON_START` (optional, default off; set `true` only if you intentionally want db push/seed on every start)
 
 4. Build command:
-   - `rm -rf node_modules/.cache || true; NPM_CONFIG_PRODUCTION=false npm ci --include=dev --no-audit --no-fund || NPM_CONFIG_PRODUCTION=false npm install --include=dev --no-audit --no-fund; npm run build`
+   - `npm run build`
 5. Start command:
    - `node scripts/railway-start.mjs`
 6. Healthcheck path:
