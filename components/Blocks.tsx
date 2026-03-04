@@ -42,22 +42,26 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
                   {b.subtitle ? <p className="mt-4 text-white/75 md:text-lg">{b.subtitle}</p> : null}
 
                   <div className="mt-8 flex flex-wrap gap-3">
-                    {(b.ctas || []).map((c) => (
-                      <Link
-                        key={c.href}
-                        href={c.href}
-                        className="rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500"
-                      >
-                        {c.label}
-                      </Link>
-                    ))}
+                    {Array.from(new Map((b.ctas || []).map((c) => [c.href, c])).values()).map((c) => {
+                      const href = String(c.href || "");
+                      const isServices = /\/services(?:\/|$)/.test(href);
+                      const isContact = /\/contact(?:\/|$)/.test(href);
+                      const label = isServices
+                        ? t(lang, "Услуги", "Services")
+                        : isContact
+                          ? t(lang, "Консультация", "Consultation")
+                          : c.label;
 
-                    <Link
-                      href={`/${lang}/services`}
-                      className="rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-semibold text-white/85 hover:bg-white/10"
-                    >
-                      {t(lang, "Услуги", "Services")}
-                    </Link>
+                      return (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          className="rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500"
+                        >
+                          {label}
+                        </Link>
+                      );
+                    })}
                   </div>
 
                   <div className="mt-8 grid grid-cols-3 gap-3 text-xs text-white/65">
