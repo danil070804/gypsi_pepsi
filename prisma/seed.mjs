@@ -90,7 +90,7 @@ async function main() {
       titleRu: "Политика конфиденциальности",
       titleEn: "Privacy Policy",
       blocksJson: {
-        ru: [{ type: "richText", title: "Privacy Policy", text: "Текст политики заполняется через админку." }],
+        ru: [{ type: "richText", title: "Политика конфиденциальности", text: "Текст политики заполняется через админку." }],
         en: [{ type: "richText", title: "Privacy Policy", text: "Policy text is editable in the admin panel." }],
       },
     },
