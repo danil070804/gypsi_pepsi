@@ -34,6 +34,12 @@ export async function middleware(req: NextRequest) {
   const hasLocale = locales.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
   if (hasLocale) return NextResponse.next();
 
+  if (pathname === "/") {
+    const url = req.nextUrl.clone();
+    url.pathname = `/${defaultLocale}`;
+    return NextResponse.rewrite(url);
+  }
+
   const url = req.nextUrl.clone();
   url.pathname = `/${defaultLocale}${pathname}`;
   return NextResponse.redirect(url);
