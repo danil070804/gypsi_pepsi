@@ -41,10 +41,16 @@ export default function UploadWidget({
 
   return (
     <div className="flex flex-wrap items-center gap-2">
+      <label htmlFor="upload" className="sr-only">
+        Загрузить файл
+      </label>
       <input
+        id="upload"
         ref={inputRef}
         type="file"
         accept="image/*"
+        title="Загрузить файл изображения"
+        aria-label="Загрузить файл изображения"
         className="hidden"
         onChange={(e) => {
           const f = e.target.files?.[0];
