@@ -24,11 +24,26 @@ export default async function SettingsPage() {
           <Field label="Instagram"><Input name="socialsInstagram" defaultValue={s?.socialsInstagram || ""} /></Field>
         </div>
 
+        <div className="mt-6 text-sm font-semibold">Default meta (fallbacks)</div>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Field label="Meta title (RU)"><Input name="defaultMetaTitleRu" defaultValue={s?.defaultMetaTitleRu || ""} /></Field>
+          <Field label="Meta title (EN)"><Input name="defaultMetaTitleEn" defaultValue={s?.defaultMetaTitleEn || ""} /></Field>
+          <Field label="Meta description (RU)"><Input name="defaultMetaDescriptionRu" defaultValue={s?.defaultMetaDescriptionRu || ""} /></Field>
+          <Field label="Meta description (EN)"><Input name="defaultMetaDescriptionEn" defaultValue={s?.defaultMetaDescriptionEn || ""} /></Field>
+        </div>
+
         <div className="mt-6 text-sm font-semibold">Юридическая информация</div>
         <div className="grid gap-4 md:grid-cols-2">
-          <Field label="Название компании"><Input name="legalCompanyName" defaultValue={s?.legalCompanyName || ""} /></Field>
+          <Field label="Название компании (default)"><Input name="legalCompanyName" defaultValue={s?.legalCompanyName || ""} /></Field>
+          <Field label="Название компании (RU)"><Input name="legalCompanyNameRu" defaultValue={s?.legalCompanyNameRu || ""} /></Field>
+          <Field label="Название компании (EN)"><Input name="legalCompanyNameEn" defaultValue={s?.legalCompanyNameEn || ""} /></Field>
+
           <Field label="Регистрационный номер"><Input name="legalCompanyNumber" defaultValue={s?.legalCompanyNumber || ""} /></Field>
-          <Field label="Юридический адрес"><Input name="legalRegisteredOffice" defaultValue={s?.legalRegisteredOffice || ""} /></Field>
+
+          <Field label="Юридический адрес (default)"><Input name="legalRegisteredOffice" defaultValue={s?.legalRegisteredOffice || ""} /></Field>
+          <Field label="Юридический адрес (RU)"><Input name="legalRegisteredOfficeRu" defaultValue={s?.legalRegisteredOfficeRu || ""} /></Field>
+          <Field label="Юридический адрес (EN)"><Input name="legalRegisteredOfficeEn" defaultValue={s?.legalRegisteredOfficeEn || ""} /></Field>
+
           <Field label="Статус"><Input name="legalStatus" defaultValue={s?.legalStatus || ""} /></Field>
           <Field label="Дата регистрации"><Input name="legalIncorporated" defaultValue={s?.legalIncorporated || ""} /></Field>
         </div>

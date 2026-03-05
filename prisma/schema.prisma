@@ -33,8 +33,12 @@ model SiteSettings {
   socialsInstagram       String?
 
   legalCompanyName       String   @default("GYPSEY EMPLOYMENT AGENCY LTD")
+  legalCompanyNameRu     String?
+  legalCompanyNameEn     String?
   legalCompanyNumber     String   @default("04500667")
   legalRegisteredOffice  String   @default("32 The Crescent, Spalding, Lincolnshire, PE11 1AF")
+  legalRegisteredOfficeRu String?
+  legalRegisteredOfficeEn String?
   legalStatus            String   @default("Active")
   legalIncorporated      String   @default("1 August 2002")
 

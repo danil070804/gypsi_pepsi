@@ -22,9 +22,18 @@ export async function upsertSettings(formData: FormData) {
     socialsTelegram: String(formData.get("socialsTelegram") || "") || null,
     socialsInstagram: String(formData.get("socialsInstagram") || "") || null,
 
+    defaultMetaTitleRu: String(formData.get("defaultMetaTitleRu") || "") || null,
+    defaultMetaTitleEn: String(formData.get("defaultMetaTitleEn") || "") || null,
+    defaultMetaDescriptionRu: String(formData.get("defaultMetaDescriptionRu") || "") || null,
+    defaultMetaDescriptionEn: String(formData.get("defaultMetaDescriptionEn") || "") || null,
+
     legalCompanyName: String(formData.get("legalCompanyName") || ""),
+    legalCompanyNameRu: String(formData.get("legalCompanyNameRu") || "") || null,
+    legalCompanyNameEn: String(formData.get("legalCompanyNameEn") || "") || null,
     legalCompanyNumber: String(formData.get("legalCompanyNumber") || ""),
     legalRegisteredOffice: String(formData.get("legalRegisteredOffice") || ""),
+    legalRegisteredOfficeRu: String(formData.get("legalRegisteredOfficeRu") || "") || null,
+    legalRegisteredOfficeEn: String(formData.get("legalRegisteredOfficeEn") || "") || null,
     legalStatus: String(formData.get("legalStatus") || ""),
     legalIncorporated: String(formData.get("legalIncorporated") || ""),
   };
