@@ -33,6 +33,8 @@ async function main() {
     return;
   }
 
+  let didPushInFallback = false;
+
   try {
     await runWithCapture("npx", ["prisma", "migrate", "deploy"], { env: process.env });
     console.log("[prisma-setup] prisma migrate deploy completed.");
@@ -42,9 +44,17 @@ async function main() {
       console.warn("[prisma-setup] Detected P3005 (non-empty DB without baseline). Falling back to prisma db push.");
       await runWithCapture("npx", ["prisma", "db", "push"], { env: process.env });
       console.log("[prisma-setup] prisma db push completed.");
+      didPushInFallback = true;
     } else {
       throw err;
     }
+  }
+
+  // Ensure schema is physically aligned even after baseline-only flows
+  // (e.g. migration marked as applied on an existing DB).
+  if (!didPushInFallback) {
+    await runWithCapture("npx", ["prisma", "db", "push"], { env: process.env });
+    console.log("[prisma-setup] prisma db push completed.");
   }
 
   await runWithCapture("npx", ["prisma", "generate"], { env: process.env });
