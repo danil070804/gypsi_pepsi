@@ -34,7 +34,8 @@ npm start
 - Push code to repo
 - Set env vars in Railway: `DATABASE_URL`, `AUTH_SECRET`, `AUTH_URL`, `NEXT_PUBLIC_SITE_URL`, `NEXTAUTH_URL`
 - Deploy (commands are read from `railway.json` automatically)
-- Run one-off DB setup once: `npm run db:push && npm run db:seed`
+- If DB already exists and you saw `P3005`, deploy again: startup now auto-falls back from `prisma migrate deploy` to `prisma db push`
+- Optional one-off seed: `npm run db:seed`
 
 ## 1) Local setup
 
@@ -99,16 +100,27 @@ Admin: `/admin` (redirects to login)
 4. Build command:
    - `npm run build`
 5. Start command:
-   - `node scripts/railway-start.mjs`
+   - `node scripts/prisma-railway-setup.mjs && node scripts/railway-start.mjs`
 6. Healthcheck path:
    - `/api/health`
 
 ### Important runtime notes
 - `npm start` runs `scripts/railway-start.mjs`.
+- Railway start runs `scripts/prisma-railway-setup.mjs` first:
+  - tries `prisma migrate deploy`
+  - if Prisma returns `P3005` (non-empty DB without baseline), falls back to `prisma db push`
+  - then runs `prisma generate`
 - `railway-start.mjs` launches `next start` on `0.0.0.0:$PORT`.
 - By default app does **not** run `prisma db push/seed` on startup (faster and safer startup on Railway).
-- For first setup, run one-off command in Railway service: `npm run db:push && npm run db:seed`.
+- For first setup, run one-off command in Railway service: `npm run db:seed`.
 - If you still need auto setup on every boot, set `RUN_DB_SETUP_ON_START=true`.
+
+### Prisma baseline (recommended for long-term)
+If production DB was created before Prisma migrations, create baseline once:
+```bash
+npx prisma migrate resolve --applied 20260305_add-legal-locales
+```
+After this, `prisma migrate deploy` can be used normally without fallback.
 
 ---
 

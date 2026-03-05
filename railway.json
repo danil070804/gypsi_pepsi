@@ -5,7 +5,7 @@
     "buildCommand": "npm run build"
   },
   "deploy": {
-    "startCommand": "node scripts/railway-start.mjs",
+    "startCommand": "node scripts/prisma-railway-setup.mjs && node scripts/railway-start.mjs",
     "healthcheckPath": "/api/health",
     "healthcheckTimeout": 180,
     "restartPolicyType": "ON_FAILURE",
