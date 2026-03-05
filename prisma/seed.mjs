@@ -108,12 +108,7 @@ async function main() {
   for (const p of pages) {
     await prisma.page.upsert({
       where: { key: p.key },
-      update: {
-        titleRu: p.titleRu,
-        titleEn: p.titleEn,
-        blocksJson: p.blocksJson,
-        isPublished: true,
-      },
+      update: {},
       create: {
         key: p.key,
         titleRu: p.titleRu,
@@ -140,16 +135,7 @@ async function main() {
 
     await prisma.service.upsert({
       where: { slug: s.slug },
-      update: {
-        titleRu: s.titleRu,
-        titleEn: s.titleEn,
-        excerptRu,
-        excerptEn,
-        contentRu,
-        contentEn,
-        isPublished: true,
-        sortOrder: i,
-      },
+      update: {},
       create: {
         slug: s.slug,
         titleRu: s.titleRu,
