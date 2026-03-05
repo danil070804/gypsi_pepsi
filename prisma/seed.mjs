@@ -58,12 +58,21 @@ async function main() {
       id: 1,
       brandName: "GYPSEY EMPLOYMENT AGENCY",
       legalCompanyName: "GYPSEY EMPLOYMENT AGENCY LTD",
+      legalCompanyNameRu: "GYPSEY EMPLOYMENT AGENCY LTD",
+      legalCompanyNameEn: "GYPSEY EMPLOYMENT AGENCY LTD",
       legalCompanyNumber: "04500667",
       legalRegisteredOffice: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
+      legalRegisteredOfficeRu: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
+      legalRegisteredOfficeEn: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
       legalStatus: "Active",
       legalIncorporated: "1 August 2002",
       footerAddressRu: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
       footerAddressEn: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
+
+      defaultMetaTitleRu: "",
+      defaultMetaTitleEn: "",
+      defaultMetaDescriptionRu: "",
+      defaultMetaDescriptionEn: "",
     },
   });
 
