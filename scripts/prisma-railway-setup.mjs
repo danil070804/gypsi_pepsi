@@ -40,8 +40,9 @@ async function main() {
     console.log("[prisma-setup] prisma migrate deploy completed.");
   } catch (err) {
     const output = String(err?.output || err?.message || "");
-    if (output.includes("P3005")) {
-      console.warn("[prisma-setup] Detected P3005 (non-empty DB without baseline). Falling back to prisma db push.");
+    if (output.includes("P3005") || output.includes("P3008")) {
+      const code = output.includes("P3008") ? "P3008" : "P3005";
+      console.warn(`[prisma-setup] Detected ${code}. Falling back to prisma db push.`);
       await runWithCapture("npx", ["prisma", "db", "push"], { env: process.env });
       console.log("[prisma-setup] prisma db push completed.");
       didPushInFallback = true;
