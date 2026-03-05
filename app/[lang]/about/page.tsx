@@ -2,8 +2,8 @@ import type { Lang } from "@/lib/i18n";
 import { asLang } from "@/lib/i18n";
 import { getPageByKey, pickLang } from "@/lib/content";
 import Blocks from "@/components/Blocks";
-import { prisma } from "@/lib/prisma";
 import { getSiteUrl } from "@/lib/site-url";
+import { getSiteSettingsSafe } from "@/lib/site-settings";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -19,7 +19,7 @@ export async function generateMetadata({
   const lang: Lang = asLang(langParam);
 
   const page = await getPageByKey("about");
-  const settings = await prisma.siteSettings.findUnique({ where: { id: 1 } });
+  const settings = await getSiteSettingsSafe();
 
   const title =
     lang === "ru"

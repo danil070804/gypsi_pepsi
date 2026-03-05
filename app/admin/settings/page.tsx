@@ -1,12 +1,12 @@
-import { prisma } from "@/lib/prisma";
 import { Field, Input, Button } from "@/components/admin/Form";
 import { upsertSettings } from "../actions";
+import { getSiteSettingsSafe } from "@/lib/site-settings";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 
 export default async function SettingsPage() {
-  const s = await prisma.siteSettings.findUnique({ where: { id: 1 } });
+  const s = await getSiteSettingsSafe();
 
   return (
     <div className="space-y-6">

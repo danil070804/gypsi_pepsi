@@ -1,10 +1,10 @@
 import Link from "next/link";
 import type { Lang } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
-import { prisma } from "@/lib/prisma";
+import { getSiteSettingsSafe } from "@/lib/site-settings";
 
 export default async function Footer({ lang }: { lang: Lang }) {
-  const settings = await prisma.siteSettings.findUnique({ where: { id: 1 } });
+  const settings = await getSiteSettingsSafe();
   return (
     <footer className="mt-16 border-t border-white/10 bg-slate-950 text-slate-200">
       <div className="container grid gap-10 py-12 md:grid-cols-3">

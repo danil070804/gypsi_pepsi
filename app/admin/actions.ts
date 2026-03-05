@@ -2,6 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { upsertSiteSettingsSafe } from "@/lib/site-settings";
 
 function parseJSON(input: string) {
   try {
@@ -38,11 +39,7 @@ export async function upsertSettings(formData: FormData) {
     legalIncorporated: String(formData.get("legalIncorporated") || ""),
   };
 
-  await prisma.siteSettings.upsert({
-    where: { id: 1 },
-    update: data,
-    create: { id: 1, ...data },
-  });
+  await upsertSiteSettingsSafe(data);
 
   revalidatePath("/admin/settings");
   revalidatePath("/ru");
