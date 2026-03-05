@@ -64,27 +64,27 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
                     })}
                   </div>
 
-                  <div className="mt-8 grid grid-cols-3 gap-3 text-xs text-white/65">
+                  <div className="mt-8 grid grid-cols-2 gap-3 text-sm text-white/70 sm:grid-cols-3">
                     <Link
                       href={`/${lang}/contact`}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
+                      className="min-h-[92px] rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
                     >
-                      <div className="text-white break-words">UK</div>
-                      <div className="mt-1 break-words">{t(lang, "Поддержка", "Support")}</div>
+                      <div className="text-white">UK</div>
+                      <div className="mt-1 break-normal leading-snug">{t(lang, "Поддержка", "Support")}</div>
                     </Link>
                     <Link
                       href={`/${lang}/services/documentation`}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
+                      className="min-h-[92px] rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
                     >
-                      <div className="text-white break-words">{t(lang, "Документы", "Docs")}</div>
-                      <div className="mt-1 break-words">{t(lang, "Сопровождение", "Guidance")}</div>
+                      <div className="text-white break-normal leading-snug">{t(lang, "Документы", "Docs")}</div>
+                      <div className="mt-1 break-normal leading-snug">{t(lang, "Сопровождение", "Guidance")}</div>
                     </Link>
                     <Link
                       href={`/${lang}/services`}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10"
+                      className="col-span-2 min-h-[92px] rounded-2xl border border-white/10 bg-white/5 p-3 transition hover:bg-white/10 sm:col-span-1"
                     >
-                      <div className="text-white break-words">{t(lang, "Работа", "Jobs")}</div>
-                      <div className="mt-1 break-words">{t(lang, "Подбор", "Matching")}</div>
+                      <div className="text-white break-normal leading-snug">{t(lang, "Работа", "Jobs")}</div>
+                      <div className="mt-1 break-normal leading-snug">{t(lang, "Подбор", "Matching")}</div>
                     </Link>
                   </div>
                 </div>
