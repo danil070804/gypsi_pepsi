@@ -22,6 +22,11 @@ export async function upsertSettings(formData: FormData) {
     socialsTelegram: String(formData.get("socialsTelegram") || "") || null,
     socialsInstagram: String(formData.get("socialsInstagram") || "") || null,
 
+    defaultMetaTitleRu: String(formData.get("defaultMetaTitleRu") || "") || null,
+    defaultMetaTitleEn: String(formData.get("defaultMetaTitleEn") || "") || null,
+    defaultMetaDescriptionRu: String(formData.get("defaultMetaDescriptionRu") || "") || null,
+    defaultMetaDescriptionEn: String(formData.get("defaultMetaDescriptionEn") || "") || null,
+
     legalCompanyName: String(formData.get("legalCompanyName") || ""),
     legalCompanyNumber: String(formData.get("legalCompanyNumber") || ""),
     legalRegisteredOffice: String(formData.get("legalRegisteredOffice") || ""),

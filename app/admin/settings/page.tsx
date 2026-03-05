@@ -24,6 +24,14 @@ export default async function SettingsPage() {
           <Field label="Instagram"><Input name="socialsInstagram" defaultValue={s?.socialsInstagram || ""} /></Field>
         </div>
 
+        <div className="mt-6 text-sm font-semibold">Default meta (fallbacks)</div>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Field label="Meta title (RU)"><Input name="defaultMetaTitleRu" defaultValue={s?.defaultMetaTitleRu || ""} /></Field>
+          <Field label="Meta title (EN)"><Input name="defaultMetaTitleEn" defaultValue={s?.defaultMetaTitleEn || ""} /></Field>
+          <Field label="Meta description (RU)"><Input name="defaultMetaDescriptionRu" defaultValue={s?.defaultMetaDescriptionRu || ""} /></Field>
+          <Field label="Meta description (EN)"><Input name="defaultMetaDescriptionEn" defaultValue={s?.defaultMetaDescriptionEn || ""} /></Field>
+        </div>
+
         <div className="mt-6 text-sm font-semibold">Юридическая информация</div>
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Название компании"><Input name="legalCompanyName" defaultValue={s?.legalCompanyName || ""} /></Field>
