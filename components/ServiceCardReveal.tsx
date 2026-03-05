@@ -14,7 +14,7 @@ export default function ServiceCardReveal({ title, excerpt, slug, lang }: { titl
         {excerpt ? <p className="mt-2 text-sm text-white/70">{excerpt}</p> : null}
         <div className="mt-4">
           <Link href={`/${lang}/services/${slug}`} className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 ring-1 ring-blue-300/30 transition hover:opacity-95">
-            Подробнее
+            {lang === "ru" ? "Подробнее" : "Learn more"}
           </Link>
         </div>
       </div>
@@ -37,7 +37,7 @@ export default function ServiceCardReveal({ title, excerpt, slug, lang }: { titl
           href={`/${lang}/services/${slug}`}
           className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 ring-1 ring-blue-300/30 transition hover:opacity-95"
         >
-          Подробнее
+          {lang === "ru" ? "Подробнее" : "Learn more"}
         </Link>
       </div>
     </motion.div>
