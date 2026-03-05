@@ -31,9 +31,9 @@ export default async function Footer({ lang }: { lang: Lang }) {
         <div className="text-sm">
           <div className="font-semibold">{t(lang, "Юридическая информация", "Legal")}</div>
           <div className="mt-4 space-y-1 text-slate-300">
-            <div>{settings?.legalCompanyName}</div>
+            <div>{lang === "ru" ? (settings?.legalCompanyNameRu || settings?.legalCompanyName) : (settings?.legalCompanyNameEn || settings?.legalCompanyName)}</div>
             <div>Company number: {settings?.legalCompanyNumber}</div>
-            <div>Registered office: {settings?.legalRegisteredOffice}</div>
+            <div>Registered office: {lang === "ru" ? (settings?.legalRegisteredOfficeRu || settings?.legalRegisteredOffice) : (settings?.legalRegisteredOfficeEn || settings?.legalRegisteredOffice)}</div>
             <div>Status: {settings?.legalStatus}</div>
             <div>Incorporated: {settings?.legalIncorporated}</div>
           </div>
