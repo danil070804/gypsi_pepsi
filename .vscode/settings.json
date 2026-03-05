@@ -14,5 +14,10 @@
     "inlineChat.enableV2": true,
     "inlineChat.finishOnType": true,
     "inlineChat.notebookAgent": true,
-    "inlineChat.renderMode": "hover"
+    "inlineChat.renderMode": "hover",
+    "githubPullRequests.pullBranch": "always",
+    "githubPullRequests.pushBranch": "always",
+    "githubPullRequests.defaultCreateOption": "createAutoMerge",
+    "githubPullRequests.postCreate": "checkoutDefaultBranch",
+    "githubPullRequests.createDefaultBaseBranch": "repositoryDefault"
 }
