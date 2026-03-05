@@ -13,6 +13,7 @@ type Block =
   | (BlockBase & { type: "steps"; title?: string; items: { title: string; text?: string }[] })
   | (BlockBase & { type: "cta"; title: string; text?: string; buttonLabel: string; href: string })
   | (BlockBase & { type: "richText"; title?: string; html: string })
+  | (BlockBase & { type: "legal"; html?: string })
   | (BlockBase & { type: "bullets"; title?: string; items: string[] });
 
 function safeParse(value: string) {
@@ -56,6 +57,8 @@ export default function BlocksEditor({
         ? { id, type, title: "", text: "", buttonLabel: "", href: "" }
         : type === "bullets"
         ? { id, type, title: "", items: ["", "", ""] }
+        : type === "legal"
+        ? { id, type: "legal", html: "<p></p>" }
         : { id, type: "richText", title: "", html: "<p></p>" };
 
     setData((prev) => ({ ...prev, [lang]: [...prev[lang], next] as any }));
@@ -82,6 +85,7 @@ export default function BlocksEditor({
         <button type="button" onClick={() => addBlock(lang, "bullets")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ Буллеты</button>
         <button type="button" onClick={() => addBlock(lang, "cta")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ Призыв</button>
         <button type="button" onClick={() => addBlock(lang, "richText")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ Текст (WYSIWYG)</button>
+        <button type="button" onClick={() => addBlock(lang, "legal")} className="rounded-lg border px-3 py-2 text-xs hover:bg-white/10">+ Legal</button>
       </div>
 
       <SortableList
@@ -226,7 +230,7 @@ function BlockEditor({ block, lang, onUpdate }:{ block: any; lang: Lang; onUpdat
         </div>
       ) : null}
 
-      {b.type === "richText" ? (
+      {(b.type === "richText" || b.type === "legal") ? (
         <div className="space-y-3">
           <Input label="Title (optional)" value={(b as any).title || ""} onChange={(v) => onUpdate({ title: v })} />
           <RichTextEditor value={(b as any).html || "<p></p>"} onChange={(html) => onUpdate({ html })} />
