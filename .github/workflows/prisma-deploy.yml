@@ -1,4 +1,4 @@
-name: Prisma Migrate Deploy
+name: Prisma DB Setup
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   migrate:
-    name: Run prisma migrate deploy and generate
+    name: Run Prisma setup with P3005 fallback
     runs-on: ubuntu-latest
 
     steps:
@@ -21,9 +21,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run migrations and generate Prisma client
+      - name: Run Prisma setup
         env:
           DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
-        run: |
-          npx prisma migrate deploy
-          npx prisma generate
+        run: node scripts/prisma-railway-setup.mjs
