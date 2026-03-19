@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { asLang, t } from "@/lib/i18n";
 import { normalizeWhatsapp, normalizeTelegram, normalizeInstagram } from "@/lib/contacts";
 import { getSiteUrl } from "@/lib/site-url";
+import PageIntro from "@/components/PageIntro";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -68,8 +69,8 @@ function ManagerCard({ m, lang }: { m: any; lang: Lang }) {
   const order = ["whatsapp", "telegram", "instagram", "email"] as const;
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-      <div className="mb-4 aspect-square overflow-hidden rounded-xl bg-slate-100">
+    <div className="group rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_20px_60px_rgba(2,6,23,0.24)] transition hover:-translate-y-1 hover:border-sky-200/15 hover:bg-white/[0.06]">
+      <div className="mb-5 aspect-[4/5] overflow-hidden rounded-[1.4rem] border border-white/10 bg-slate-900/70">
         {m.photoUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -77,13 +78,17 @@ function ManagerCard({ m, lang }: { m: any; lang: Lang }) {
             alt={name}
             className="h-full w-full object-cover"
           />
-        ) : null}
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.22),transparent_58%),linear-gradient(180deg,rgba(15,23,42,0.86),rgba(2,6,23,0.96))] text-5xl font-semibold text-white/35">
+            {name.slice(0, 1).toUpperCase()}
+          </div>
+        )}
       </div>
 
-      <div className="text-base font-semibold">{name}</div>
+      <div className="pt-1 text-xl font-semibold leading-[1.1] text-white">{name}</div>
       {role ? <div className="mt-1 text-sm text-white/70">{role}</div> : null}
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-5 flex flex-wrap gap-2.5">
         {order.map((k) => {
           const href = links[k];
           if (!href) return null;
@@ -94,7 +99,7 @@ function ManagerCard({ m, lang }: { m: any; lang: Lang }) {
               href={href}
               target={k === "email" ? undefined : "_blank"}
               rel={k === "email" ? undefined : "noreferrer"}
-              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-semibold capitalize text-white ring-1 transition ${contactButtonClass(k)}`}
+              className={`inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-semibold capitalize text-white ring-1 transition ${contactButtonClass(k)}`}
             >
               <ContactIcon kind={k} />
               <span>{k}</span>
@@ -142,21 +147,39 @@ export default async function Contact({
   });
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-semibold md:text-3xl">
-          {t(lang, "Выбор менеджера", "Choose a manager")}
-        </h1>
-        <p className="mt-2 text-white/70">
-          {t(
-            lang,
-            "Нажмите на нужный контакт — показываются только заполненные.",
-            "Tap a contact method — only filled ones are shown."
-          )}
-        </p>
-      </div>
+    <div className="space-y-8 md:space-y-10">
+      <PageIntro
+        eyebrow={t(lang, "Контакты", "Contacts")}
+        title={t(lang, "Выбор менеджера", "Choose a manager")}
+        description={t(
+          lang,
+          "Откройте карточку нужного менеджера и выберите удобный способ связи. Показываются только заполненные контакты.",
+          "Open the card of the manager you need and choose the most convenient way to get in touch. Only filled contact methods are shown."
+        )}
+        aside={
+          <>
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/45">
+                {t(lang, "Активно", "Active")}
+              </div>
+              <div className="mt-2 text-2xl font-semibold text-white">{managers.length}</div>
+              <div className="mt-1 text-sm leading-6 text-white/65">
+                {t(lang, "менеджеров доступны сейчас", "managers available right now")}
+              </div>
+            </div>
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
+              <div className="text-sm font-semibold text-white">
+                {t(lang, "Связь без лишних шагов", "Contact without extra steps")}
+              </div>
+              <div className="mt-2 text-sm leading-6 text-white/65">
+                {t(lang, "WhatsApp, Telegram, Instagram и email прямо из карточки.", "WhatsApp, Telegram, Instagram, and email directly from the card.")}
+              </div>
+            </div>
+          </>
+        }
+      />
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {managers.map((m) => (
           <ManagerCard key={m.id} m={m} lang={lang} />
         ))}

@@ -62,7 +62,7 @@ export default async function ReviewsPage({
           <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/62">
             {lang === "ru" ? page?.titleRu || t(lang, "Отзывы", "Reviews") : page?.titleEn || t(lang, "Отзывы", "Reviews")}
           </div>
-          <h1 className="mt-4 text-3xl font-semibold text-white md:text-5xl">
+          <h1 className="mt-4 pt-1 text-3xl font-semibold leading-[1.06] text-white md:text-5xl">
             {hero?.title || t(lang, "Отзывы, которые не стоят на месте", "Reviews that never stand still")}
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72 md:text-base">

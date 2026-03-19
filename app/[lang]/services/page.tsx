@@ -4,6 +4,7 @@ import Link from "next/link";
 import ServiceCardReveal from "@/components/ServiceCardReveal";
 import { asLang, t } from "@/lib/i18n";
 import { getSiteUrl } from "@/lib/site-url";
+import PageIntro from "@/components/PageIntro";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -45,21 +46,39 @@ export default async function ServicesPage({
   });
 
   return (
-    <div className="space-y-10">
-      <div>
-        <h1 className="text-2xl font-semibold md:text-3xl">
-          {t(lang, "Услуги", "Services")}
-        </h1>
-        <p className="mt-2 text-white/70">
-          {t(
-            lang,
-            "Выберите нужную услугу и прочитайте подробности.",
-            "Choose a service and read the details."
-          )}
-        </p>
-      </div>
+    <div className="space-y-8 md:space-y-10">
+      <PageIntro
+        eyebrow={t(lang, "Навигация", "Navigation")}
+        title={t(lang, "Услуги", "Services")}
+        description={t(
+          lang,
+          "Выберите нужную услугу и откройте подробности. Каждая карточка ведёт на отдельную страницу с полным описанием и следующим шагом.",
+          "Choose the service you need and open the details. Each card leads to a separate page with the full description and the next step."
+        )}
+        aside={
+          <>
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/45">
+                {t(lang, "Доступно", "Available")}
+              </div>
+              <div className="mt-2 text-2xl font-semibold text-white">{services.length}</div>
+              <div className="mt-1 text-sm leading-6 text-white/65">
+                {t(lang, "актуальных направлений сопровождения", "active guidance directions")}
+              </div>
+            </div>
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
+              <div className="text-sm font-semibold text-white">
+                {t(lang, "Официально и по шагам", "Official and step by step")}
+              </div>
+              <div className="mt-2 text-sm leading-6 text-white/65">
+                {t(lang, "От первой консультации до выхода на работу и адаптации.", "From the first consultation to job start and adaptation.")}
+              </div>
+            </div>
+          </>
+        }
+      />
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {services.map((s) => {
           const title = lang === "ru" ? s.titleRu : s.titleEn;
           const excerpt = lang === "ru" ? s.excerptRu : s.excerptEn;
@@ -71,11 +90,14 @@ export default async function ServicesPage({
         })}
       </div>
 
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <div className="text-lg font-semibold">
+      <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.03] p-6 shadow-[0_24px_80px_rgba(2,6,23,0.24)] md:p-8">
+        <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">
+          {t(lang, "Следующий шаг", "Next step")}
+        </div>
+        <div className="pt-1 text-2xl font-semibold leading-[1.1] text-white md:text-3xl">
           {t(lang, "Нужна консультация?", "Need a consultation?")}
         </div>
-        <p className="mt-2 text-white/70">
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-white/70 md:text-base">
           {t(
             lang,
             "Выберите менеджера и свяжитесь удобным способом.",
@@ -85,7 +107,7 @@ export default async function ServicesPage({
         <div className="mt-4">
           <Link
             href={`/${lang}/contact`}
-            className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-md shadow-blue-900/50 ring-1 ring-blue-200/40 transition hover:brightness-110"
+            className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-900/50 ring-1 ring-blue-200/40 transition hover:brightness-110"
           >
             {t(lang, "Выбрать менеджера", "Choose a manager")}
           </Link>
