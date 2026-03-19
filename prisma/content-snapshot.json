@@ -695,6 +695,256 @@
       "photoUrl": null,
       "isPublished": true,
       "sortOrder": 14
+    },
+    {
+      "id": "cmmx7yytq0000727lp2j8i76y",
+      "authorName": "Виктор С.",
+      "textRu": "Обратился, потому что не хотел ехать вслепую. Здесь нормально объяснили условия, показали вакансию, помогли с документами и не пропадали после выезда. В итоге всё прошло спокойнее, чем ожидал.",
+      "textEn": "I reached out because I did not want to go blindly. They clearly explained the conditions, showed the vacancy, helped with documents, and stayed in touch after departure. In the end, everything went much calmer than I expected.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 16
+    },
+    {
+      "id": "cmmx7yytq0001727lkkohpqqr",
+      "authorName": "Марина Т.",
+      "textRu": "Для меня было важно, чтобы всё было официально и без сюрпризов. Менеджер вёл по шагам, отвечал на вопросы и заранее предупреждал, что нужно подготовить. Это сильно сняло стресс.",
+      "textEn": "It was important for me that everything was official and without surprises. The manager guided me step by step, answered questions, and told me in advance what needed to be prepared. That removed a lot of stress.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 17
+    },
+    {
+      "id": "cmmx7yytq0002727l7rlbujct",
+      "authorName": "Денис Г.",
+      "textRu": "Понравилось, что не обещали сказку, а сразу сказали как есть. Из-за этого было больше доверия. После оформления действительно помогли с заселением и первыми вопросами по работе.",
+      "textEn": "I liked that they did not promise a fairy tale and told it as it is right away. That created much more trust. After the paperwork they really helped with accommodation and the first work-related questions.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 18
+    },
+    {
+      "id": "cmmx7yytq0003727lim6kcgfd",
+      "authorName": "Екатерина Л.",
+      "textRu": "Ехала впервые и боялась, что не разберусь с документами. Здесь всё разложили по пунктам, несколько раз перепроверили и были на связи до самого выезда. Очень полезное сопровождение.",
+      "textEn": "It was my first time traveling and I was afraid I would not manage the documents. Here everything was broken down clearly, checked several times, and they stayed in touch until departure. Very helpful support.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 19
+    },
+    {
+      "id": "cmmx7yytq0004727lq1s2k9lv",
+      "authorName": "Руслан Ж.",
+      "textRu": "Удобно, что можно было быстро получить ответы без долгих ожиданий. По вакансии всё совпало с тем, что обсуждали заранее. Для меня это главный показатель нормальной работы.",
+      "textEn": "It was convenient that I could get quick answers without long waits. The vacancy matched what had been discussed in advance. For me, that is the main sign of proper work.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 20
+    },
+    {
+      "id": "cmmx7yytq0005727ltyb4qyih",
+      "authorName": "Наталья К.",
+      "textRu": "Я долго сравнивала разные варианты и в итоге выбрала эту команду из-за адекватной коммуникации. Всё спокойно, по делу и без давления. Уже на месте поняла, что выбор был правильный.",
+      "textEn": "I compared different options for a long time and finally chose this team because of their reasonable communication. Everything was calm, to the point, and without pressure. Once I arrived, I realized it was the right choice.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 21
+    },
+    {
+      "id": "cmmx7yytq0006727lxbbt7uzo",
+      "authorName": "Павел Р.",
+      "textRu": "Спасибо за то, что не бросили после трудоустройства. Когда появились первые бытовые и рабочие вопросы, мне реально помогли быстро разобраться. Это редкость.",
+      "textEn": "Thank you for not disappearing after employment. When the first everyday and work questions came up, they really helped me sort them out quickly. That is rare.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 22
+    },
+    {
+      "id": "cmmx7yytq0007727lj6wk59re",
+      "authorName": "Алина Е.",
+      "textRu": "Очень переживала из-за переезда, но сопровождение оказалось действительно полезным. Всё было поэтапно, без хаоса, и я понимала, что происходит на каждом шаге.",
+      "textEn": "I was very worried about relocating, but the support turned out to be genuinely useful. Everything was step by step, without chaos, and I understood what was happening at every stage.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 23
+    },
+    {
+      "id": "cmmx7yytq0008727l2p61vthc",
+      "authorName": "Кирилл М.",
+      "textRu": "Нормальная прозрачная работа. Не было ощущения, что тебя просто пытаются быстрее отправить. Сначала разобрали мои ожидания, а потом уже предложили вариант, который подошёл.",
+      "textEn": "A proper transparent process. It never felt like they were just trying to send me off as fast as possible. First they understood my expectations, and only then offered an option that suited me.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 24
+    },
+    {
+      "id": "cmmx7yytq0009727l8bud9ggu",
+      "authorName": "Оксана Б.",
+      "textRu": "Больше всего понравилось отношение. Всегда отвечали вежливо, подробно и без раздражения, даже когда я по несколько раз уточняла одно и то же. Для меня это многое значит.",
+      "textEn": "What I liked most was the attitude. They always replied politely, in detail, and without irritation, even when I asked the same thing several times. That means a lot to me.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 25
+    },
+    {
+      "id": "cmmx7yytq000a727lv097yedb",
+      "authorName": "Игорь Ч.",
+      "textRu": "Если коротко: всё прошло организованно. Документы, выезд, заселение, связь с работодателем — везде чувствовалось, что процесс выстроен. Поэтому и результат спокойный.",
+      "textEn": "In short: everything was organized. Documents, departure, accommodation, communication with the employer — everywhere you could feel that the process was structured. That is why the result felt calm.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 26
+    },
+    {
+      "id": "cmmx7yytq000b727luhu24oym",
+      "authorName": "Светлана Н.",
+      "textRu": "Меня устроило, что по ходу процесса ничего резко не менялось. Что обсуждали в начале, то и получила по факту. Это сейчас редкость, поэтому решила оставить отзыв.",
+      "textEn": "I appreciated that nothing changed abruptly during the process. What we discussed at the beginning is what I actually got. That is rare these days, so I decided to leave a review.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 27
+    },
+    {
+      "id": "cmmx7yytq000c727lzezngi6l",
+      "authorName": "Тимур А.",
+      "textRu": "Работают без лишнего шума, но эффективно. Мне помогли привести всё в порядок по документам и не дали наделать ошибок на этапе подготовки. Это сэкономило время и нервы.",
+      "textEn": "They work without unnecessary noise, but effectively. They helped me put all the documents in order and prevented mistakes during preparation. That saved time and nerves.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 28
+    },
+    {
+      "id": "cmmx7yytq000d727lwh2zw7yc",
+      "authorName": "Кристина Ю.",
+      "textRu": "Прошла через весь процесс с этой командой и осталась довольна. Особенно ценю, что не терялась обратная связь: всегда знала, кому написать и что делать дальше.",
+      "textEn": "I went through the whole process with this team and stayed satisfied. I especially value that feedback never disappeared: I always knew whom to contact and what to do next.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 29
+    },
+    {
+      "id": "cmmx7yytq000e727l6mrwp8wd",
+      "authorName": "Андрей В.",
+      "textRu": "Для меня это был рабочий, взрослый подход без пустых обещаний. Именно поэтому и решил идти с ними дальше. По факту всё оказалось честно и предсказуемо.",
+      "textEn": "For me, this was a professional, mature approach without empty promises. That is exactly why I chose to move forward with them. In reality, everything turned out honest and predictable.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 30
+    },
+    {
+      "id": "cmmx7yytq000f727lx31lewmn",
+      "authorName": "Людмила П.",
+      "textRu": "Думала, что оформление займёт больше сил, но с нормальным сопровождением всё прошло куда легче. Хорошо, когда есть люди, которые реально держат процесс под контролем.",
+      "textEn": "I thought the paperwork would take much more effort, but with proper support it turned out much easier. It is good when there are people who truly keep the process under control.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 31
+    },
+    {
+      "id": "cmmx7yytq000g727lpxkyvqft",
+      "authorName": "Максим Д.",
+      "textRu": "Выбрал их по рекомендации и не пожалел. Всё чётко по срокам, без пропаж и без странных сюрпризов. После начала работы тоже помогли, когда нужно было уточнить моменты с работодателем.",
+      "textEn": "I chose them based on a recommendation and did not regret it. Everything was on time, without disappearing, and without strange surprises. They also helped after work started when I needed to clarify things with the employer.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 32
+    },
+    {
+      "id": "cmmx7yytq000h727lpfxgx6v0",
+      "authorName": "Вероника И.",
+      "textRu": "Самое полезное для меня было то, что весь путь разбили на понятные этапы. Когда понимаешь последовательность действий, уже не так страшно решиться на поездку.",
+      "textEn": "The most useful thing for me was that the whole process was broken into clear stages. When you understand the sequence of steps, it becomes much less scary to decide to go.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 33
+    },
+    {
+      "id": "cmmx7yytq000i727lrfeb3bjj",
+      "authorName": "Георгий Х.",
+      "textRu": "Работа команды ощущается в деталях. Начиная от первых ответов и заканчивая тем, как тебя ведут уже после выезда. Это не формальность, а реальная поддержка.",
+      "textEn": "The team’s work is felt in the details. Starting with the first responses and ending with how they support you after departure. It is not a formality, but real support.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 34
+    },
+    {
+      "id": "cmmx7yytq000j727lrq58f0rf",
+      "authorName": "Юрий Ф.",
+      "textRu": "Мне важно было, чтобы всё выглядело надёжно и законно. Здесь именно так и было. По документам порядок, по связи порядок, по условиям всё объяснили заранее.",
+      "textEn": "It was important to me that everything looked reliable and legal. That is exactly how it was here. The documents were in order, communication was in order, and the conditions were explained in advance.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 35
+    },
+    {
+      "id": "cmmx7yytq000k727lw8mpkr63",
+      "authorName": "Дарья М.",
+      "textRu": "Когда читаешь чужие истории, кажется, что у всех всё сложно. У меня получилось спокойно во многом благодаря тому, что меня нормально сопровождали и ничего не пускали на самотёк.",
+      "textEn": "When you read other people’s stories, it feels like everything is always complicated. Mine went calmly largely because I had proper support and nothing was left to chance.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 36
+    },
+    {
+      "id": "cmmx7yytq000l727l3k9qy3nm",
+      "authorName": "Артур Л.",
+      "textRu": "Видно, что ребята знают процесс. Отвечают не общими фразами, а по существу. Из-за этого проще принимать решение и не сомневаться на каждом шаге.",
+      "textEn": "You can see that the team knows the process. They reply not with general phrases, but to the point. Because of that, it is easier to make decisions and not doubt every step.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 37
+    },
+    {
+      "id": "cmmx7yytq000m727lr1479i0z",
+      "authorName": "Жанна С.",
+      "textRu": "Мне понравилось, что общение было человеческое, а не сухое. При этом всё чётко и по делу. Такая комбинация редко встречается, поэтому хочу отдельно отметить.",
+      "textEn": "I liked that the communication was human, not dry. At the same time, everything was clear and to the point. That combination is rare, so I want to mention it separately.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 38
+    },
+    {
+      "id": "cmmx7yytq000n727l6wolqigp",
+      "authorName": "Роман Т.",
+      "textRu": "Удобно, что сопровождение не закончилось в момент оформления. Были вопросы уже после приезда, и на них тоже отвечали. За это отдельное уважение.",
+      "textEn": "It was convenient that the support did not end at the moment the paperwork was done. I had questions after arrival, and those were answered too. Special respect for that.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 39
+    },
+    {
+      "id": "cmmx7yytq000o727l25i4bijy",
+      "authorName": "Полина В.",
+      "textRu": "Не люблю писать отзывы, но здесь решила оставить. Просто потому что всё прошло так, как и обещали: спокойно, официально и без нервов.",
+      "textEn": "I do not like writing reviews, but here I decided to leave one. Simply because everything went exactly as promised: calmly, officially, and without stress.",
+      "rating": 5,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 40
     }
   ],
   "blogPosts": [
