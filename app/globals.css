@@ -71,6 +71,11 @@ h1,h2,h3 { @apply tracking-tight; }
   animation: review-marquee var(--marquee-duration, 48s) linear infinite;
 }
 
+.review-marquee-mask:hover .review-marquee-track,
+.review-marquee-mask:focus-within .review-marquee-track {
+  animation-play-state: paused;
+}
+
 .review-marquee-track.is-reverse {
   animation-direction: reverse;
 }
@@ -93,6 +98,13 @@ h1,h2,h3 { @apply tracking-tight; }
   box-shadow:
     0 18px 48px rgba(2, 6, 23, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.review-marquee-excerpt {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
 @keyframes review-marquee {
