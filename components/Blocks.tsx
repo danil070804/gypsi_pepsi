@@ -34,7 +34,7 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
                     {t(lang, "Трудоустройство в UK", "UK Employment")}
                   </div>
 
-                  <h1 className="mt-4 text-4xl font-semibold leading-[1.02] text-white md:text-[3.7rem]">
+                  <h1 className="mt-4 text-4xl font-semibold leading-[1.03] text-white md:text-[3.3rem]">
                     {b.title}
                   </h1>
 
