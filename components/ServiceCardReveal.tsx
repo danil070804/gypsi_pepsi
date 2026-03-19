@@ -3,6 +3,18 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { FileText, Headset, Home, MessageSquareMore, Plane, ShieldCheck } from "lucide-react";
+import { getServiceVisual, type ServiceIconKey } from "@/lib/service-visuals";
+import type { Lang } from "@/lib/i18n";
+
+const ICONS: Record<ServiceIconKey, React.ComponentType<{ className?: string }>> = {
+  consult: MessageSquareMore,
+  docs: FileText,
+  visa: ShieldCheck,
+  transfer: Plane,
+  housing: Home,
+  support: Headset,
+};
 
 export default function ServiceCardReveal({
   title,
@@ -13,9 +25,11 @@ export default function ServiceCardReveal({
   title: string;
   excerpt?: string | null;
   slug: string;
-  lang: string;
+  lang: Lang;
 }) {
   const shouldReduceMotion = useReducedMotion();
+  const visual = getServiceVisual(slug, lang);
+  const Icon = ICONS[visual.icon];
   const cardClassName =
     "group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_20px_60px_rgba(2,6,23,0.26)] transition hover:-translate-y-1 hover:border-sky-200/20 hover:bg-white/[0.06]";
 
@@ -27,7 +41,20 @@ export default function ServiceCardReveal({
         </div>
 
         <div className="relative flex h-full flex-col">
-          <div className="text-xl font-semibold leading-[1.12] text-white">{title}</div>
+          <div className="flex items-start justify-between gap-3">
+            <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${visual.toneClass}`}>
+              <Icon className="h-5 w-5" />
+            </div>
+            <div className="flex flex-wrap justify-end gap-2">
+              {visual.tags.slice(0, 2).map((tag) => (
+                <span key={tag} className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] font-semibold tracking-[0.08em] text-white/58">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-5 text-xl font-semibold leading-[1.12] text-white">{title}</div>
           {excerpt ? (
             <p
               className="mt-3 flex-1 text-sm leading-7 text-white/72"
@@ -63,7 +90,20 @@ export default function ServiceCardReveal({
       </div>
 
       <div className="relative flex h-full flex-col">
-        <div className="text-xl font-semibold leading-[1.12] text-white">{title}</div>
+        <div className="flex items-start justify-between gap-3">
+          <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${visual.toneClass}`}>
+            <Icon className="h-5 w-5" />
+          </div>
+          <div className="flex flex-wrap justify-end gap-2">
+            {visual.tags.slice(0, 2).map((tag) => (
+              <span key={tag} className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] font-semibold tracking-[0.08em] text-white/58">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-5 text-xl font-semibold leading-[1.12] text-white">{title}</div>
         {excerpt ? (
           <p
             className="mt-3 flex-1 text-sm leading-7 text-white/72"
