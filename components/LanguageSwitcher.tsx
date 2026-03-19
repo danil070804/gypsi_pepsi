@@ -18,8 +18,10 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
     <button
       onClick={() => switchTo(code)}
       className={
-        "rounded-full px-3 py-1.5 text-xs font-semibold tracking-wide transition " +
-        (lang === code ? "bg-white/10 text-white" : "text-white/60 hover:bg-white/10 hover:text-white")
+        "min-w-[40px] rounded-full px-3 py-1.5 text-[11px] font-semibold tracking-[0.14em] transition " +
+        (lang === code
+          ? "bg-gradient-to-r from-blue-600 to-indigo-500 text-white shadow-[0_8px_22px_rgba(37,99,235,0.35)]"
+          : "text-white/60 hover:bg-white/8 hover:text-white")
       }
       aria-pressed={lang === code}
     >
@@ -28,7 +30,7 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
   );
 
   return (
-    <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
+    <div className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-slate-900/70 p-1 shadow-[0_16px_40px_rgba(2,6,23,0.3)]">
       <Btn code="en" />
       <Btn code="ru" />
     </div>
