@@ -4,8 +4,6 @@ import Blocks from "@/components/Blocks";
 import { asLang } from "@/lib/i18n";
 import { getSiteUrl } from "@/lib/site-url";
 import { getSiteSettingsSafe } from "@/lib/site-settings";
-import { prisma } from "@/lib/prisma";
-import HomeTrustSection from "@/components/HomeTrustSection";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -64,20 +62,10 @@ export default async function Home({
 
   const page = await getPageByKey("home");
   const blocks = pickLang<any[]>(lang, page?.blocksJson);
-  const stepsIndex = Array.isArray(blocks) ? blocks.findIndex((block) => block?.type === "steps") : -1;
-  const primaryBlocks = stepsIndex >= 0 ? blocks.slice(0, stepsIndex + 1) : blocks;
-  const trailingBlocks = stepsIndex >= 0 ? blocks.slice(stepsIndex + 1) : [];
-  const [serviceCount, managerCount, reviewCount] = await Promise.all([
-    prisma.service.count({ where: { isPublished: true } }),
-    prisma.manager.count({ where: { isActive: true } }),
-    prisma.review.count({ where: { isPublished: true } }),
-  ]);
 
   return (
     <div className="space-y-12">
-      <Blocks blocks={primaryBlocks} lang={lang} />
-      <HomeTrustSection lang={lang} serviceCount={serviceCount} managerCount={managerCount} reviewCount={reviewCount} />
-      {trailingBlocks.length ? <Blocks blocks={trailingBlocks} lang={lang} /> : null}
+      <Blocks blocks={blocks} lang={lang} />
     </div>
   );
 }
