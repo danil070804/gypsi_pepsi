@@ -58,11 +58,6 @@ export default async function Blog({
   ]);
 
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
-  const formatDate = new Intl.DateTimeFormat(lang === "ru" ? "ru-RU" : "en-GB", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
 
   return (
     <div className="space-y-8 md:space-y-10">
@@ -71,30 +66,9 @@ export default async function Blog({
         title={t(lang, "Блог", "Blog")}
         description={t(
           lang,
-          "Новости, полезные материалы и разборы по трудоустройству, документам и адаптации в Великобритании.",
-          "Updates, helpful articles, and practical breakdowns on employment, documents, and adaptation in the United Kingdom."
+          "Полезные материалы о работе, документах и адаптации в Великобритании.",
+          "Useful materials about jobs, documents, and adaptation in the United Kingdom."
         )}
-        aside={
-          <>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/45">
-                {t(lang, "Публикации", "Posts")}
-              </div>
-              <div className="mt-2 text-2xl font-semibold text-white">{total}</div>
-              <div className="mt-1 text-sm leading-6 text-white/65">
-                {t(lang, "материалов уже опубликовано", "articles already published")}
-              </div>
-            </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
-              <div className="text-sm font-semibold text-white">
-                {t(lang, "Без лишней воды", "Straight to the point")}
-              </div>
-              <div className="mt-2 text-sm leading-6 text-white/65">
-                {t(lang, "Только полезные тексты, которые помогают понять процесс заранее.", "Only useful texts that help you understand the process in advance.")}
-              </div>
-            </div>
-          </>
-        }
       />
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -102,25 +76,24 @@ export default async function Blog({
           const slug = lang === "ru" ? p.slugRu : p.slugEn;
           const title = lang === "ru" ? p.titleRu : p.titleEn;
           const excerpt = lang === "ru" ? p.excerptRu : p.excerptEn;
-          const publishedAt = p.publishedAt ? formatDate.format(p.publishedAt) : null;
           return (
             <Link
               key={p.id}
               href={`/${lang}/blog/${slug}`}
-              className="group rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_20px_60px_rgba(2,6,23,0.24)] transition hover:-translate-y-1 hover:border-sky-200/15 hover:bg-white/[0.06]"
+              className="group rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_18px_54px_rgba(2,6,23,0.2)] transition hover:-translate-y-1 hover:border-sky-200/15 hover:bg-white/[0.06]"
             >
-              <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/45">
-                {publishedAt || t(lang, "Материал", "Article")}
-              </div>
-              <h2 className="mt-4 pt-1 text-xl font-semibold leading-[1.12] text-white transition group-hover:text-sky-100">
+              <h2 className="text-xl font-semibold leading-[1.08] text-white transition group-hover:text-sky-100">
                 {title}
               </h2>
-              <p className="mt-3 text-sm leading-7 text-white/70">
+              <p
+                className="mt-3 text-sm leading-7 text-white/70"
+                style={{ display: "-webkit-box", overflow: "hidden", WebkitBoxOrient: "vertical", WebkitLineClamp: 4 }}
+              >
                 {excerpt}
               </p>
-              <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-sky-200/80 transition group-hover:text-sky-100">
+              <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-sky-300/25 bg-sky-400/10 px-3.5 py-2 text-sm font-semibold text-sky-100 shadow-[0_10px_24px_rgba(14,165,233,0.12)] transition group-hover:border-sky-200/35 group-hover:bg-sky-400/18">
                 <span>{t(lang, "Читать", "Read")}</span>
-                <span aria-hidden>+</span>
+                <span aria-hidden>→</span>
               </div>
             </Link>
           );

@@ -52,30 +52,9 @@ export default async function ServicesPage({
         title={t(lang, "Услуги", "Services")}
         description={t(
           lang,
-          "Выберите нужную услугу и откройте подробности. Каждая карточка ведёт на отдельную страницу с полным описанием и следующим шагом.",
-          "Choose the service you need and open the details. Each card leads to a separate page with the full description and the next step."
+          "Выберите направление и откройте подробности.",
+          "Choose a direction and open the details."
         )}
-        aside={
-          <>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/45">
-                {t(lang, "Доступно", "Available")}
-              </div>
-              <div className="mt-2 text-2xl font-semibold text-white">{services.length}</div>
-              <div className="mt-1 text-sm leading-6 text-white/65">
-                {t(lang, "актуальных направлений сопровождения", "active guidance directions")}
-              </div>
-            </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
-              <div className="text-sm font-semibold text-white">
-                {t(lang, "Официально и по шагам", "Official and step by step")}
-              </div>
-              <div className="mt-2 text-sm leading-6 text-white/65">
-                {t(lang, "От первой консультации до выхода на работу и адаптации.", "From the first consultation to job start and adaptation.")}
-              </div>
-            </div>
-          </>
-        }
       />
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -90,14 +69,14 @@ export default async function ServicesPage({
         })}
       </div>
 
-      <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.03] p-6 shadow-[0_24px_80px_rgba(2,6,23,0.24)] md:p-8">
+      <div className="rounded-[1.6rem] border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.03] p-6 shadow-[0_18px_60px_rgba(2,6,23,0.2)] md:p-7">
         <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">
           {t(lang, "Следующий шаг", "Next step")}
         </div>
         <div className="pt-1 text-2xl font-semibold leading-[1.1] text-white md:text-3xl">
           {t(lang, "Нужна консультация?", "Need a consultation?")}
         </div>
-        <p className="mt-3 max-w-2xl text-sm leading-7 text-white/70 md:text-base">
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-white/70 md:text-[15px]">
           {t(
             lang,
             "Выберите менеджера и свяжитесь удобным способом.",

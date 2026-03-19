@@ -27,18 +27,22 @@ export default function ServiceCardReveal({
         </div>
 
         <div className="relative flex h-full flex-col">
-          <div className="inline-flex w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">
-            {lang === "ru" ? "Услуга" : "Service"}
-          </div>
-          <div className="mt-4 text-xl font-semibold leading-[1.14] text-white">{title}</div>
-          {excerpt ? <p className="mt-3 flex-1 text-sm leading-7 text-white/72">{excerpt}</p> : <div className="flex-1" />}
+          <div className="text-xl font-semibold leading-[1.12] text-white">{title}</div>
+          {excerpt ? (
+            <p
+              className="mt-3 flex-1 text-sm leading-7 text-white/72"
+              style={{ display: "-webkit-box", overflow: "hidden", WebkitBoxOrient: "vertical", WebkitLineClamp: 4 }}
+            >
+              {excerpt}
+            </p>
+          ) : <div className="flex-1" />}
           <div className="mt-6">
             <Link
               href={`/${lang}/services/${slug}`}
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 ring-1 ring-blue-300/30 transition hover:brightness-110"
             >
               <span>{lang === "ru" ? "Подробнее" : "Learn more"}</span>
-              <span aria-hidden>+</span>
+              <span aria-hidden>→</span>
             </Link>
           </div>
         </div>
@@ -59,15 +63,19 @@ export default function ServiceCardReveal({
       </div>
 
       <div className="relative flex h-full flex-col">
-        <div className="inline-flex w-fit rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">
-          {lang === "ru" ? "Услуга" : "Service"}
-        </div>
-        <div className="mt-4 text-xl font-semibold leading-[1.14] text-white">{title}</div>
-        {excerpt ? <p className="mt-3 flex-1 text-sm leading-7 text-white/72">{excerpt}</p> : <div className="flex-1" />}
+        <div className="text-xl font-semibold leading-[1.12] text-white">{title}</div>
+        {excerpt ? (
+          <p
+            className="mt-3 flex-1 text-sm leading-7 text-white/72"
+            style={{ display: "-webkit-box", overflow: "hidden", WebkitBoxOrient: "vertical", WebkitLineClamp: 4 }}
+          >
+            {excerpt}
+          </p>
+        ) : <div className="flex-1" />}
         <div className="mt-6">
           <Link href={`/${lang}/services/${slug}`} className="inline-flex rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-blue-900/40 ring-1 ring-blue-300/30 transition hover:opacity-95">
             <span>{lang === "ru" ? "Подробнее" : "Learn more"}</span>
-            <span aria-hidden className="ml-2">+</span>
+            <span aria-hidden className="ml-2">→</span>
           </Link>
         </div>
       </div>

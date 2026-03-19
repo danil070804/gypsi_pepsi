@@ -153,30 +153,9 @@ export default async function Contact({
         title={t(lang, "Выбор менеджера", "Choose a manager")}
         description={t(
           lang,
-          "Откройте карточку нужного менеджера и выберите удобный способ связи. Показываются только заполненные контакты.",
-          "Open the card of the manager you need and choose the most convenient way to get in touch. Only filled contact methods are shown."
+          "Выберите менеджера и свяжитесь удобным способом.",
+          "Choose a manager and contact them in the most convenient way."
         )}
-        aside={
-          <>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/45">
-                {t(lang, "Активно", "Active")}
-              </div>
-              <div className="mt-2 text-2xl font-semibold text-white">{managers.length}</div>
-              <div className="mt-1 text-sm leading-6 text-white/65">
-                {t(lang, "менеджеров доступны сейчас", "managers available right now")}
-              </div>
-            </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.05] p-4">
-              <div className="text-sm font-semibold text-white">
-                {t(lang, "Связь без лишних шагов", "Contact without extra steps")}
-              </div>
-              <div className="mt-2 text-sm leading-6 text-white/65">
-                {t(lang, "WhatsApp, Telegram, Instagram и email прямо из карточки.", "WhatsApp, Telegram, Instagram, and email directly from the card.")}
-              </div>
-            </div>
-          </>
-        }
       />
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
