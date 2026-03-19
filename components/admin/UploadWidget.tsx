@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 
 export default function UploadWidget({
   onUploaded,
@@ -10,10 +10,17 @@ export default function UploadWidget({
   label?: string;
   targetInputId?: string;
 }) {
+  const uploadInputId = useId();
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [lastUrl, setLastUrl] = useState<string | null>(null);
+
+  function syncInputValue(el: HTMLInputElement, value: string) {
+    el.value = value;
+    el.dispatchEvent(new Event("input", { bubbles: true }));
+    el.dispatchEvent(new Event("change", { bubbles: true }));
+  }
 
   async function upload(file: File) {
     setBusy(true);
@@ -29,7 +36,7 @@ export default function UploadWidget({
 
       if (targetInputId) {
         const el = document.getElementById(targetInputId) as HTMLInputElement | null;
-        if (el) el.value = data.url;
+        if (el) syncInputValue(el, data.url);
       }
       onUploaded?.(data.url);
     } catch (e: any) {
@@ -41,11 +48,11 @@ export default function UploadWidget({
 
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <label htmlFor="upload" className="sr-only">
+      <label htmlFor={uploadInputId} className="sr-only">
         Загрузить файл
       </label>
       <input
-        id="upload"
+        id={uploadInputId}
         ref={inputRef}
         type="file"
         accept="image/*"

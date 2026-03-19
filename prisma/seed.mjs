@@ -1,47 +1,22 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { readContentSnapshot } from "./content-snapshot.mjs";
 
 const prisma = new PrismaClient();
 
-const services = [
-  { slug: "consult-info", titleRu: "Консультация и информация", titleEn: "Consultation & Information" },
-  { slug: "documentation", titleRu: "Документы и оформление", titleEn: "Documentation" },
-  { slug: "visa", titleRu: "Визы и легализация", titleEn: "Visa Support" },
-  { slug: "transfer", titleRu: "Трансфер и сопровождение", titleEn: "Transfer" },
-  { slug: "shelter", titleRu: "Жильё и размещение", titleEn: "Shelter" },
-  { slug: "after-support", titleRu: "Поддержка после трудоустройства", titleEn: "After-support" },
-];
+function asNullableString(value) {
+  return value ? String(value) : null;
+}
 
-function blocksHome(lang) {
-  return [
-    {
-      type: "hero",
-      title: lang === "ru" ? "Трудоустройство в UK — с агентством, которое ведёт до результата" : "UK Employment — guided end-to-end by a trusted agency",
-      subtitle: lang === "ru" ? "Подбор вакансий, документы, визовая поддержка и сопровождение." : "Vacancies, paperwork, visa guidance and ongoing support.",
-      ctas: [
-        { label: lang === "ru" ? "Услуги" : "Services", href: `/${lang}/services` },
-        { label: lang === "ru" ? "Консультация" : "Consultation", href: `/${lang}/contact` },
-      ],
-    },
-    {
-      type: "steps",
-      title: lang === "ru" ? "3 шага к работе" : "3 steps to your job",
-      items: [
-        { title: lang === "ru" ? "Заявка" : "Request", text: lang === "ru" ? "Оставляете заявку и выбираете менеджера." : "Send a request and choose a manager." },
-        { title: lang === "ru" ? "Подготовка" : "Preparation", text: lang === "ru" ? "Документы, консультации, план действий." : "Docs, guidance, clear plan." },
-        { title: lang === "ru" ? "Выход на работу" : "Start", text: lang === "ru" ? "Сопровождаем до выхода и дальше." : "We support you until start and after." },
-      ],
-    },
-    {
-      type: "cta",
-      title: lang === "ru" ? "Выберите менеджера и получите консультацию" : "Choose a manager and get a consultation",
-      buttonLabel: lang === "ru" ? "Выбрать менеджера" : "Choose manager",
-      href: `/${lang}/contact`,
-    },
-  ];
+function asPublishedAt(value) {
+  if (!value) return null;
+
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date;
 }
 
 async function main() {
+  const content = await readContentSnapshot();
   const adminEmail = process.env.ADMIN_EMAIL || "admin@example.com";
   const adminPassword = process.env.ADMIN_PASSWORD || "change-me-strong";
 
@@ -56,193 +31,148 @@ async function main() {
     update: {},
     create: {
       id: 1,
-      brandName: "GYPSEY EMPLOYMENT AGENCY",
-      legalCompanyName: "GYPSEY EMPLOYMENT AGENCY LTD",
-      legalCompanyNameRu: "GYPSEY EMPLOYMENT AGENCY LTD",
-      legalCompanyNameEn: "GYPSEY EMPLOYMENT AGENCY LTD",
-      legalCompanyNumber: "04500667",
-      legalRegisteredOffice: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
-      legalRegisteredOfficeRu: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
-      legalRegisteredOfficeEn: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
-      legalStatus: "Active",
-      legalIncorporated: "1 August 2002",
-      footerAddressRu: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
-      footerAddressEn: "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
-
-      defaultMetaTitleRu: "",
-      defaultMetaTitleEn: "",
-      defaultMetaDescriptionRu: "",
-      defaultMetaDescriptionEn: "",
+      brandName: content.siteSettings.brandName,
+      footerEmail: asNullableString(content.siteSettings.footerEmail),
+      footerPhone: asNullableString(content.siteSettings.footerPhone),
+      footerAddressRu: asNullableString(content.siteSettings.footerAddressRu),
+      footerAddressEn: asNullableString(content.siteSettings.footerAddressEn),
+      socialsWhatsapp: asNullableString(content.siteSettings.socialsWhatsapp),
+      socialsTelegram: asNullableString(content.siteSettings.socialsTelegram),
+      socialsInstagram: asNullableString(content.siteSettings.socialsInstagram),
+      legalCompanyName: content.siteSettings.legalCompanyName,
+      legalCompanyNameRu: asNullableString(content.siteSettings.legalCompanyNameRu),
+      legalCompanyNameEn: asNullableString(content.siteSettings.legalCompanyNameEn),
+      legalCompanyNumber: content.siteSettings.legalCompanyNumber,
+      legalRegisteredOffice: content.siteSettings.legalRegisteredOffice,
+      legalRegisteredOfficeRu: asNullableString(content.siteSettings.legalRegisteredOfficeRu),
+      legalRegisteredOfficeEn: asNullableString(content.siteSettings.legalRegisteredOfficeEn),
+      legalStatus: content.siteSettings.legalStatus,
+      legalIncorporated: content.siteSettings.legalIncorporated,
+      defaultMetaTitleRu: asNullableString(content.siteSettings.defaultMetaTitleRu),
+      defaultMetaTitleEn: asNullableString(content.siteSettings.defaultMetaTitleEn),
+      defaultMetaDescriptionRu: asNullableString(content.siteSettings.defaultMetaDescriptionRu),
+      defaultMetaDescriptionEn: asNullableString(content.siteSettings.defaultMetaDescriptionEn),
     },
   });
 
-  // Pages
-  const pages = [
-    { key: "home", titleRu: "Главная", titleEn: "Home", blocksJson: { ru: blocksHome("ru"), en: blocksHome("en") } },
-    {
-      key: "about",
-      titleRu: "О нас",
-      titleEn: "About",
-      blocksJson: {
-        ru: [
-          { type: "richText", title: "О компании", text: "GYPSEY EMPLOYMENT AGENCY LTD — агентство трудоустройства в Великобритании. Мы сопровождаем соискателей на каждом шаге." },
-          { type: "legal" }
-        ],
-        en: [
-          { type: "richText", title: "About the company", text: "GYPSEY EMPLOYMENT AGENCY LTD is a UK employment agency. We support candidates at every step." },
-          { type: "legal" }
-        ],
-      },
-    },
-    {
-      key: "privacy",
-      titleRu: "Политика конфиденциальности",
-      titleEn: "Privacy Policy",
-      blocksJson: {
-        ru: [{ type: "richText", title: "Политика конфиденциальности", text: "Текст политики заполняется через админку." }],
-        en: [{ type: "richText", title: "Privacy Policy", text: "Policy text is editable in the admin panel." }],
-      },
-    },
-    {
-      key: "cookies",
-      titleRu: "Cookies Policy",
-      titleEn: "Cookies Policy",
-      blocksJson: {
-        ru: [{ type: "richText", title: "Cookies Policy", text: "Текст политики заполняется через админку." }],
-        en: [{ type: "richText", title: "Cookies Policy", text: "Policy text is editable in the admin panel." }],
-      },
-    },
-  ];
-
-  for (const p of pages) {
+  for (const page of content.pages) {
     await prisma.page.upsert({
-      where: { key: p.key },
+      where: { key: page.key },
       update: {},
       create: {
-        key: p.key,
-        titleRu: p.titleRu,
-        titleEn: p.titleEn,
-        blocksJson: p.blocksJson,
-        isPublished: true,
+        key: page.key,
+        titleRu: page.titleRu,
+        titleEn: page.titleEn,
+        blocksJson: page.blocksJson,
+        metaTitleRu: asNullableString(page.metaTitleRu),
+        metaTitleEn: asNullableString(page.metaTitleEn),
+        metaDescRu: asNullableString(page.metaDescRu),
+        metaDescEn: asNullableString(page.metaDescEn),
+        ogImageUrl: asNullableString(page.ogImageUrl),
+        isPublished: page.isPublished ?? true,
       },
     });
   }
 
-  // Services
-  for (let i = 0; i < services.length; i++) {
-    const s = services[i];
-    const excerptRu = "Короткое описание услуги — редактируется в админке.";
-    const excerptEn = "Short service description — editable in admin.";
-    const contentRu = [
-      { type: "richText", title: s.titleRu, text: "Контент услуги блоками. Можно вставлять CTA блоки где нужно." },
-      { type: "cta", title: "Выбрать менеджера", buttonLabel: "Консультация", href: "/ru/contact" },
-    ];
-    const contentEn = [
-      { type: "richText", title: s.titleEn, text: "Service content as blocks. You can insert CTA blocks as needed." },
-      { type: "cta", title: "Choose a manager", buttonLabel: "Consultation", href: "/en/contact" },
-    ];
-
+  for (const service of content.services) {
     await prisma.service.upsert({
-      where: { slug: s.slug },
+      where: { slug: service.slug },
       update: {},
       create: {
-        slug: s.slug,
-        titleRu: s.titleRu,
-        titleEn: s.titleEn,
-        excerptRu,
-        excerptEn,
-        contentRu,
-        contentEn,
-        isPublished: true,
-        sortOrder: i,
+        slug: service.slug,
+        titleRu: service.titleRu,
+        titleEn: service.titleEn,
+        excerptRu: service.excerptRu,
+        excerptEn: service.excerptEn,
+        contentRu: service.contentRu,
+        contentEn: service.contentEn,
+        metaTitleRu: asNullableString(service.metaTitleRu),
+        metaTitleEn: asNullableString(service.metaTitleEn),
+        metaDescRu: asNullableString(service.metaDescRu),
+        metaDescEn: asNullableString(service.metaDescEn),
+        ogImageUrl: asNullableString(service.ogImageUrl),
+        isPublished: service.isPublished ?? true,
+        sortOrder: Number(service.sortOrder || 0),
       },
     });
   }
 
-  // Sample managers
-  const mgrCount = await prisma.manager.count();
-  if (mgrCount === 0) {
+  if ((await prisma.manager.count()) === 0 && content.managers.length > 0) {
     await prisma.manager.createMany({
-      data: [
-        {
-          nameRu: "Анна",
-          nameEn: "Anna",
-          roleRu: "Менеджер",
-          roleEn: "Manager",
-          whatsapp: "+447000000001",
-          telegram: "anna_support",
-          instagram: "anna.agency",
-          email: "anna@example.com",
-          isActive: true,
-          sortOrder: 0,
-        },
-        {
-          nameRu: "Майкл",
-          nameEn: "Michael",
-          roleRu: "Консультант",
-          roleEn: "Consultant",
-          telegram: "michael_hr",
-          email: "michael@example.com",
-          isActive: true,
-          sortOrder: 1,
-        },
-      ],
+      data: content.managers.map((manager, index) => ({
+        id: asNullableString(manager.id) || undefined,
+        nameRu: manager.nameRu,
+        nameEn: manager.nameEn,
+        roleRu: asNullableString(manager.roleRu),
+        roleEn: asNullableString(manager.roleEn),
+        photoUrl: asNullableString(manager.photoUrl),
+        whatsapp: asNullableString(manager.whatsapp),
+        telegram: asNullableString(manager.telegram),
+        instagram: asNullableString(manager.instagram),
+        email: asNullableString(manager.email),
+        isActive: manager.isActive ?? true,
+        sortOrder: Number(manager.sortOrder ?? index),
+      })),
     });
   }
 
-  // FAQ + Reviews + Blog sample
-  if ((await prisma.fAQ.count()) === 0) {
+  if ((await prisma.fAQ.count()) === 0 && content.faqs.length > 0) {
     await prisma.fAQ.createMany({
-      data: [
-        {
-          questionRu: "Сколько времени занимает процесс?",
-          questionEn: "How long does the process take?",
-          answerRu: "Зависит от ситуации и документов. Обычно от нескольких дней до нескольких недель.",
-          answerEn: "It depends on your situation and paperwork. Usually from a few days to a few weeks.",
-          isPublished: true,
-          sortOrder: 0,
-        },
-      ],
+      data: content.faqs.map((faq, index) => ({
+        id: asNullableString(faq.id) || undefined,
+        questionRu: faq.questionRu,
+        questionEn: faq.questionEn,
+        answerRu: faq.answerRu,
+        answerEn: faq.answerEn,
+        isPublished: faq.isPublished ?? true,
+        sortOrder: Number(faq.sortOrder ?? index),
+      })),
     });
   }
 
-  if ((await prisma.review.count()) === 0) {
+  if ((await prisma.review.count()) === 0 && content.reviews.length > 0) {
     await prisma.review.createMany({
-      data: [
-        {
-          authorName: "Client A",
-          textRu: "Спасибо! Всё было понятно и быстро.",
-          textEn: "Thank you! Everything was clear and fast.",
-          rating: 5,
-          isPublished: true,
-          sortOrder: 0,
-        },
-      ],
+      data: content.reviews.map((review, index) => ({
+        id: asNullableString(review.id) || undefined,
+        authorName: review.authorName,
+        textRu: review.textRu,
+        textEn: review.textEn,
+        rating: review.rating ? Number(review.rating) : null,
+        photoUrl: asNullableString(review.photoUrl),
+        isPublished: review.isPublished ?? true,
+        sortOrder: Number(review.sortOrder ?? index),
+      })),
     });
   }
 
-  if ((await prisma.blogPost.count()) === 0) {
-    await prisma.blogPost.create({
-      data: {
-        slugRu: "kak-nachat",
-        slugEn: "how-to-start",
-        titleRu: "Как начать поиск работы в UK",
-        titleEn: "How to start your UK job search",
-        excerptRu: "Короткое введение — редактируется в админке.",
-        excerptEn: "Short intro — editable in admin.",
-        contentRu: [{ type: "richText", title: "Статья", text: "Контент статьи — блоками. Можно расширять." }],
-        contentEn: [{ type: "richText", title: "Article", text: "Article content as blocks. You can expand it." }],
-        isPublished: true,
-        publishedAt: new Date(),
-      },
+  if ((await prisma.blogPost.count()) === 0 && content.blogPosts.length > 0) {
+    await prisma.blogPost.createMany({
+      data: content.blogPosts.map((post) => ({
+        slugRu: post.slugRu,
+        slugEn: post.slugEn,
+        titleRu: post.titleRu,
+        titleEn: post.titleEn,
+        excerptRu: post.excerptRu,
+        excerptEn: post.excerptEn,
+        contentRu: post.contentRu,
+        contentEn: post.contentEn,
+        coverImageUrl: asNullableString(post.coverImageUrl),
+        publishedAt: asPublishedAt(post.publishedAt),
+        isPublished: post.isPublished ?? false,
+        metaTitleRu: asNullableString(post.metaTitleRu),
+        metaTitleEn: asNullableString(post.metaTitleEn),
+        metaDescRu: asNullableString(post.metaDescRu),
+        metaDescEn: asNullableString(post.metaDescEn),
+        ogImageUrl: asNullableString(post.ogImageUrl),
+      })),
     });
   }
 }
 
 main()
   .then(() => prisma.$disconnect())
-  .catch(async (e) => {
-    console.error(e);
+  .catch(async (error) => {
+    console.error(error);
     await prisma.$disconnect();
     process.exit(1);
   });

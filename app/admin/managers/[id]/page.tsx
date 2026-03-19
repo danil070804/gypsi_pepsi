@@ -43,9 +43,7 @@ export default async function EditManagerPage({
           <Field label="Name (EN)"><Input name="nameEn" defaultValue={m.nameEn} required /></Field>
           <Field label="Role (RU)"><Input name="roleRu" defaultValue={m.roleRu || ""} /></Field>
           <Field label="Role (EN)"><Input name="roleEn" defaultValue={m.roleEn || ""} /></Field>
-          <div className="space-y-2">
           <PhotoUrlField defaultValue={m.photoUrl || ""} />
-          </div>
           <Field label="WhatsApp"><Input name="whatsapp" defaultValue={m.whatsapp || ""} /></Field>
           <Field label="Telegram"><Input name="telegram" defaultValue={m.telegram || ""} /></Field>
           <Field label="Instagram"><Input name="instagram" defaultValue={m.instagram || ""} /></Field>
@@ -56,9 +54,18 @@ export default async function EditManagerPage({
 
         <div className="flex flex-wrap gap-2 pt-3">
           <Button type="submit">Save</Button>
-          <form action={async () => { "use server"; await deleteManager(id); }}>
-            <Button type="submit" variant="danger">Delete</Button>
-          </form>
+          <Button
+            type="submit"
+            variant="danger"
+            formAction={async () => {
+              "use server";
+              await deleteManager(id);
+              redirect("/admin/managers");
+            }}
+            formNoValidate
+          >
+            Delete
+          </Button>
         </div>
       </form>
     </div>

@@ -22,6 +22,7 @@ export default async function Footer({ lang }: { lang: Lang }) {
           <div className="mt-4 flex flex-col gap-2 text-slate-300">
             <Link href={`/${lang}/services`}>{t(lang, "Услуги", "Services")}</Link>
             <Link href={`/${lang}/contact`}>{t(lang, "Выбор менеджера", "Choose manager")}</Link>
+            <Link href={`/${lang}/reviews`}>{t(lang, "Отзывы", "Reviews")}</Link>
             <Link href={`/${lang}/blog`}>{t(lang, "Блог", "Blog")}</Link>
             <Link href={`/${lang}/privacy`}>Privacy</Link>
             <Link href={`/${lang}/cookies`}>Cookies</Link>

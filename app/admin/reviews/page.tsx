@@ -32,9 +32,18 @@ export default async function ReviewsAdmin() {
           <form key={r.id} id={`review-${r.id}`} action={async (fd) => { "use server"; await updateReview(r.id, fd); }} className="space-y-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
             <div className="flex items-center justify-between gap-3">
               <div className="text-sm font-semibold">{r.authorName}</div>
-              <form action={async () => { "use server"; await deleteReview(r.id); }}>
-                <button className="rounded-lg border px-3 py-1.5 text-xs">Delete</button>
-              </form>
+              <Button
+                type="submit"
+                variant="danger"
+                className="px-3 py-1.5 text-xs"
+                formAction={async () => {
+                  "use server";
+                  await deleteReview(r.id);
+                }}
+                formNoValidate
+              >
+                Delete
+              </Button>
             </div>
 
             <ReviewFields photoDefault={r.photoUrl || ""} sortDefault={r.sortOrder} publishedDefault={r.isPublished} authorDefault={r.authorName} ratingDefault={r.rating || ""} textRuDefault={r.textRu} textEnDefault={r.textEn} />

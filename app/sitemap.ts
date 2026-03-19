@@ -8,7 +8,7 @@ export default async function sitemap() {
   const base = getSiteUrl();
 
   const staticPaths = [
-    "", "/about", "/services", "/contact", "/blog", "/privacy", "/cookies",
+    "", "/about", "/services", "/contact", "/reviews", "/blog", "/privacy", "/cookies",
   ];
 
   const [services, posts] = await Promise.all([

@@ -1,7 +1,6 @@
 import type { Lang } from "@/lib/i18n";
 import { getPageByKey, pickLang } from "@/lib/content";
 import Blocks from "@/components/Blocks";
-import { prisma } from "@/lib/prisma";
 import { asLang } from "@/lib/i18n";
 import { getSiteUrl } from "@/lib/site-url";
 import { getSiteSettingsSafe } from "@/lib/site-settings";
@@ -63,24 +62,6 @@ export default async function Home({
 
   const page = await getPageByKey("home");
   const blocks = pickLang<any>(lang, page?.blocksJson);
-
-  const reviews = await prisma.review.findMany({
-    where: { isPublished: true },
-    orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
-    take: 6,
-  });
-
-  const faqs = await prisma.fAQ.findMany({
-    where: { isPublished: true },
-    orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
-    take: 8,
-  });
-
-  const posts = await prisma.blogPost.findMany({
-    where: { isPublished: true },
-    orderBy: [{ publishedAt: "desc" }, { createdAt: "desc" }],
-    take: 6,
-  });
 
   return (
     <div className="space-y-12">

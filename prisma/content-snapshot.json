@@ -1,0 +1,608 @@
+{
+  "siteSettings": {
+    "brandName": "GYPSEY EMPLOYMENT AGENCY",
+    "footerEmail": "gypsey.employment.agency@gmail.com",
+    "footerPhone": null,
+    "footerAddressRu": "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
+    "footerAddressEn": "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
+    "socialsWhatsapp": null,
+    "socialsTelegram": null,
+    "socialsInstagram": null,
+    "legalCompanyName": "GYPSEY EMPLOYMENT AGENCY LTD",
+    "legalCompanyNumber": "04500667",
+    "legalRegisteredOffice": "32 The Crescent, Spalding, Lincolnshire, PE11 1AF",
+    "legalStatus": "Active",
+    "legalIncorporated": "1 August 2002",
+    "defaultMetaTitleRu": null,
+    "defaultMetaTitleEn": null,
+    "defaultMetaDescriptionRu": null,
+    "defaultMetaDescriptionEn": null
+  },
+  "pages": [
+    {
+      "key": "about",
+      "titleRu": "О нас",
+      "titleEn": "About",
+      "blocksJson": {
+        "en": [
+          {
+            "id": "ugomkd7r",
+            "html": "<p><strong>GYPSEY EMPLOYMENT AGENCY</strong> is an international recruitment agency that helps candidates from different countries secure legal and safe employment in the United Kingdom.</p><p>We support applicants at every stage - from the first inquiry to full workplace adaptation. Our goal is to make the process of employment abroad clear, transparent, and reliable.</p><p>Our work is based on the following principles:</p><ul><li><p>legality</p></li><li><p>transparency</p></li><li><p>responsibility</p></li><li><p>respect for every candidate<br><br></p></li></ul><p>We do not use intermediaries or questionable schemes. All vacancies are provided officially and only by verified employers.</p><h2><strong>What We Do</strong></h2><p>We provide a full cycle of candidate support, including:</p><ul><li><p>selection of current and legal vacancies;</p></li><li><p>professional consultations and assistance with document preparation;</p></li><li><p>coordination of arrival in the United Kingdom;</p></li><li><p>adaptation support;</p></li><li><p>ongoing communication with the employer;</p></li><li><p>monitoring of working conditions.<br><br></p></li></ul><p>Our clients receive professional guidance at every stage of employment.</p><h2><strong>Why Choose Us</strong></h2><p>Clients trust us because we offer:</p><ul><li><p>direct cooperation with British companies;</p></li><li><p>transparent and clear terms;</p></li><li><p>an individual approach;</p></li><li><p>an international team of specialists;</p></li><li><p>a high level of service;</p></li><li><p>continuous support.<br><br></p></li></ul><p>We focus on long-term cooperation and are committed to the stability of every candidate.</p><h2><strong>Our Experience</strong></h2><p>Today, <strong>GYPSEY EMPLOYMENT AGENCY</strong> cooperates with dozens of reliable employers across the United Kingdom and provides vacancies in the following sectors:</p><ul><li><p>logistics and warehouse operations;</p></li><li><p>hospitality;</p></li><li><p>catering and food service;</p></li><li><p>manufacturing;</p></li><li><p>agriculture;</p></li><li><p>construction.<br><br></p></li></ul><p>We help candidates find stable employment with opportunities for professional growth.</p><h2><strong>Our Mission</strong></h2><p>Our mission is to make international employment:</p><ul><li><p>safe;</p></li><li><p>legal;</p></li><li><p>accessible;</p></li><li><p>transparent.<br><br></p></li></ul><p>We create stable development opportunities and help candidates confidently build their future in the United Kingdom.</p><p>All processes - from vacancy search to starting work - are structured, organized, and professionally managed.</p><h2><strong>Our Vision</strong></h2><p>We are shaping a modern standard of international employment where:</p><ul><li><p>every stage is clear to the candidate;</p></li><li><p>documents are prepared correctly;</p></li><li><p>risks are minimized;</p></li><li><p>adaptation is smooth and comfortable.<br><br></p></li></ul><p>Our goal is to ensure full transparency and control of the process for every applicant.</p><h2><strong>Strategic Development</strong></h2><p>To improve service quality, we invest in:</p><ul><li><p>digital recruitment systems;</p></li><li><p>automation of document management;</p></li><li><p>expansion of our partner network;</p></li><li><p>standardization of candidate support processes.<br><br></p></li></ul><p>This allows us to accelerate processing times, improve vacancy matching accuracy, and maintain a high level of service.</p><h2><strong>Our Main Goal</strong></h2><p>Our goal is not only to help a person find a job.</p><p>We create conditions in which a candidate receives:</p><ul><li><p>official employment;</p></li><li><p>clear and transparent terms;</p></li><li><p>legally compliant documentation;</p></li><li><p>comfortable adaptation;</p></li><li><p>continuous professional support.<br><br></p></li></ul><p><strong>GYPSEY EMPLOYMENT AGENCY</strong> is a reliable partner that helps build a stable future and opens access to new opportunities in the United Kingdom.</p><p><br></p>",
+            "text": "GYPSEY EMPLOYMENT AGENCY LTD is a UK employment agency. We support candidates at every step.",
+            "type": "richText",
+            "title": "GYPSEY EMPLOYMENT AGENCY is an international recruitment agency"
+          },
+          {
+            "id": "ie9vnoca",
+            "html": "<p>The information provided on this website is for informational purposes only and does not constitute a public offer.</p><p>Final employment terms, including salary, working schedule, and job responsibilities, are determined by the employer and specified in the official employment contract.</p><p>The company provides candidate support in accordance with the applicable legislation of the United Kingdom.</p>",
+            "type": "legal",
+            "title": "Legal Information"
+          }
+        ],
+        "ru": [
+          {
+            "id": "17tjcmi4",
+            "html": "<p><strong>GYPSEY EMPLOYMENT AGENCY</strong> - международное кадровое агентство, которое помогает кандидатам из разных стран легально и безопасно трудоустроиться в Великобритании.</p><p>Мы сопровождаем соискателей на всех этапах - от первого обращения до полной адаптации на рабочем месте. Наша задача - сделать процесс трудоустройства за границей понятным, прозрачным и надёжным.</p><p>В основе нашей работы лежат принципы:</p><ul><li><p>законность</p></li><li><p>прозрачность</p></li><li><p>ответственность</p></li><li><p>уважение к каждому кандидату<br><br></p></li></ul><p>Мы не используем посредников и сомнительные схемы. Все вакансии предоставляются официально и только от проверенных работодателей.</p><h2><strong>Что мы делаем</strong></h2><p>Мы обеспечиваем полный цикл сопровождения кандидатов:</p><ul><li><p>подбор актуальных и легальных вакансий;</p></li><li><p>консультации и помощь в подготовке документов;</p></li><li><p>координация по приезду в Великобританию;</p></li><li><p>помощь в адаптации;</p></li><li><p>поддержка связи с работодателем;</p></li><li><p>контроль условий труда.<br><br></p></li></ul><p>Наши клиенты получают профессиональное сопровождение на каждом этапе трудоустройства.</p><h2><strong>Почему выбирают нас</strong></h2><p>Нам доверяют, потому что мы предлагаем:</p><ul><li><p>прямое сотрудничество с британскими компаниями;</p></li><li><p>прозрачные и понятные условия;</p></li><li><p>индивидуальный подход;</p></li><li><p>международную команду специалистов;</p></li><li><p>высокий уровень сервиса;</p></li><li><p>постоянную поддержку.<br><br></p></li></ul><p>Мы ориентированы на долгосрочное сотрудничество и заинтересованы в стабильности каждого кандидата.</p><h2><strong>Наш опыт</strong></h2><p>Сегодня <strong>GYPSEY EMPLOYMENT AGENCY</strong> сотрудничает с десятками надёжных работодателей по всей Великобритании и предоставляет вакансии в следующих сферах:</p><ul><li><p>логистика и складские операции;</p></li><li><p>гостиничный бизнес;</p></li><li><p>общественное питание;</p></li><li><p>производство;</p></li><li><p>сельское хозяйство;</p></li><li><p>строительство.<br><br></p></li></ul><p>Мы помогаем находить стабильную работу с перспективами профессионального роста.</p><p><br></p><h2><strong>Наша миссия</strong></h2><p>Наша миссия - сделать международное трудоустройство:</p><ul><li><p>безопасным;</p></li><li><p>легальным;</p></li><li><p>доступным;</p></li><li><p>прозрачным.<br><br></p></li></ul><p>Мы создаём стабильные возможности для развития и помогаем кандидатам уверенно строить будущее в Великобритании.</p><p>Все процессы - от поиска вакансии до выхода на работу - выстроены чётко, структурировано и профессионально.</p><h2><strong>Наше видение</strong></h2><p>Мы формируем современный стандарт международного трудоустройства, при котором:</p><ul><li><p>каждый этап понятен кандидату;</p></li><li><p>документы оформляются корректно;</p></li><li><p>риски сведены к минимуму;</p></li><li><p>адаптация проходит комфортно.<br><br></p></li></ul><p>Наша цель - обеспечить полную прозрачность и контроль процесса для каждого соискателя.</p><h2><strong>Стратегическое развитие</strong></h2><p>Для повышения качества услуг мы инвестируем в:</p><ul><li><p>цифровые системы подбора персонала;</p></li><li><p>автоматизацию документооборота;</p></li><li><p>расширение партнёрской сети;</p></li><li><p>стандартизацию процессов поддержки кандидатов.<br><br></p></li></ul><p>Это позволяет нам ускорять оформление, повышать точность подбора вакансий и обеспечивать высокий уровень сервиса.</p><p><br></p><h2><strong>Наша главная цель</strong></h2><p>Наша цель - не только помочь человеку найти работу.</p><p>Мы создаём условия, при которых кандидат получает:</p><ul><li><p>официальное трудоустройство;</p></li><li><p>понятные и прозрачные условия;</p></li><li><p>юридически корректное оформление;</p></li><li><p>комфортную адаптацию;</p></li><li><p>постоянную профессиональную поддержку.<br><br></p></li></ul><p><strong>GYPSEY EMPLOYMENT AGENCY</strong> - это надёжный партнёр, который помогает строить стабильное будущее и открывает доступ к новым возможностям в Великобритании.</p>",
+            "text": "GYPSEY EMPLOYMENT AGENCY LTD — агентство трудоустройства в Великобритании. Мы сопровождаем соискателей на каждом шаге.",
+            "type": "richText",
+            "title": "GYPSEY EMPLOYMENT AGENCY - международное кадровое агентство"
+          },
+          {
+            "id": "b8yvr49y",
+            "html": "<p>Информация на сайте представлена в ознакомительных целях и не является публичной офертой.</p><p>Окончательные условия трудоустройства, включая оплату, график работы и обязанности, определяются работодателем и закрепляются в официальном контракте.</p><p>Компания осуществляет сопровождение кандидатов в рамках действующего законодательства Великобритании.</p>",
+            "type": "legal",
+            "title": "Правовая информация"
+          }
+        ]
+      },
+      "metaTitleRu": null,
+      "metaTitleEn": null,
+      "metaDescRu": null,
+      "metaDescEn": null,
+      "ogImageUrl": null,
+      "isPublished": true
+    },
+    {
+      "key": "cookies",
+      "titleRu": "Cookies Policy",
+      "titleEn": "Cookies Policy",
+      "blocksJson": {
+        "en": [
+          {
+            "id": "wzl9jhi4",
+            "html": "<p><strong>GYPSEY EMPLOYMENT AGENCY</strong> uses cookies to ensure the proper functioning of the website, improve the user experience, and analyze site traffic.</p><h3><strong>What are cookies?</strong></h3><p>Cookies are small files that are stored on a user’s device when they visit a website.</p><h3><strong>Why we use cookies:</strong></h3><ul><li><p>To ensure the stable operation of the website;</p></li><li><p>To save user preferences;</p></li><li><p>To analyze website traffic;</p></li><li><p>To improve the quality of our services.<br><br></p></li></ul><h3><strong>Managing cookies</strong></h3><p>Users can change their cookie settings in their browser at any time. Please note that disabling cookies may affect the functionality of certain parts of the website.</p><h3><strong>Consent</strong></h3><p>By using our website, you agree to this Cookie Policy.</p><h3><strong>Contact</strong></h3><p>If you have any questions about our use of cookies, you can contact us via the feedback form on the website.</p><p><br></p>",
+            "text": "",
+            "type": "richText",
+            "title": "Cookies Policy"
+          }
+        ],
+        "ru": [
+          {
+            "id": "8d6bdu2x",
+            "html": "<p>Компания GYPSEY EMPLOYMENT AGENCY использует файлы cookie для обеспечения корректной работы сайта, улучшения пользовательского опыта и анализа посещаемости.</p><p>Cookie — это небольшие файлы, которые сохраняются на устройстве пользователя при посещении сайта.</p><p>Мы используем cookie для:</p><ul><li><p>стабильной работы сайта;</p></li><li><p>сохранения пользовательских настроек;</p></li><li><p>анализа трафика;</p></li><li><p>улучшения качества сервиса.<br><br></p></li></ul><p>Пользователь может в любое время изменить настройки cookie в своём браузере. Отключение cookie может повлиять на работу отдельных функций сайта.</p><p>Используя наш сайт, вы соглашаетесь с данной Политикой использования cookie.</p><p>По вопросам использования cookie вы можете обратиться через форму обратной связи на сайте.</p><p><br></p>",
+            "text": "",
+            "type": "richText",
+            "title": "Cookies Policy"
+          }
+        ]
+      },
+      "metaTitleRu": null,
+      "metaTitleEn": null,
+      "metaDescRu": null,
+      "metaDescEn": null,
+      "ogImageUrl": null,
+      "isPublished": true
+    },
+    {
+      "key": "home",
+      "titleRu": "Главная",
+      "titleEn": "Home",
+      "blocksJson": {
+        "en": [
+          {
+            "id": "brcviny1",
+            "ctas": [
+              {
+                "href": "/en/services",
+                "label": "Services"
+              },
+              {
+                "href": "/en/contact",
+                "label": "Consultation"
+              }
+            ],
+            "type": "hero",
+            "title": "GYPSEY EMPLOYMENT AGENCY - an international recruitment agency.",
+            "subtitle": "Selection of legal job vacancies, assistance with documentation, visa support, and guidance until full adaptation. We work directly with UK employers. Transparent. Legal. Reliable."
+          },
+          {
+            "id": "71ywhqg2",
+            "type": "steps",
+            "items": [
+              {
+                "text": "Submit an application and receive a personal consultation.  Our specialist will contact you to clarify your goals, experience, and preferences. We will select suitable vacancies and clearly explain the employment conditions, salary, and the application process.  From the very first step, you will clearly understand what will happen, how it will happen, and within what timeframe.",
+                "title": "Request"
+              },
+              {
+                "text": "Full support and document processing.  We assist in collecting and verifying all required documents, provide guidance on visa matters, and coordinate employment terms directly with the employer.",
+                "title": "Preparation"
+              },
+              {
+                "text": "Organized relocation and adaptation in the United Kingdom.  We coordinate your arrival, maintain communication with the employer, and continue to support you after you start working.  You are not left alone: assistance with accommodation, guidance on work-related matters, and monitoring of working conditions.  We support you until you are fully settled and adapted.",
+                "title": "Start"
+              }
+            ],
+            "title": "3 steps to your job"
+          },
+          {
+            "id": "q0zq26mo",
+            "href": "/en/contact",
+            "type": "cta",
+            "title": "Choose a manager and get a consultation",
+            "buttonLabel": "Choose manager"
+          }
+        ],
+        "ru": [
+          {
+            "id": "ov8q1l5d",
+            "ctas": [
+              {
+                "href": "/ru/services",
+                "label": "Услуги"
+              },
+              {
+                "href": "/ru/contact",
+                "label": "Консультация"
+              }
+            ],
+            "type": "hero",
+            "title": "GYPSEY EMPLOYMENT AGENCY - международное кадровое агентство.",
+            "subtitle": "Подбор легальных вакансий, помощь с документами, визовая поддержка и сопровождение до полной адаптации.  Работаем напрямую с британскими работодателями. Прозрачно. Законно. Надёжно."
+          },
+          {
+            "id": "ue4zk2kc",
+            "type": "steps",
+            "items": [
+              {
+                "text": "Оставьте заявку и получите персональную консультацию. Наш специалист свяжется с вами, уточнит цели, опыт и пожелания. Мы подберём подходящие вакансии и подробно объясним условия, зарплату и процесс оформления.   Вы с первого шага понимаете, что, как и в какие сроки будет происходить.",
+                "title": "Заявка"
+              },
+              {
+                "text": "Полное сопровождение и оформление документов. Мы помогаем собрать и проверить документы, консультируем по визовым вопросам, согласовываем условия с работодателем и организуем проживание.  Вы получаете: чёткий план действий, прозрачные условия, юридически корректное оформление, постоянную поддержку менеджера. Всё официально, понятно и без рисков.",
+                "title": "Подготовка"
+              },
+              {
+                "text": "Организованный выезд и адаптация в Великобритании. Мы координируем приезд, поддерживаем связь с работодателем и остаёмся на связи после начала работы.  Вы не остаётесь один: помощь при заселении, консультации по рабочим вопросам, контроль условий труда.  Мы сопровождаем вас до полной адаптации.",
+                "title": "Выход на работу"
+              }
+            ],
+            "title": "3 шага к работе"
+          },
+          {
+            "id": "udh4trim",
+            "href": "/ru/contact",
+            "type": "cta",
+            "title": "Выберите менеджера и получите консультацию",
+            "buttonLabel": "Выбрать менеджера"
+          }
+        ]
+      },
+      "metaTitleRu": null,
+      "metaTitleEn": null,
+      "metaDescRu": null,
+      "metaDescEn": null,
+      "ogImageUrl": null,
+      "isPublished": true
+    },
+    {
+      "key": "privacy",
+      "titleRu": "Политика конфиденциальности",
+      "titleEn": "Privacy Policy",
+      "blocksJson": {
+        "en": [
+          {
+            "id": "yhn6cs6w",
+            "html": "<p><strong>GYPSEY EMPLOYMENT AGENCY</strong> respects users’ right to privacy and is committed to protecting personal data in accordance with applicable legislation.</p><p>We collect and process personal data solely for the purpose of providing recruitment services, document preparation, visa support, and communication with candidates.</p><h2><strong>Collection and Use of Information</strong></h2><p>As part of our work with candidates, we may request the following information:</p><ul><li><p>first name, last name, and contact details;</p></li><li><p>citizenship details and identification documents;</p></li><li><p>information about education and work experience;</p></li><li><p>data required for employment and visa processing.<br><br></p></li></ul><p>All data is used exclusively to fulfill our obligations to candidates and employers.</p><h2><strong>Protection of Personal Data</strong></h2><p>We implement modern technical and organizational measures to protect information from unauthorized access, loss, alteration, or disclosure.</p><p>Access to personal data is granted only to authorized employees within the scope of their professional responsibilities.</p><h2><strong>Sharing of Data with Third Parties</strong></h2><p>Personal information may be shared with third parties only in the following cases:</p><ul><li><p>for employment and visa processing purposes;</p></li><li><p>for interaction with employers and official authorities;</p></li><li><p>in cases required by law.<br><br></p></li></ul><p>We do not share personal data with third parties for advertising or commercial purposes without the user’s consent.</p><h2><strong>Data Retention</strong></h2><p>Personal data is stored only for the period necessary to provide services and fulfill legal obligations.</p><p>Upon completion of cooperation, information is deleted or archived in accordance with established procedures.</p><h2><strong>User Rights</strong></h2><p>Users have the right to:</p><ul><li><p>receive information about their personal data;</p></li><li><p>request correction or deletion of their data;</p></li><li><p>withdraw consent to data processing;</p></li><li><p>contact us with questions regarding data protection.<br><br></p></li></ul><p>To exercise their rights, users may contact the company’s support service.</p><h2><strong>Policy Updates</strong></h2><p>The company reserves the right to make changes to this Privacy Policy. The current version is always available on the website.</p><h2><strong>Contact Information</strong></h2><p>For questions regarding the processing of personal data, you may contact us via the feedback form or through the official contact details provided on our website.</p><p><br></p>",
+            "text": "",
+            "type": "richText",
+            "title": "Privacy Policy"
+          }
+        ],
+        "ru": [
+          {
+            "id": "22cvnyp5",
+            "html": "<p>Компания <strong>GYPSEY EMPLOYMENT AGENCY</strong> уважает право пользователей на конфиденциальность и обязуется обеспечивать защиту персональных данных в соответствии с действующим законодательством.</p><p>Мы собираем и обрабатываем персональные данные исключительно в целях предоставления услуг по подбору вакансий, оформлению документов, визовому сопровождению и коммуникации с кандидатами.</p><h3><strong>Сбор и использование информации</strong></h3><p>В рамках работы с кандидатами мы можем запрашивать следующие данные:</p><ul><li><p>имя, фамилию, контактную информацию;</p></li><li><p>сведения о гражданстве и документах;</p></li><li><p>информацию об образовании и опыте работы;</p></li><li><p>данные, необходимые для трудоустройства и визового оформления.<br><br></p></li></ul><p>Все данные используются только для выполнения обязательств перед кандидатами и работодателями.</p><h3><strong>Защита персональных данных</strong></h3><p>Мы применяем современные технические и организационные меры для защиты информации от несанкционированного доступа, утраты, изменения или распространения.</p><p>Доступ к персональным данным имеют только уполномоченные сотрудники компании в рамках выполнения своих обязанностей.</p><h3><strong>Передача данных третьим лицам</strong></h3><p>Передача персональной информации третьим лицам возможна исключительно в следующих случаях:</p><ul><li><p>для оформления трудоустройства и визы;</p></li><li><p>для взаимодействия с работодателями и официальными органами;</p></li><li><p>в случаях, предусмотренных законодательством.<br><br></p></li></ul><p>Мы не передаём данные сторонним организациям в рекламных или коммерческих целях без согласия пользователя.</p><h3><strong>Хранение информации</strong></h3><p>Персональные данные хранятся только в течение срока, необходимого для оказания услуг и выполнения юридических обязательств.</p><p>По завершении сотрудничества информация удаляется или архивируется в установленном порядке.</p><h3><strong>Права пользователя</strong></h3><p>Пользователь имеет право:</p><ul><li><p>получать информацию о своих персональных данных;</p></li><li><p>требовать их изменения или удаления;</p></li><li><p>отозвать согласие на обработку;</p></li><li><p>обращаться с вопросами по защите информации.<br><br></p></li></ul><p>Для реализации своих прав пользователь может обратиться в службу поддержки компании.</p><h3><strong>Изменения политики</strong></h3><p>Компания оставляет за собой право вносить изменения в настоящую Политику конфиденциальности. Актуальная версия всегда размещается на сайте.</p><h3><strong>Контактная информация</strong></h3><p>По вопросам обработки персональных данных вы можете связаться с нами через форму обратной связи или по официальным контактам, указанным на сайте.</p><p><br></p>",
+            "text": "",
+            "type": "richText",
+            "title": "Политика конфиденциальности"
+          }
+        ]
+      },
+      "metaTitleRu": null,
+      "metaTitleEn": null,
+      "metaDescRu": null,
+      "metaDescEn": null,
+      "ogImageUrl": null,
+      "isPublished": true
+    }
+  ],
+  "services": [
+    {
+      "slug": "consult-info",
+      "titleRu": "Консультация и информация",
+      "titleEn": "Consultation & Information",
+      "excerptRu": "Профессиональная консультация по вопросам трудоустройства в Великобритании. Помогаем подобрать подходящую вакансию, объясняем требования работодателей и процесс оформления документов.",
+      "excerptEn": "Professional consultation on employment opportunities in the United Kingdom. We help candidates choose suitable vacancies and explain employer requirements and documentation procedures.",
+      "contentRu": [
+        {
+          "id": "lenbbccg",
+          "html": "<p>Мы предоставляем профессиональные консультации по вопросам трудоустройства в Великобритании.</p><p></p><p>Наши специалисты подробно объясняют процесс поиска работы, требования работодателей и особенности оформления документов. Мы помогаем кандидатам разобраться во всех этапах трудоустройства, чтобы процесс был понятным и безопасным.</p><p></p><p>В рамках консультации мы:</p><p></p><p>• рассказываем о доступных вакансиях и направлениях работы</p><p>• объясняем требования работодателей</p><p>• информируем о условиях труда и проживания</p><p>• консультируем по подготовке документов</p><p>• отвечаем на все вопросы, связанные с трудоустройством</p><p></p><p>Наша цель - предоставить кандидатам достоверную информацию и помочь принять правильное решение перед началом процесса трудоустройства.</p><p></p><p>Мы сопровождаем кандидатов на всех этапах - от первого обращения до начала работы в Великобритании.</p>",
+          "text": "",
+          "type": "richText",
+          "title": "Консультация и информация"
+        },
+        {
+          "id": "b2a1yszr",
+          "href": "/ru/contact",
+          "type": "cta",
+          "title": "Выбрать менеджера",
+          "buttonLabel": "Консультация"
+        }
+      ],
+      "contentEn": [
+        {
+          "id": "fyoe33os",
+          "html": "<p>We provide professional consultations on employment opportunities in the United Kingdom.</p><p></p><p>Our specialists explain the entire job placement process, employer requirements, and the documentation needed for legal employment. We help candidates clearly understand each step of the process and prepare for working abroad.</p><p></p><p>During the consultation we:</p><p></p><p>• provide information about available job vacancies</p><p>• explain employer requirements</p><p>• discuss working conditions and accommodation</p><p>• assist with document preparation guidance</p><p>• answer all questions related to employment in the UK</p><p></p><p>Our goal is to provide candidates with clear and reliable information so they can confidently begin the employment process.</p><p></p><p>We support candidates at every stage - from the first consultation to starting work in the United Kingdom.</p>",
+          "text": "",
+          "type": "richText",
+          "title": "Consultation and Information"
+        },
+        {
+          "id": "1umadzmd",
+          "href": "/en/contact",
+          "type": "cta",
+          "title": "Choose a manager",
+          "buttonLabel": "Consultation"
+        }
+      ],
+      "metaTitleRu": "Консультация и информация — трудоустройство в Великобритании | GYPSEY EMPLOYMENT AGENCY",
+      "metaTitleEn": "UK Employment Consultation | GYPSEY EMPLOYMENT AGENCY",
+      "metaDescRu": "Получите подробную консультацию по трудоустройству в Великобритании. Расскажем о вакансиях, требованиях работодателей, документах и процессе оформления.",
+      "metaDescEn": "Get professional consultation about employment in the United Kingdom. Learn about job opportunities, employer requirements, documents, and the full hiring process.",
+      "ogImageUrl": null,
+      "isPublished": true,
+      "sortOrder": 0
+    },
+    {
+      "slug": "documentation",
+      "titleRu": "Документы и оформление",
+      "titleEn": "Documentation & Processing",
+      "excerptRu": "Помощь в подготовке и оформлении документов для официального трудоустройства в Великобритании. Консультируем по требованиям и сопровождаем на всех этапах подготовки.",
+      "excerptEn": "Assistance with preparing and organizing documents required for legal employment in the United Kingdom.",
+      "contentRu": [
+        {
+          "id": "7962iu64",
+          "html": "<p>Мы оказываем профессиональную помощь в подготовке документов для трудоустройства в Великобритании.</p><p></p><p>Оформление документов является важным этапом международного трудоустройства. Наши специалисты помогают кандидатам правильно подготовить необходимые документы и избежать распространённых ошибок.</p><p></p><p>В рамках услуги мы:</p><p></p><p>• консультируем по перечню необходимых документов</p><p>• объясняем требования работодателей и миграционных процедур</p><p>• помогаем подготовить документы для подачи</p><p>• проверяем корректность заполнения</p><p>• сопровождаем кандидатов на всех этапах оформления</p><p></p><p>Наша задача - сделать процесс подготовки документов максимально понятным и безопасным для кандидата.</p><p></p><p>Мы обеспечиваем точность, прозрачность и профессиональное сопровождение на каждом этапе оформления.</p>",
+          "text": "Помощь в подготовке и оформлении документов для официального трудоустройства в Великобритании.",
+          "type": "richText",
+          "title": "Документы и оформление"
+        },
+        {
+          "id": "piuojnm1",
+          "href": "/ru/contact",
+          "type": "cta",
+          "title": "Выбрать менеджера",
+          "buttonLabel": "Консультация"
+        }
+      ],
+      "contentEn": [
+        {
+          "id": "m27i8zhc",
+          "html": "<p>We provide professional assistance with preparing documents required for employment in the United Kingdom.</p><p></p><p>Proper documentation is an essential part of international employment. Our specialists help candidates prepare all necessary paperwork correctly and understand the requirements involved in the process.</p><p></p><p>As part of this service, we:</p><p></p><p>• provide guidance on required documents</p><p>• explain employer and immigration requirements</p><p>• assist with document preparation</p><p>• review documents for accuracy</p><p>• support candidates throughout the documentation process</p><p></p><p>Our goal is to make the document preparation process clear, organized, and reliable for every candidate.</p><p></p><p>We ensure accuracy, transparency, and professional support at every stage of the process.</p>",
+          "text": "Assistance in preparing and completing documents for official employment in the UK.",
+          "type": "richText",
+          "title": "Documentation & Processing"
+        },
+        {
+          "id": "dz8x0euj",
+          "href": "/en/contact",
+          "type": "cta",
+          "title": "Choose a manager",
+          "buttonLabel": "Consultation"
+        }
+      ],
+      "metaTitleRu": "Документы и оформление для работы в Великобритании | GYPSEY EMPLOYMENT AGENCY",
+      "metaTitleEn": "Employment Documentation Support | GYPSEY EMPLOYMENT AGENCY",
+      "metaDescRu": "Помощь в подготовке документов для трудоустройства в Великобритании. Консультируем по требованиям, оформлению и всем этапам подачи документов.",
+      "metaDescEn": "Professional assistance with preparing documents for employment in the UK. We guide candidates through requirements, paperwork, and the application process.",
+      "ogImageUrl": null,
+      "isPublished": true,
+      "sortOrder": 1
+    },
+    {
+      "slug": "visa",
+      "titleRu": "Визы и легализация",
+      "titleEn": "Visa Support",
+      "excerptRu": "Сопровождение при оформлении визы и подготовке документов для официального трудоустройства в Великобритании. Консультируем по требованиям, формируем визовый пакет и сопровождаем кандидата на всех этапах процесса.",
+      "excerptEn": "Assistance with visa applications and document preparation for legal employment in the United Kingdom. We guide candidates through requirements, prepare the visa package, and support them throughout the entire process.",
+      "contentRu": [
+        {
+          "id": "ylk4wf1x",
+          "html": "<p><strong>GYPSEY EMPLOYMENT AGENCY</strong> предоставляет полное сопровождение при подготовке и оформлении документов, необходимых для легального трудоустройства в Великобритании.</p><p>Мы сопровождаем кандидатов на всех этапах визового процесса - от первичной проверки документов до подачи полного пакета и получения разрешения на работу. Наша команда контролирует корректность данных, соблюдение требований и сроки оформления.</p><p>Мы взаимодействуем с работодателями и консультируем кандидатов по всем юридическим и административным вопросам, связанным с оформлением визы.</p><p>Наша задача - сделать процесс оформления максимально понятным, прозрачным и безопасным.</p><h3><strong>Что включает услуга</strong></h3><p>• консультации по визовым требованиям<br>• проверка и подготовка документов<br>• формирование полного визового пакета<br>• взаимодействие с работодателем<br>• контроль сроков подачи документов</p><h3><strong>Поддержка кандидата</strong></h3><p>Наши специалисты помогают кандидатам:</p><p>• разобраться в требованиях к визе<br>• корректно подготовить документы<br>• избежать ошибок при подаче<br>• пройти все этапы оформления до выезда</p><p>Мы выстраиваем процесс таким образом, чтобы оформление документов проходило максимально эффективно и без лишних рисков.</p><p><br></p>",
+          "text": "",
+          "type": "richText",
+          "title": "Визы и легализация"
+        },
+        {
+          "id": "nug07roo",
+          "href": "/ru/contact",
+          "type": "cta",
+          "title": "Выбрать менеджера",
+          "buttonLabel": "Консультация"
+        }
+      ],
+      "contentEn": [
+        {
+          "id": "43u07zb5",
+          "html": "<p><strong>GYPSEY EMPLOYMENT AGENCY</strong> provides full assistance in preparing and processing the documents required for legal employment in the United Kingdom.</p><p>We support candidates throughout the entire visa process - from the initial document review to the submission of the complete application package and preparation for relocation. Our team ensures that all documentation is accurate, compliant with current requirements, and submitted on time.</p><p>We also coordinate with employers and provide candidates with guidance on all legal and administrative aspects related to visa processing.</p><p>Our goal is to make the visa process clear, structured, and reliable.</p><h3><strong>What the service includes</strong></h3><p>• consultation on visa requirements<br>• document verification and preparation<br>• preparation of the complete visa package<br>• coordination with the employer<br>• monitoring submission deadlines</p><h3><strong>Candidate support</strong></h3><p>Our specialists help candidates:</p><p>• understand visa requirements<br>• properly prepare documentation<br>• avoid application errors<br>• complete all stages before departure</p><p>We structure the process to ensure that visa and document preparation is efficient, transparent, and secure.</p><p><br></p>",
+          "text": "",
+          "type": "richText",
+          "title": "Visa Support"
+        },
+        {
+          "id": "jj6ujgmb",
+          "href": "/en/contact",
+          "type": "cta",
+          "title": "Choose a manager",
+          "buttonLabel": "Consultation"
+        }
+      ],
+      "metaTitleRu": "Визы и легализация для работы в Великобритании | GYPSEY EMPLOYMENT AGENCY",
+      "metaTitleEn": "Visa Support for Employment in the United Kingdom | GYPSEY EMPLOYMENT AGENCY",
+      "metaDescRu": "Сопровождение при оформлении визы и подготовке документов для официального трудоустройства в Великобритании. Полная поддержка кандидатов на каждом этапе.",
+      "metaDescEn": "Professional visa support and document preparation for legal employment in the UK. Full assistance for candidates throughout every stage of the process.",
+      "ogImageUrl": null,
+      "isPublished": true,
+      "sortOrder": 2
+    },
+    {
+      "slug": "transfer",
+      "titleRu": "Трансфер и сопровождение",
+      "titleEn": "Transfer",
+      "excerptRu": "Организация комфортного трансфера и сопровождения. Встреча, помощь в передвижении и сопровождение по необходимым локациям.",
+      "excerptEn": "Comfortable transfer and assistance service. We provide pickup, transportation, and сопровождение to required locations.",
+      "contentRu": [
+        {
+          "id": "vm2ye1h8",
+          "html": "<h3>Встреча и сопровождение</h3><p>Наш представитель или партнёрская служба встретят вас в аэропорту, на вокзале или в другом указанном месте. Мы поможем с багажом, сориентируем на месте и сопроводим до транспорта.</p><h3>Комфортный трансфер</h3><p>Мы заранее организуем подходящий транспорт — такси, минивэн или микроавтобус — с учётом количества пассажиров и багажа. Поездка проходит комфортно и без лишних ожиданий.</p><h3>Контроль времени прибытия</h3><p>Мы отслеживаем статус рейса или время вашего прибытия и корректируем трансфер при задержках. Вам не нужно беспокоиться о координации — всё будет организовано.</p><h3>Помощь по пути</h3><p>Во время поездки наш представитель может помочь с базовой информацией: как ориентироваться в городе, где находятся ближайшие магазины, банкоматы, остановки транспорта и другие важные места.</p><h3>Поддержка после прибытия</h3><p>По прибытии вы получите контактные данные менеджера и необходимую информацию для дальнейшего пребывания. Мы остаёмся на связи, чтобы помочь при необходимости.</p>",
+          "text": "",
+          "type": "richText",
+          "title": "Трансфер и сопровождение"
+        },
+        {
+          "id": "p3qxno5w",
+          "href": "/ru/contact",
+          "type": "cta",
+          "title": "Выбрать менеджера",
+          "buttonLabel": "Консультация"
+        }
+      ],
+      "contentEn": [
+        {
+          "id": "5enyumao",
+          "html": "<h3>Meet &amp; Greet Service</h3><p>Our representative or partner service will meet you at the airport, train station, or another agreed location. We assist with luggage and guide you to your transportation.</p><h3>Comfortable Transfer</h3><p>We arrange the most suitable vehicle in advance — taxi, minivan, or minibus — depending on the number of passengers and luggage, ensuring a comfortable journey.</p><h3>Arrival Monitoring</h3><p>We monitor your flight or arrival time and adjust the transfer in case of delays. You don’t need to worry about coordination — everything will be arranged for you.</p><h3>Assistance on the Way</h3><p>During the trip, our representative can provide helpful information about the city, including nearby shops, ATMs, transportation options, and other useful locations.</p><h3>Support After Arrival</h3><p>Upon arrival, you will receive the contact details of your manager along with important information for your first days. Our team remains available to assist you whenever needed.</p>",
+          "text": "",
+          "type": "richText",
+          "title": "Transfer"
+        },
+        {
+          "id": "p3d8yc1o",
+          "href": "/en/contact",
+          "type": "cta",
+          "title": "Choose a manager",
+          "buttonLabel": "Consultation"
+        }
+      ],
+      "metaTitleRu": "Трансфер и сопровождение - комфортные поездки и помощь",
+      "metaTitleEn": "Transfer & Assistance - Comfortable Transportation Service",
+      "metaDescRu": "Организуем трансфер и сопровождение: встреча в аэропорту, поездки по городу и помощь в передвижении. Комфортно, безопасно и без лишних хлопот.",
+      "metaDescEn": "We organize transfer and assistance services including airport pickup, city transportation, and personal support. Comfortable, safe, and convenient.",
+      "ogImageUrl": null,
+      "isPublished": true,
+      "sortOrder": 3
+    },
+    {
+      "slug": "shelter",
+      "titleRu": "Жильё и размещение",
+      "titleEn": "Accommodation & Housing",
+      "excerptRu": "Помогаем найти и организовать временное или долгосрочное жильё. Подбираем варианты размещения с учётом ваших потребностей, бюджета и удобства расположения.",
+      "excerptEn": "We help you find and arrange temporary or long-term accommodation. Our team selects housing options based on your needs, budget, and preferred location.",
+      "contentRu": [
+        {
+          "id": "59gyabzs",
+          "html": "<h3>Подбор подходящего жилья</h3><p>Мы помогаем найти жильё, которое соответствует вашим потребностям, бюджету и срокам проживания. Это может быть квартира, комната, апартаменты или временное размещение.</p><h3>Бронирование и организация проживания</h3><p>Наша команда помогает с бронированием жилья, уточняет условия проживания и обеспечивает удобное заселение без лишних сложностей.</p><h3>Временное размещение</h3><p>Если вам необходимо жильё на короткий срок, мы подберём комфортные варианты временного проживания до момента поиска постоянного жилья.</p><h3>Поддержка при заселении</h3><p>Мы сопровождаем процесс заселения, объясняем условия проживания и при необходимости помогаем решить организационные вопросы.</p><h3>Помощь после заселения</h3><p>Даже после размещения мы остаёмся на связи и готовы помочь с возникающими вопросами, связанными с проживанием или поиском других вариантов жилья.</p>",
+          "text": "",
+          "type": "richText",
+          "title": "Жильё и размещение"
+        },
+        {
+          "id": "bnxy2jvm",
+          "href": "/ru/contact",
+          "type": "cta",
+          "title": "Выбрать менеджера",
+          "buttonLabel": "Консультация"
+        }
+      ],
+      "contentEn": [
+        {
+          "id": "ddw63qxg",
+          "html": "<h3>Finding Suitable Accommodation</h3><p>We help you find housing that matches your needs, budget, and length of stay. Options may include apartments, rooms, hotels, or other accommodation types.</p><h3>Booking and Arrangement</h3><p>Our team assists with booking accommodation, confirming the details, and ensuring a smooth and convenient check-in process.</p><h3>Temporary Housing</h3><p>If you need a place to stay for a short period, we can arrange comfortable temporary accommodation until you find a long-term solution.</p><h3>Check-in Assistance</h3><p>We help coordinate the check-in process, explain accommodation rules, and assist with any necessary arrangements.</p><h3>Ongoing Support</h3><p>Even after you move in, our team remains available to help with questions related to accommodation or relocation.</p>",
+          "text": "",
+          "type": "richText",
+          "title": "Shelter"
+        },
+        {
+          "id": "sizax4o1",
+          "href": "/en/contact",
+          "type": "cta",
+          "title": "Choose a manager",
+          "buttonLabel": "Consultation"
+        }
+      ],
+      "metaTitleRu": "Жильё и размещение - помощь в поиске жилья и организации проживания",
+      "metaTitleEn": "Accommodation & Housing - Help with Finding a Place to Stay",
+      "metaDescRu": "Подбор временного и долгосрочного жилья: квартиры, комнаты, отели и другие варианты размещения. Помогаем с поиском, бронированием и организацией проживания.",
+      "metaDescEn": "Assistance with temporary and long-term accommodation. We help find apartments, rooms, or other housing options and assist with booking and settlement.",
+      "ogImageUrl": null,
+      "isPublished": true,
+      "sortOrder": 4
+    },
+    {
+      "slug": "after-support",
+      "titleRu": "Поддержка после трудоустройства",
+      "titleEn": "After-employment Support",
+      "excerptRu": "Мы сопровождаем кандидатов после трудоустройства в Великобритании: помогаем адаптироваться, взаимодействовать с работодателем и решать рабочие вопросы.",
+      "excerptEn": "We continue supporting candidates after employment in the UK, helping with adaptation, communication with employers, and resolving workplace matters.",
+      "contentRu": [
+        {
+          "id": "5c2a7tw7",
+          "html": "<p>Мы сопровождаем кандидатов не только до получения работы, но и после начала трудовой деятельности. Наша команда помогает адаптироваться, решать организационные вопросы и поддерживает связь с работодателем.</p><p>Что включает наша поддержка:</p><ul><li><p>консультации по рабочим вопросам</p></li><li><p>помощь в коммуникации с работодателем</p></li><li><p>поддержка в процессе адаптации</p></li><li><p>разъяснение условий труда</p></li><li><p>помощь в решении организационных вопросов</p></li><li><p>сопровождение в первые месяцы работы</p></li><li><p>Как работает поддержка</p><p><strong>1. Начало работы</strong><br>После выхода на работу мы остаёмся на связи и готовы помочь при возникновении любых вопросов.</p><p><strong>2. Адаптация на новом месте</strong><br>Мы помогаем разобраться с рабочими процессами, требованиями работодателя и бытовыми вопросами.</p><p><strong>3. Коммуникация с работодателем</strong><br>При необходимости мы помогаем корректно выстроить диалог между кандидатом и работодателем.</p><p><strong>4. Решение рабочих вопросов</strong><br>Если возникают сложности, наша команда помогает найти решение и обеспечивает сопровождение.</p><p><strong>5. Долгосрочная поддержка</strong><br>Мы остаёмся на связи и помогаем кандидатам в течение всего периода сотрудничества.</p></li></ul><p></p><p>Мы понимаем, что начало работы в другой стране может быть связано с новыми условиями и вопросами. Поэтому наша команда остаётся рядом и после трудоустройства.</p><p>Поддержка включает помощь в адаптации, разъяснение рабочих процессов и консультации по возникающим вопросам. Мы также поддерживаем связь с работодателями, чтобы обеспечить комфортные и прозрачные условия работы для каждого кандидата.</p><p>Наша задача - обеспечить стабильность, уверенность и комфорт в процессе работы за границей.</p>",
+          "text": "",
+          "type": "richText",
+          "title": "Поддержка после трудоустройства в Великобритании"
+        },
+        {
+          "id": "gbbdvtr5",
+          "href": "/ru/contact",
+          "type": "cta",
+          "title": "Выбрать менеджера",
+          "buttonLabel": "Консультация"
+        }
+      ],
+      "contentEn": [
+        {
+          "id": "7vpa5p5p",
+          "html": "<p>Our support does not end when you start working. We continue assisting candidates after employment, helping with adaptation, communication with employers, and workplace guidance.</p><p>Our support includes:</p><ul><li><p>guidance on workplace matters</p></li><li><p>assistance with employer communication</p></li><li><p>support during adaptation</p></li><li><p>clarification of employment conditions</p></li><li><p>help with organisational questions</p></li><li><p>support during the first months of employment</p></li><li><p>How the support works</p><p><strong>1. Start of employment</strong><br>Once you begin working, we remain in contact and are ready to assist with any questions.</p><p><strong>2. Workplace adaptation</strong><br>We help candidates understand work processes, employer requirements, and practical matters.</p><p><strong>3. Employer communication</strong><br>If needed, we assist in establishing effective communication between the candidate and the employer.</p><p><strong>4. Resolving workplace matters</strong><br>If any issues arise, our team helps find solutions and provides guidance.</p><p><strong>5. Ongoing support</strong><br>We stay in touch and provide assistance throughout the employment period.</p></li><li><p></p></li><li><p>Starting a job in another country can involve new processes and adjustments. That is why our team continues supporting candidates even after employment begins.</p><p>Our support includes guidance during the adaptation period, clarification of workplace processes, and assistance with any questions that may arise. We also maintain communication with employers to ensure transparent and comfortable working conditions.</p><p>Our goal is to provide stability, confidence, and support throughout your employment journey abroad.</p></li></ul>",
+          "text": "",
+          "type": "richText",
+          "title": "After-employment support in the UK"
+        },
+        {
+          "id": "rb8gkusc",
+          "href": "/en/contact",
+          "type": "cta",
+          "title": "Choose a manager",
+          "buttonLabel": "Consultation"
+        }
+      ],
+      "metaTitleRu": "Поддержка после трудоустройства в Великобритании | GYPSEY Employment Agency",
+      "metaTitleEn": "After-employment Support in the UK | GYPSEY Employment Agency",
+      "metaDescRu": "Профессиональная поддержка после трудоустройства в Великобритании. Помощь в адаптации, взаимодействии с работодателем и решении рабочих вопросов.",
+      "metaDescEn": null,
+      "ogImageUrl": null,
+      "isPublished": true,
+      "sortOrder": 5
+    }
+  ],
+  "managers": [
+    {
+      "id": "cmmanl75w000b1x2tshi4pqqf",
+      "nameRu": "Дмитрий Волков",
+      "nameEn": "Dmitriy Volkov",
+      "roleRu": "Менеджер",
+      "roleEn": "Manager",
+      "photoUrl": "/uploads/1773669753563_photo_2026-03-05_23-04-46.jpg",
+      "whatsapp": "https://wa.me/447346273116",
+      "telegram": "https://t.me/Volk_Dm1",
+      "instagram": null,
+      "email": null,
+      "isActive": true,
+      "sortOrder": 0
+    },
+    {
+      "id": "cmmanl75w000c1x2tdralaax6",
+      "nameRu": "Али Джафаров",
+      "nameEn": "Ali Jafarov",
+      "roleRu": "Менеджер",
+      "roleEn": "Manager",
+      "photoUrl": "/app/public/uploads/",
+      "whatsapp": "https://wa.me/447346254208",
+      "telegram": "https://t.me/Ali_gypsey",
+      "instagram": null,
+      "email": null,
+      "isActive": true,
+      "sortOrder": 1
+    }
+  ],
+  "faqs": [
+    {
+      "id": "cmmanl76j000d1x2tu6j8bbbm",
+      "questionRu": "Сколько времени занимает процесс?",
+      "questionEn": "How long does the process take?",
+      "answerRu": "Зависит от ситуации и документов. Обычно от нескольких дней до нескольких недель.",
+      "answerEn": "It depends on your situation and paperwork. Usually from a few days to a few weeks.",
+      "isPublished": true,
+      "sortOrder": 0
+    }
+  ],
+  "reviews": [
+    {
+      "id": "cmmanl777000e1x2tdheop3b6",
+      "authorName": "Азамат Токтогулов",
+      "textRu": "Честно сначала сомневался ехать или нет. Но решил попробовать. Сейчас работаю на ферме, условия хорошие, кормят нормально. Деньги платят без задержек. В целом доволен.",
+      "textEn": "To be honest first I was not sure go or no. But I try. Now working on farm, conditions good and food also ok. Money pay without delay. I am satisfied.",
+      "rating": 4,
+      "photoUrl": null,
+      "isPublished": true,
+      "sortOrder": 0
+    }
+  ],
+  "blogPosts": [
+    {
+      "slugRu": "kak-nachat",
+      "slugEn": "how-to-start-uk-job-search",
+      "titleRu": "Как начать поиск работы в UK в 2026 - пошаговое руководство",
+      "titleEn": "How to Start a UK Job Search in 2026 - Step-by-Step Guide",
+      "excerptRu": "Практическое руководство о том, как начать поиск работы в Великобритании: подготовка CV, настройка LinkedIn, поиск вакансий и работа с рекрутерами.",
+      "excerptEn": "A practical guide on how to start your job search in the UK: preparing your CV, optimising LinkedIn, finding vacancies and working with recruiters.",
+      "contentRu": [
+        {
+          "id": "6uog87tr",
+          "html": "<p>Как проходит трудоустройство в Великобритании через рекрутинговые компании</p><p>Работа в Великобритании продолжает оставаться привлекательной возможностью для людей из разных стран. Стабильная экономика, высокий уровень оплаты труда и развитая инфраструктура делают британский рынок труда одним из самых интересных в Европе.</p><p>Однако самостоятельный поиск работы за границей часто связан с рядом сложностей: визовые требования, оформление документов, поиск надежного работодателя и адаптация в новой стране. Именно поэтому многие соискатели обращаются к специализированным рекрутинговым компаниям, которые помогают пройти весь процесс более безопасно и организованно.</p><p>Почему кандидаты выбирают работу через рекрутинговые агентства</p><p>Главная задача рекрутинговых компаний - выступать посредником между работодателем и кандидатом, обеспечивая прозрачность условий и корректное оформление документов.</p><p>Работа через агентство позволяет соискателям:</p><p>получать доступ к актуальным вакансиям от проверенных работодателей;</p><p>заранее понимать условия работы, уровень заработной платы и график;</p><p>получать консультации по документам и требованиям;</p><p>снизить риски ошибок при оформлении;</p><p>получить поддержку при переезде и адаптации.</p><p>Для людей, которые впервые рассматривают работу за границей, такое сопровождение может значительно упростить весь процесс.</p><p>Как обычно проходит процесс трудоустройства</p><p>Хотя каждая компания выстраивает процесс по-своему, в большинстве случаев схема сотрудничества выглядит примерно одинаково.</p><p>1. Первичная консультация</p><p>На первом этапе кандидат получает информацию о доступных вакансиях, условиях работы, требованиях работодателей и примерных сроках оформления.</p><p>2. Подбор вакансии</p><p>После консультации подбирается подходящая позиция. Чаще всего речь идет о вакансиях в таких сферах, как:</p><p>логистика и складские комплексы</p><p>сельское хозяйство</p><p>производство</p><p>гостиничный и ресторанный бизнес</p><p>строительный сектор</p><p>Работодатель оценивает кандидата, после чего подтверждает возможность трудоустройства.</p><p>3. Подготовка документов</p><p>Следующий этап - оформление документов. В зависимости от вакансии и программы трудоустройства может потребоваться подготовка визовых документов, подтверждение личности, заполнение анкет и согласование условий контракта.</p><p>Компании, работающие в этой сфере, обычно помогают кандидатам подготовить корректный пакет документов и следят за соблюдением сроков подачи.</p><p>4. Подготовка к переезду</p><p>После завершения оформления кандидаты получают инструкции по выезду, прибытию и началу работы. На этом этапе также может решаться вопрос проживания и организационных деталей после приезда.</p><p>5. Адаптация на месте</p><p>Некоторые агентства продолжают сопровождать кандидатов и после начала работы, помогая им быстрее адаптироваться на новом месте и решать организационные вопросы.</p><p>На что стоит обращать внимание при выборе компании</p><p>Несмотря на большое количество предложений на рынке, важно выбирать компании, которые работают прозрачно и официально.</p><p>Перед началом сотрудничества рекомендуется обратить внимание на несколько факторов:</p><p>наличие реальных вакансий и понятных условий работы;</p><p>прозрачность процесса оформления документов;</p><p>наличие консультационной поддержки;</p><p>четкое описание этапов трудоустройства;</p><p>открытая коммуникация с кандидатами.</p><p>Надежные рекрутинговые компании, как правило, подробно объясняют все этапы процесса и предоставляют кандидатам необходимую информацию для принятия решения.</p><p>Итог</p><p>Работа за границей может стать важным шагом в профессиональной и финансовой жизни. Однако успешное трудоустройство во многом зависит от правильной подготовки и выбора надежного партнера.</p><p>Рекрутинговые компании, специализирующиеся на международном трудоустройстве, помогают кандидатам пройти все этапы более структурированно - от выбора вакансии до выхода на работу.</p><p>При ответственном подходе к выбору компании и внимательном изучении условий сотрудничества трудоустройство в Великобритании может стать реальной возможностью для стабильной работы и профессионального роста.</p>",
+          "text": "Контент статьи — блоками. Можно расширять.",
+          "type": "richText",
+          "title": "Трудоустройство в Великобритании через рекрутинговые агентства: этапы и особенности процесса"
+        },
+        {
+          "id": "7cqs9jvl",
+          "html": "<p>Опыт трудоустройства через GYPSEY EMPLOYMENT AGENCY</p><p>Трудоустройство за границей для многих людей становится важным шагом, который открывает новые возможности для профессионального и финансового роста. Однако сам процесс поиска работы, оформления документов и подготовки к переезду может быть сложным и требовать внимательного подхода. Именно поэтому многие кандидаты выбирают сотрудничество с профессиональными рекрутинговыми агентствами.</p><p>Одним из примеров такой работы является сотрудничество с GYPSEY EMPLOYMENT AGENCY - компанией, которая специализируется на сопровождении кандидатов при трудоустройстве в Великобритании.</p><p>Начало сотрудничества</p><p>Как правило, всё начинается с первичной консультации. Кандидат обращается в компанию и получает возможность подробно обсудить интересующие его вакансии. Менеджер уточняет основные данные, рассказывает об актуальных предложениях и помогает подобрать наиболее подходящий вариант.</p><p>На этом этапе кандидат получает полную информацию о будущей работе:</p><p> условия труда, уровень заработной платы, график, возможные переработки, а также условия проживания. Такой формат общения позволяет человеку принять взвешенное решение и заранее понимать, какие условия его ожидают.</p><p>Оформление документов</p><p>После выбора вакансии начинается этап подготовки документов. Специалисты компании подробно объясняют, какие документы необходимы для дальнейшего оформления и как правильно подготовить их для подачи.</p><p>Кандидату предоставляется понятная инструкция, а также поддержка на каждом этапе оформления. Это позволяет избежать распространённых ошибок и значительно упрощает сам процесс подготовки документов.</p><p>Сопровождение на всех этапах</p><p>Одним из ключевых преимуществ сотрудничества с профессиональным агентством является сопровождение на протяжении всего процесса. Специалисты координируют взаимодействие с работодателем, помогают подготовить необходимые документы и консультируют кандидата по административным вопросам.</p><p>Такой подход позволяет сделать процесс трудоустройства более понятным и организованным, а также значительно снижает уровень стресса, который часто сопровождает подготовку к работе за границей.</p><p>Подготовка к переезду</p><p>После завершения оформления документов кандидату предоставляются рекомендации по дальнейшим шагам - подготовке к поездке, организации прибытия и адаптации на новом месте работы.</p><p>Компания помогает кандидату ориентироваться в процессе переезда и предоставляет необходимую информацию, чтобы переход к новой работе прошёл максимально комфортно.</p><p>Итог</p><p>Опыт сотрудничества с GYPSEY EMPLOYMENT AGENCY показывает, что правильно выстроенная система сопровождения помогает кандидатам пройти весь путь трудоустройства - от первого обращения до выхода на работу - максимально спокойно и организованно.</p><p>Профессиональная поддержка, прозрачность процессов и внимательное отношение к кандидатам позволяют создать условия, при которых трудоустройство за границей становится понятным и структурированным процессом.</p>",
+          "type": "richText",
+          "title": "Трудоустройство с GYPSEY EMPLOYMENT AGENCY"
+        }
+      ],
+      "contentEn": [
+        {
+          "id": "48jnex79",
+          "html": "<p><strong>How Recruitment Agencies Facilitate Employment in the UK\"</strong></p><p><strong>How Employment Through Recruitment Agencies Works in the UK</strong></p><p>Working in the UK continues to be an attractive opportunity for people from different countries. A stable economy, high wages, and well-developed infrastructure make the British labor market one of the most appealing in Europe.</p><p>However, finding a job abroad independently is often associated with various challenges: visa requirements, document preparation, finding a reliable employer, and adapting to a new country. This is why many job seekers turn to specialized recruitment agencies, which help guide the entire process more safely and efficiently.</p><p><strong>Why Candidates Choose Recruitment Agencies</strong></p><p>The main role of recruitment agencies is to act as intermediaries between employers and candidates, ensuring transparency of conditions and proper document processing.</p><p>Working through an agency allows candidates to:</p><ul><li><p>Access up-to-date job vacancies from verified employers;</p></li><li><p>Understand work conditions, salary levels, and schedules in advance;</p></li><li><p>Receive guidance on documents and requirements;</p></li><li><p>Reduce the risk of errors in paperwork;</p></li><li><p>Get support with relocation and adaptation.</p></li></ul><p>For people considering working abroad for the first time, such support can greatly simplify the entire process.</p><p><strong>Typical Employment Process</strong></p><p>Although each agency may structure the process differently, in most cases the workflow is roughly as follows:</p><ol><li><p><strong>Initial Consultation</strong><br>At this stage, candidates receive information about available vacancies, work conditions, employer requirements, and approximate processing timelines.</p></li><li><p><strong>Job Matching</strong><br>After the consultation, a suitable position is selected. Common sectors include:</p><ul><li><p>Logistics and warehousing</p></li><li><p>Agriculture</p></li><li><p>Manufacturing</p></li><li><p>Hospitality and restaurants</p></li><li><p>Construction</p></li></ul><p>The employer evaluates the candidate and confirms the possibility of employment.</p></li><li><p><strong>Document Preparation</strong><br>The next step is document processing. Depending on the job and employment program, this may include visa paperwork, identity verification, application forms, and contract agreement.<br>Agencies in this field usually assist candidates in preparing a correct document package and ensure deadlines are met.</p></li><li><p><strong>Relocation Preparation</strong><br>After paperwork is complete, candidates receive instructions regarding departure, arrival, and starting work. This stage may also involve arranging accommodation and other logistical details.</p></li><li><p><strong>On-Site Adaptation</strong><br>Some agencies continue to support candidates after they start working, helping them adapt to their new environment and resolve organizational issues.</p></li></ol><p><strong>What to Consider When Choosing an Agency</strong></p><p>Despite the large number of offers on the market, it is important to select agencies that operate transparently and officially.</p><p>Before beginning cooperation, it is recommended to pay attention to:</p><ul><li><p>The availability of real vacancies and clear work conditions;</p></li><li><p>Transparency in document processing;</p></li><li><p>Access to advisory support;</p></li><li><p>Clear description of employment stages;</p></li><li><p>Open communication with candidates.</p></li></ul><p>Reliable recruitment agencies usually explain all stages of the process in detail and provide candidates with the information needed to make informed decisions.</p><p><strong>Conclusion</strong></p><p>Working abroad can be an important step in one’s professional and financial life. However, successful employment largely depends on proper preparation and choosing a reliable partner.</p><p>Recruitment agencies specializing in international employment help candidates navigate all stages in a structured way—from selecting a job to starting work.</p><p>With careful selection of an agency and careful review of cooperation conditions, employment in the UK can become a real opportunity for stable work and professional growth.</p>",
+          "text": "Article content as blocks. You can expand it.",
+          "type": "richText",
+          "title": "ArticleEmployment in the United Kingdom through Recruitment Agencies: Stages and Key Aspects of the Process"
+        },
+        {
+          "id": "3gx6wfy3",
+          "html": "<p><strong>Employment Experience with GYPSEY EMPLOYMENT AGENCY</strong></p><p>Working abroad is an important step for many people, opening up new opportunities for professional and financial growth. However, the process of job searching, document preparation, and relocation can be complex and requires careful attention. This is why many candidates choose to work with professional recruitment agencies.</p><p>One example of such support is collaboration with <strong>GYPSEY EMPLOYMENT AGENCY</strong>, a company specializing in assisting candidates with employment in the United Kingdom.</p><p><strong>Getting Started<br></strong> Typically, the process begins with an initial consultation. The candidate contacts the agency and has the opportunity to discuss the vacancies of interest in detail. The manager collects basic information, explains current opportunities, and helps select the most suitable position.</p><p>At this stage, the candidate receives complete information about the future job, including:</p><ul><li><p>Working conditions</p></li><li><p>Salary level</p></li><li><p>Work schedule and potential overtime</p></li><li><p>Accommodation options<br><br></p></li></ul><p>This approach allows the candidate to make an informed decision and have a clear understanding of what to expect.</p><p><strong>Document Preparation<br></strong> Once a position is selected, the document preparation stage begins. The agency’s specialists explain in detail which documents are required and how to prepare them correctly for submission.</p><p>The candidate receives clear instructions and support at every step, which helps avoid common mistakes and significantly simplifies the document preparation process.</p><p><strong>Support Throughout the Process<br></strong> One of the key advantages of working with a professional agency is guidance throughout the entire process. Specialists coordinate with the employer, assist in preparing necessary documents, and advise the candidate on administrative matters.</p><p>This approach makes the employment process more transparent and organized, while greatly reducing the stress that often accompanies preparation for working abroad.</p><p><strong>Preparation for Relocation<br></strong> After completing the documentation, the candidate receives recommendations for the next steps, including travel preparation, arrival, and adaptation to the new workplace.</p><p>The agency helps the candidate navigate the relocation process and provides all necessary information to ensure a smooth and comfortable transition to the new job.</p><p><strong>Conclusion<br></strong> Experience with <strong>GYPSEY EMPLOYMENT AGENCY</strong> shows that a well-structured support system helps candidates complete the entire employment journey-from the first inquiry to starting work-as smoothly and efficiently as possible.</p><p>Professional support, transparency of processes, and attentive care for candidates create conditions under which working abroad becomes a clear and structured experience.</p><p><br></p>",
+          "type": "richText",
+          "title": "Employment with GYPSEY EMPLOYMENT AGENCY"
+        }
+      ],
+      "coverImageUrl": null,
+      "publishedAt": "2026-03-03T13:38:23.565Z",
+      "isPublished": true,
+      "metaTitleRu": "Практическое руководство о том, как начать поиск работы в Великобритании: подготовка CV, настройка LinkedIn, поиск вакансий и работа с рекрутерами.",
+      "metaTitleEn": "A practical guide on how to start your job search in the UK: preparing your CV, optimising LinkedIn, finding vacancies and working with recruiters.",
+      "metaDescRu": "Пошаговое руководство по поиску работы в Великобритании: CV, LinkedIn, сайты вакансий, рекрутеры и советы для кандидатов.",
+      "metaDescEn": "Step-by-step guide to finding a job in the UK: CV tips, LinkedIn optimisation, job boards, recruiters, and practical advice for candidates.",
+      "ogImageUrl": null
+    }
+  ]
+}

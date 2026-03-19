@@ -157,6 +157,14 @@ Seed creates:
 - basic Home/About/Privacy/Cookies pages
 - sample FAQ/Reviews/Blog post
 
+## Content snapshot
+If you want to preserve the current CMS text/content in the repo so it can be restored after a fresh database setup:
+- make sure `DATABASE_URL` points to the current database
+- run `npm run content:export`
+- commit `prisma/content-snapshot.json`
+
+After that, `npm run db:seed` will use the committed snapshot as the source for pages/services/blog/reviews/faq/managers instead of the placeholder defaults when the database is empty.
+
 
 ## New: Drag&Drop sorting + Admin image uploads
 - Admin lists for Managers/Services/FAQ/Reviews support drag&drop ordering; it auto-saves and updates sortOrder.
