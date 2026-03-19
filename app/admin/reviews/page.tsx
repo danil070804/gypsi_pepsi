@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import SortableTable from "@/components/admin/SortableTable";
 import { Field, Input, Textarea, Button, Switch } from "@/components/admin/Form";
 import { createReview, updateReview, deleteReview } from "../actions";
-import UploadToInput from "@/components/admin/UploadToInput";
+import UploadUrlField from "@/components/admin/UploadUrlField";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -46,7 +46,16 @@ export default async function ReviewsAdmin() {
               </Button>
             </div>
 
-            <ReviewFields photoDefault={r.photoUrl || ""} sortDefault={r.sortOrder} publishedDefault={r.isPublished} authorDefault={r.authorName} ratingDefault={r.rating || ""} textRuDefault={r.textRu} textEnDefault={r.textEn} />
+            <ReviewFields
+              photoFieldId={`review-photo-${r.id}`}
+              photoDefault={r.photoUrl || ""}
+              sortDefault={r.sortOrder}
+              publishedDefault={r.isPublished}
+              authorDefault={r.authorName}
+              ratingDefault={r.rating || ""}
+              textRuDefault={r.textRu}
+              textEnDefault={r.textEn}
+            />
 
             <Button type="submit">Save</Button>
           </form>
@@ -60,7 +69,7 @@ function CreateReviewForm({ defaultSort }:{ defaultSort: number }) {
   return (
     <form action={createReview} className="space-y-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-5">
       <div className="text-sm font-semibold">Add review</div>
-      <ReviewFields photoDefault="" sortDefault={defaultSort} publishedDefault={true} />
+      <ReviewFields photoFieldId="review-photo-new" photoDefault="" sortDefault={defaultSort} publishedDefault={true} />
       <Button type="submit">Create</Button>
     </form>
   );
@@ -71,6 +80,7 @@ function ReviewFields({
   ratingDefault = "",
   textRuDefault = "",
   textEnDefault = "",
+  photoFieldId,
   photoDefault = "",
   sortDefault = 0,
   publishedDefault = true,
@@ -79,6 +89,7 @@ function ReviewFields({
   ratingDefault?: any;
   textRuDefault?: string;
   textEnDefault?: string;
+  photoFieldId: string;
   photoDefault?: string;
   sortDefault?: number;
   publishedDefault?: boolean;
@@ -90,10 +101,7 @@ function ReviewFields({
       <Field label="Text RU"><Textarea name="textRu" rows={3} defaultValue={textRuDefault} required /></Field>
       <Field label="Text EN"><Textarea name="textEn" rows={3} defaultValue={textEnDefault} required /></Field>
 
-      <div className="space-y-2">
-        <Field label="Photo URL"><Input name="photoUrl" defaultValue={photoDefault} /></Field>
-        <UploadToInput inputName="photoUrl" />
-      </div>
+      <UploadUrlField id={photoFieldId} name="photoUrl" label="Photo URL" defaultValue={photoDefault} />
 
       <Field label="Sort order"><Input name="sortOrder" type="number" defaultValue={sortDefault} /></Field>
       <div className="flex items-end"><Switch name="isPublished" defaultChecked={publishedDefault} /></div>
