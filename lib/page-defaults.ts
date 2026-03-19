@@ -17,6 +17,7 @@ function blocksHome(lang: "ru" | "en") {
     {
       id: `home-hero-${lang}`,
       type: "hero",
+      eyebrow: lang === "ru" ? "Трудоустройство в UK" : "UK Employment",
       title:
         lang === "ru"
           ? "Трудоустройство в UK — с агентством, которое ведёт до результата"
@@ -29,6 +30,17 @@ function blocksHome(lang: "ru" | "en") {
         { label: lang === "ru" ? "Услуги" : "Services", href: `/${lang}/services` },
         { label: lang === "ru" ? "Консультация" : "Consultation", href: `/${lang}/contact` },
       ],
+      highlights: [
+        { eyebrow: "UK", title: lang === "ru" ? "Поддержка" : "Support", href: `/${lang}/contact` },
+        { eyebrow: lang === "ru" ? "Документы" : "Docs", title: lang === "ru" ? "Сопровождение" : "Guidance", href: `/${lang}/services/documentation` },
+        { eyebrow: lang === "ru" ? "Работа" : "Jobs", title: lang === "ru" ? "Подбор" : "Matching", href: `/${lang}/services` },
+      ],
+      mediaEyebrow: "GYPSEY EMPLOYMENT AGENCY",
+      mediaText:
+        lang === "ru"
+          ? "Подбор вакансий, документы и сопровождение."
+          : "Jobs, documents, and ongoing guidance.",
+      mediaImageUrl: "/images/hero.webp",
     },
     {
       id: `home-steps-${lang}`,

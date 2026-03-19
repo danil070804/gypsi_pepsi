@@ -59,7 +59,7 @@ export default async function EditPage({
         <div className="pt-2">
           <div className="text-sm font-semibold">Blocks (WYSIWYG supported)</div>
           <div className="mt-2">
-            <BlocksEditor name="blocksJson" initialValue={page.blocksJson as any} />
+            <BlocksEditor name="blocksJson" initialValue={page.blocksJson as any} pageKey={key} />
           </div>
         </div>
 

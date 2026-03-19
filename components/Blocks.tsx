@@ -3,13 +3,43 @@ import Image from "next/image";
 import type { Lang } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 
+type HeroHighlight = {
+  eyebrow?: string;
+  title?: string;
+  href?: string;
+};
+
 type Block =
-  | { type: "hero"; title: string; subtitle?: string; ctas?: { label: string; href: string }[] }
+  | {
+      type: "hero";
+      title: string;
+      subtitle?: string;
+      eyebrow?: string;
+      ctas?: { label: string; href: string }[];
+      highlights?: HeroHighlight[];
+      mediaEyebrow?: string;
+      mediaText?: string;
+      mediaImageUrl?: string;
+    }
   | { type: "steps"; title?: string; items: { title: string; text?: string }[] }
   | { type: "bullets"; title?: string; items: string[] }
   | { type: "cta"; title: string; text?: string; buttonLabel: string; href: string }
   | { type: "richText"; title?: string; text?: string; html?: string }
   | { type: "legal"; html?: string };
+
+function getHomeHeroDefaults(lang: Lang) {
+  return {
+    eyebrow: t(lang, "Трудоустройство в UK", "UK Employment"),
+    highlights: [
+      { eyebrow: "UK", title: t(lang, "Поддержка", "Support"), href: `/${lang}/contact` },
+      { eyebrow: t(lang, "Документы", "Docs"), title: t(lang, "Сопровождение", "Guidance"), href: `/${lang}/services/documentation` },
+      { eyebrow: t(lang, "Работа", "Jobs"), title: t(lang, "Подбор", "Matching"), href: `/${lang}/services` },
+    ] satisfies HeroHighlight[],
+    mediaEyebrow: "GYPSEY EMPLOYMENT AGENCY",
+    mediaText: t(lang, "Подбор вакансий, документы и сопровождение.", "Jobs, documents, and ongoing guidance."),
+    mediaImageUrl: "/images/hero.webp",
+  };
+}
 
 export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
   const arr: Block[] = Array.isArray(blocks) ? blocks : [];
@@ -17,6 +47,16 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
     <div className="space-y-10">
       {arr.map((b, idx) => {
         if (b.type === "hero") {
+          const homeHeroDefaults = getHomeHeroDefaults(lang);
+          const highlights = homeHeroDefaults.highlights.map((item, itemIndex) => ({
+            ...item,
+            ...((b.highlights || [])[itemIndex] || {}),
+          }));
+          const heroEyebrow = b.eyebrow || homeHeroDefaults.eyebrow;
+          const mediaEyebrow = b.mediaEyebrow || homeHeroDefaults.mediaEyebrow;
+          const mediaText = b.mediaText || homeHeroDefaults.mediaText;
+          const mediaImageUrl = b.mediaImageUrl || homeHeroDefaults.mediaImageUrl;
+
           return (
             <section
               key={idx}
@@ -31,7 +71,7 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
                 <div className="max-w-xl">
                   <div className="site-chip">
                     <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
-                    {t(lang, "Трудоустройство в UK", "UK Employment")}
+                    {heroEyebrow}
                   </div>
 
                   <h1 className="mt-4 text-4xl font-semibold leading-[1.03] text-white md:text-[3.3rem]">
@@ -69,27 +109,18 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
                   </div>
 
                   <div className="mt-8 grid grid-cols-2 gap-3 text-sm text-white/70 sm:grid-cols-3">
-                    <Link
-                      href={`/${lang}/contact`}
-                      className="site-panel min-h-[92px] rounded-[1.35rem] p-3 transition hover:bg-white/[0.08]"
-                    >
-                      <div className="site-kicker">UK</div>
-                      <div className="mt-1 break-normal leading-snug">{t(lang, "Поддержка", "Support")}</div>
-                    </Link>
-                    <Link
-                      href={`/${lang}/services/documentation`}
-                      className="site-panel min-h-[92px] rounded-[1.35rem] p-3 transition hover:bg-white/[0.08]"
-                    >
-                      <div className="site-kicker break-normal leading-snug">{t(lang, "Документы", "Docs")}</div>
-                      <div className="mt-1 break-normal leading-snug">{t(lang, "Сопровождение", "Guidance")}</div>
-                    </Link>
-                    <Link
-                      href={`/${lang}/services`}
-                      className="site-panel col-span-2 min-h-[92px] rounded-[1.35rem] p-3 transition hover:bg-white/[0.08] sm:col-span-1"
-                    >
-                      <div className="site-kicker break-normal leading-snug">{t(lang, "Работа", "Jobs")}</div>
-                      <div className="mt-1 break-normal leading-snug">{t(lang, "Подбор", "Matching")}</div>
-                    </Link>
+                    {highlights.map((item, itemIndex) => (
+                      <Link
+                        key={`${item.href || itemIndex}-${itemIndex}`}
+                        href={item.href || `/${lang}`}
+                        className={`site-panel min-h-[92px] rounded-[1.35rem] p-3 transition hover:bg-white/[0.08] ${
+                          itemIndex === 2 ? "col-span-2 sm:col-span-1" : ""
+                        }`}
+                      >
+                        <div className="site-kicker break-normal leading-snug">{item.eyebrow}</div>
+                        <div className="mt-1 break-normal leading-snug">{item.title}</div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
 
@@ -97,7 +128,7 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
                   <div className="absolute -inset-4 rounded-3xl bg-blue-500/10 blur-2xl" />
                   <div className="site-panel relative overflow-hidden rounded-[1.85rem]">
                     <Image
-                      src="/images/hero.webp"
+                      src={mediaImageUrl}
                       alt="Office"
                       width={900}
                       height={700}
@@ -107,10 +138,8 @@ export default function Blocks({ blocks, lang }: { blocks: any; lang: Lang }) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4 rounded-[1.4rem] border border-white/10 bg-slate-950/58 p-4 text-sm text-white/80 backdrop-blur">
-                      <div className="site-kicker text-white/55">GYPSEY EMPLOYMENT AGENCY</div>
-                      <div className="mt-2 text-base font-semibold text-white">
-                        {t(lang, "Подбор вакансий, документы и сопровождение.", "Jobs, documents, and ongoing guidance.")}
-                      </div>
+                      <div className="site-kicker text-white/55">{mediaEyebrow}</div>
+                      <div className="mt-2 text-base font-semibold text-white">{mediaText}</div>
                     </div>
                   </div>
                 </div>

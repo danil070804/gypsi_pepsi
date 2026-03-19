@@ -8,8 +8,19 @@ import { CSS } from "@dnd-kit/utilities";
 type Lang = "ru" | "en";
 
 type BlockBase = { id: string; type: string };
+type HeroHighlight = { eyebrow?: string; title?: string; href?: string };
 type Block =
-  | (BlockBase & { type: "hero"; title: string; subtitle?: string; ctas?: { label: string; href: string }[] })
+  | (BlockBase & {
+      type: "hero";
+      title: string;
+      subtitle?: string;
+      eyebrow?: string;
+      ctas?: { label: string; href: string }[];
+      highlights?: HeroHighlight[];
+      mediaEyebrow?: string;
+      mediaText?: string;
+      mediaImageUrl?: string;
+    })
   | (BlockBase & { type: "steps"; title?: string; items: { title: string; text?: string }[] })
   | (BlockBase & { type: "cta"; title: string; text?: string; buttonLabel: string; href: string })
   | (BlockBase & { type: "richText"; title?: string; html: string })
@@ -26,12 +37,55 @@ function ensureIds(arr: any[]) {
   return (arr || []).map((b) => (b?.id ? b : { id: uid(), ...b }));
 }
 
+function getHomeHeroDefaults(lang: Lang) {
+  return {
+    eyebrow: lang === "ru" ? "Трудоустройство в UK" : "UK Employment",
+    highlights: [
+      { eyebrow: "UK", title: lang === "ru" ? "Поддержка" : "Support", href: `/${lang}/contact` },
+      {
+        eyebrow: lang === "ru" ? "Документы" : "Docs",
+        title: lang === "ru" ? "Сопровождение" : "Guidance",
+        href: `/${lang}/services/documentation`,
+      },
+      { eyebrow: lang === "ru" ? "Работа" : "Jobs", title: lang === "ru" ? "Подбор" : "Matching", href: `/${lang}/services` },
+    ] satisfies HeroHighlight[],
+    mediaEyebrow: "GYPSEY EMPLOYMENT AGENCY",
+    mediaText:
+      lang === "ru"
+        ? "Подбор вакансий, документы и сопровождение."
+        : "Jobs, documents, and ongoing guidance.",
+    mediaImageUrl: "/images/hero.webp",
+  };
+}
+
+function normalizeBlocks(arr: any[], lang: Lang, pageKey?: string) {
+  return ensureIds(arr).map((block) => {
+    if (pageKey === "home" && block?.type === "hero") {
+      const defaults = getHomeHeroDefaults(lang);
+      const rawHighlights = Array.isArray(block.highlights) ? block.highlights : [];
+
+      return {
+        ...block,
+        eyebrow: block.eyebrow ?? defaults.eyebrow,
+        highlights: defaults.highlights.map((item, index) => ({ ...item, ...(rawHighlights[index] || {}) })),
+        mediaEyebrow: block.mediaEyebrow ?? defaults.mediaEyebrow,
+        mediaText: block.mediaText ?? defaults.mediaText,
+        mediaImageUrl: block.mediaImageUrl ?? defaults.mediaImageUrl,
+      };
+    }
+
+    return block;
+  });
+}
+
 export default function BlocksEditor({
   name,
   initialValue,
+  pageKey,
 }: {
   name: string; // form field name
   initialValue: any; // object {ru:[], en:[]}
+  pageKey?: string;
 }) {
   const init = useMemo(() => {
     if (typeof initialValue === "string") {
@@ -42,15 +96,26 @@ export default function BlocksEditor({
   }, [initialValue]);
 
   const [data, setData] = useState<{ ru: Block[]; en: Block[] }>(() => ({
-    ru: ensureIds(Array.isArray(init?.ru) ? init.ru : []),
-    en: ensureIds(Array.isArray(init?.en) ? init.en : []),
+    ru: normalizeBlocks(Array.isArray(init?.ru) ? init.ru : [], "ru", pageKey),
+    en: normalizeBlocks(Array.isArray(init?.en) ? init.en : [], "en", pageKey),
   }));
 
   function addBlock(lang: Lang, type: Block["type"]) {
     const id = uid();
     const next: any =
       type === "hero"
-        ? { id, type, title: "", subtitle: "", ctas: [{ label: "", href: "" }, { label: "", href: "" }] }
+        ? {
+            id,
+            type,
+            title: "",
+            subtitle: "",
+            eyebrow: pageKey === "home" ? getHomeHeroDefaults(lang).eyebrow : "",
+            ctas: [{ label: "", href: "" }, { label: "", href: "" }],
+            highlights: pageKey === "home" ? getHomeHeroDefaults(lang).highlights : [],
+            mediaEyebrow: pageKey === "home" ? getHomeHeroDefaults(lang).mediaEyebrow : "",
+            mediaText: pageKey === "home" ? getHomeHeroDefaults(lang).mediaText : "",
+            mediaImageUrl: pageKey === "home" ? getHomeHeroDefaults(lang).mediaImageUrl : "",
+          }
         : type === "steps"
         ? { id, type, title: "", items: [{ title: "", text: "" }, { title: "", text: "" }, { title: "", text: "" }] }
         : type === "cta"
@@ -95,7 +160,7 @@ export default function BlocksEditor({
         <div className="space-y-3">
           {data[lang].map((b) => (
             <SortableCard key={b.id} id={b.id} onRemove={() => remove(lang, b.id)}>
-              <BlockEditor block={b} lang={lang} onUpdate={(patch) => update(lang, b.id, patch)} />
+              <BlockEditor block={b} lang={lang} pageKey={pageKey} onUpdate={(patch) => update(lang, b.id, patch)} />
             </SortableCard>
           ))}
         </div>
@@ -154,37 +219,99 @@ function SortableCard({ id, children, onRemove }:{ id: string; children: React.R
   );
 }
 
-function BlockEditor({ block, lang, onUpdate }:{ block: any; lang: Lang; onUpdate: (patch:any)=>void }) {
+function BlockEditor({ block, lang, pageKey, onUpdate }:{ block: any; lang: Lang; pageKey?: string; onUpdate: (patch:any)=>void }) {
   const b = block as Block;
+  const isHomeHero = pageKey === "home" && b.type === "hero";
 
   return (
     <div className="space-y-3">
       <div className="text-xs font-semibold uppercase tracking-widest text-slate-400">{b.type}</div>
 
       {b.type === "hero" ? (
-        <div className="grid gap-3 md:grid-cols-2">
-          <Input label="Title" value={b.title} onChange={(v) => onUpdate({ title: v })} />
-          <Input label="Subtitle" value={(b as any).subtitle || ""} onChange={(v) => onUpdate({ subtitle: v })} />
-          <Input label="CTA 1 label" value={(b as any).ctas?.[0]?.label || ""} onChange={(v) => {
-            const ctas = [...((b as any).ctas || [])];
-            ctas[0] = { ...(ctas[0] || {}), label: v };
-            onUpdate({ ctas });
-          }} />
-          <Input label="CTA 1 href" value={(b as any).ctas?.[0]?.href || ""} onChange={(v) => {
-            const ctas = [...((b as any).ctas || [])];
-            ctas[0] = { ...(ctas[0] || {}), href: v };
-            onUpdate({ ctas });
-          }} />
-          <Input label="CTA 2 label" value={(b as any).ctas?.[1]?.label || ""} onChange={(v) => {
-            const ctas = [...((b as any).ctas || [])];
-            ctas[1] = { ...(ctas[1] || {}), label: v };
-            onUpdate({ ctas });
-          }} />
-          <Input label="CTA 2 href" value={(b as any).ctas?.[1]?.href || ""} onChange={(v) => {
-            const ctas = [...((b as any).ctas || [])];
-            ctas[1] = { ...(ctas[1] || {}), href: v };
-            onUpdate({ ctas });
-          }} />
+        <div className="space-y-4">
+          <div className="grid gap-3 md:grid-cols-2">
+            <Input label="Title" value={b.title} onChange={(v) => onUpdate({ title: v })} />
+            <Input label="Subtitle" value={(b as any).subtitle || ""} onChange={(v) => onUpdate({ subtitle: v })} />
+            <Input label="Top chip / eyebrow" value={(b as any).eyebrow || ""} onChange={(v) => onUpdate({ eyebrow: v })} />
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+            <div className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">Buttons</div>
+            <div className="grid gap-3 md:grid-cols-2">
+              <Input label="CTA 1 label" value={(b as any).ctas?.[0]?.label || ""} onChange={(v) => {
+                const ctas = [...((b as any).ctas || [])];
+                ctas[0] = { ...(ctas[0] || {}), label: v };
+                onUpdate({ ctas });
+              }} />
+              <Input label="CTA 1 href" value={(b as any).ctas?.[0]?.href || ""} onChange={(v) => {
+                const ctas = [...((b as any).ctas || [])];
+                ctas[0] = { ...(ctas[0] || {}), href: v };
+                onUpdate({ ctas });
+              }} />
+              <Input label="CTA 2 label" value={(b as any).ctas?.[1]?.label || ""} onChange={(v) => {
+                const ctas = [...((b as any).ctas || [])];
+                ctas[1] = { ...(ctas[1] || {}), label: v };
+                onUpdate({ ctas });
+              }} />
+              <Input label="CTA 2 href" value={(b as any).ctas?.[1]?.href || ""} onChange={(v) => {
+                const ctas = [...((b as any).ctas || [])];
+                ctas[1] = { ...(ctas[1] || {}), href: v };
+                onUpdate({ ctas });
+              }} />
+            </div>
+          </div>
+
+          {isHomeHero ? (
+            <>
+              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">Mini cards under hero</div>
+                <div className="space-y-3">
+                  {[0, 1, 2].map((index) => (
+                    <div key={index} className="grid gap-3 md:grid-cols-3">
+                      <Input
+                        label={`Card ${index + 1} top line`}
+                        value={(b as any).highlights?.[index]?.eyebrow || ""}
+                        onChange={(v) => {
+                          const highlights = [...((b as any).highlights || [])];
+                          highlights[index] = { ...(highlights[index] || {}), eyebrow: v };
+                          onUpdate({ highlights });
+                        }}
+                      />
+                      <Input
+                        label={`Card ${index + 1} title`}
+                        value={(b as any).highlights?.[index]?.title || ""}
+                        onChange={(v) => {
+                          const highlights = [...((b as any).highlights || [])];
+                          highlights[index] = { ...(highlights[index] || {}), title: v };
+                          onUpdate({ highlights });
+                        }}
+                      />
+                      <Input
+                        label={`Card ${index + 1} link`}
+                        value={(b as any).highlights?.[index]?.href || ""}
+                        onChange={(v) => {
+                          const highlights = [...((b as any).highlights || [])];
+                          highlights[index] = { ...(highlights[index] || {}), href: v };
+                          onUpdate({ highlights });
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+                <div className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">Image panel</div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <Input label="Panel eyebrow" value={(b as any).mediaEyebrow || ""} onChange={(v) => onUpdate({ mediaEyebrow: v })} />
+                  <Input label="Hero image URL" value={(b as any).mediaImageUrl || ""} onChange={(v) => onUpdate({ mediaImageUrl: v })} />
+                  <div className="md:col-span-2">
+                    <Input label="Panel text" value={(b as any).mediaText || ""} onChange={(v) => onUpdate({ mediaText: v })} />
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : null}
         </div>
       ) : null}
 
