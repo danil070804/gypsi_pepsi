@@ -69,8 +69,8 @@ export default async function ReviewsPage({
             {hero?.subtitle ||
               t(
                 lang,
-                "Мы собрали реальные впечатления клиентов в живую непрерывную ленту. Фото можно добавлять позже через админку, сами отзывы уже готовы к показу.",
-                "We collected client impressions into a continuous live ribbon. Photos can be added later in the admin panel, while the reviews are already ready to display."
+                "Мы собрали реальные впечатления клиентов в живую непрерывную ленту. Откройте карточку и прочитайте отзыв полностью.",
+                "We collected real client impressions into a continuous live ribbon. Open any card to read the full review."
               )}
           </p>
         </div>
