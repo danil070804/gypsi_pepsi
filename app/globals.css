@@ -58,3 +58,55 @@ h1,h2,h3 { @apply tracking-tight; }
 .prose { @apply text-slate-200; }
 .prose a { @apply underline decoration-slate-500 underline-offset-4; }
 .prose strong { @apply text-slate-100; }
+
+.review-marquee-mask {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.review-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: review-marquee var(--marquee-duration, 48s) linear infinite;
+}
+
+.review-marquee-track.is-reverse {
+  animation-direction: reverse;
+}
+
+.review-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.review-marquee-card {
+  width: min(28rem, calc(100vw - 3.5rem));
+  border-radius: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
+    rgba(15, 23, 42, 0.72);
+  padding: 1.25rem;
+  box-shadow:
+    0 18px 48px rgba(2, 6, 23, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+@keyframes review-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-marquee-track {
+    animation: none;
+  }
+}

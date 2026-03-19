@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -13,36 +13,44 @@ export default function PageTransition({ children }: { children: React.ReactNode
   }
 
   return (
-    <div className="relative isolate min-h-[40vh] w-full overflow-hidden">
-      <AnimatePresence mode="wait" initial={false}>
+    <div className="relative min-h-[40vh] w-full">
+      <AnimatePresence initial={false}>
         <motion.div
-          key={pathname}
-          initial={{ opacity: 0, y: 18, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -14, filter: "blur(8px)" }}
-          transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-          style={{ willChange: "transform, opacity, filter", transform: "translateZ(0)" }}
-          className="relative w-full"
+          key={`overlay-${pathname}`}
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 z-20 h-32 overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent"
-            initial={{ opacity: 0, scaleX: 0.3 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            exit={{ opacity: 0, scaleX: 1.08 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-200/90 to-transparent"
+            initial={{ scaleX: 0.18, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            exit={{ scaleX: 1.08, opacity: 0 }}
+            transition={{ duration: 0.46, ease: [0.16, 1, 0.3, 1] }}
           />
           <motion.div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-12 top-0 -z-10 h-32 rounded-full bg-gradient-to-r from-blue-500/12 via-sky-400/16 to-indigo-500/12 blur-3xl"
-            initial={{ opacity: 0, y: 18, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -18, scale: 1.03 }}
-            transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute -left-1/4 top-0 h-28 w-1/3 rounded-full bg-gradient-to-r from-transparent via-sky-300/35 to-transparent blur-2xl"
+            initial={{ x: "-12%", opacity: 0 }}
+            animate={{ x: "170%", opacity: [0, 1, 0] }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.78, ease: [0.16, 1, 0.3, 1] }}
           />
-          {children}
         </motion.div>
       </AnimatePresence>
+
+      <motion.div
+        key={pathname}
+        initial={{ opacity: 0, y: 22, clipPath: "inset(0 0 14% 0 round 28px)" }}
+        animate={{ opacity: 1, y: 0, clipPath: "inset(0 0 0% 0 round 28px)" }}
+        transition={{ duration: 0.44, ease: [0.16, 1, 0.3, 1] }}
+        style={{ willChange: "transform, opacity, clip-path", transform: "translateZ(0)" }}
+        className="w-full"
+      >
+        {children}
+      </motion.div>
     </div>
   );
 }
