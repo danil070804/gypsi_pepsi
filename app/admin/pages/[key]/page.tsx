@@ -5,6 +5,7 @@ import { Field, Input, Button, Switch } from "@/components/admin/Form";
 import { upsertPage } from "../../actions";
 import BlocksEditor from "@/components/admin/BlocksEditor";
 import UploadToInput from "@/components/admin/UploadToInput";
+import { getDefaultPageContent } from "@/lib/page-defaults";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -18,7 +19,9 @@ export default async function EditPage({
 }) {
   const { key } = await params;
   const { saved } = await searchParams;
-  const page = await prisma.page.findUnique({ where: { key: key } });
+  const existingPage = await prisma.page.findUnique({ where: { key: key } });
+  const fallbackPage = getDefaultPageContent(key);
+  const page = existingPage || fallbackPage;
   if (!page) return notFound();
 
   return (
@@ -42,15 +45,15 @@ export default async function EditPage({
         <div className="grid gap-4 md:grid-cols-2">
           <Field label="Title (RU)"><Input name="titleRu" defaultValue={page.titleRu} /></Field>
           <Field label="Title (EN)"><Input name="titleEn" defaultValue={page.titleEn} /></Field>
-          <Field label="Meta title (RU)"><Input name="metaTitleRu" defaultValue={page.metaTitleRu || ""} /></Field>
-          <Field label="Meta title (EN)"><Input name="metaTitleEn" defaultValue={page.metaTitleEn || ""} /></Field>
-          <Field label="Meta description (RU)"><Input name="metaDescRu" defaultValue={page.metaDescRu || ""} /></Field>
-          <Field label="Meta description (EN)"><Input name="metaDescEn" defaultValue={page.metaDescEn || ""} /></Field>
+          <Field label="Meta title (RU)"><Input name="metaTitleRu" defaultValue={"metaTitleRu" in page ? page.metaTitleRu || "" : ""} /></Field>
+          <Field label="Meta title (EN)"><Input name="metaTitleEn" defaultValue={"metaTitleEn" in page ? page.metaTitleEn || "" : ""} /></Field>
+          <Field label="Meta description (RU)"><Input name="metaDescRu" defaultValue={"metaDescRu" in page ? page.metaDescRu || "" : ""} /></Field>
+          <Field label="Meta description (EN)"><Input name="metaDescEn" defaultValue={"metaDescEn" in page ? page.metaDescEn || "" : ""} /></Field>
           <div className="space-y-2">
-          <Field label="OG image URL"><Input id="ogImageUrl" name="ogImageUrl" defaultValue={page.ogImageUrl || ""} /></Field>
+          <Field label="OG image URL"><Input id="ogImageUrl" name="ogImageUrl" defaultValue={"ogImageUrl" in page ? page.ogImageUrl || "" : ""} /></Field>
           <UploadToInput inputName="ogImageUrl" />
         </div>
-          <div className="flex items-end"><Switch name="isPublished" defaultChecked={page.isPublished} /></div>
+          <div className="flex items-end"><Switch name="isPublished" defaultChecked={page.isPublished ?? true} /></div>
         </div>
 
         <div className="pt-2">

@@ -1,5 +1,6 @@
 import type { Lang } from "@/lib/i18n";
 import { asLang, t } from "@/lib/i18n";
+import { getPageByKey, pickLang } from "@/lib/content";
 import { prisma } from "@/lib/prisma";
 import { getSiteUrl } from "@/lib/site-url";
 import ReviewsMarquee from "@/components/ReviewsMarquee";
@@ -17,9 +18,13 @@ export async function generateMetadata({
   const { lang: langParam } = await params;
   const lang: Lang = asLang(langParam);
   const base = getSiteUrl();
+  const page = await getPageByKey("reviews");
+  const title = lang === "ru" ? page?.metaTitleRu || page?.titleRu : page?.metaTitleEn || page?.titleEn;
+  const description = lang === "ru" ? page?.metaDescRu : page?.metaDescEn;
 
   return {
-    title: t(lang, "Отзывы", "Reviews"),
+    title: title || t(lang, "Отзывы", "Reviews"),
+    description: description || undefined,
     alternates: {
       canonical: `${base}/${lang}/reviews`,
       languages: {
@@ -37,6 +42,9 @@ export default async function ReviewsPage({
 }) {
   const { lang: langParam } = await params;
   const lang: Lang = asLang(langParam);
+  const page = await getPageByKey("reviews");
+  const blocks = pickLang<any[]>(lang, page?.blocksJson);
+  const hero = Array.isArray(blocks) ? blocks.find((block) => block?.type === "hero") : null;
 
   const reviews = await prisma.review.findMany({
     where: { isPublished: true },
@@ -52,17 +60,18 @@ export default async function ReviewsPage({
         </div>
         <div className="relative max-w-3xl">
           <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/62">
-            {t(lang, "Отзывы", "Reviews")}
+            {lang === "ru" ? page?.titleRu || t(lang, "Отзывы", "Reviews") : page?.titleEn || t(lang, "Отзывы", "Reviews")}
           </div>
           <h1 className="mt-4 text-3xl font-semibold text-white md:text-5xl">
-            {t(lang, "Отзывы, которые не стоят на месте", "Reviews that never stand still")}
+            {hero?.title || t(lang, "Отзывы, которые не стоят на месте", "Reviews that never stand still")}
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72 md:text-base">
-            {t(
-              lang,
-              "Мы собрали реальные впечатления клиентов в живую непрерывную ленту. Фото можно добавлять позже через админку, сами отзывы уже готовы к показу.",
-              "We collected client impressions into a continuous live ribbon. Photos can be added later in the admin panel, while the reviews are already ready to display."
-            )}
+            {hero?.subtitle ||
+              t(
+                lang,
+                "Мы собрали реальные впечатления клиентов в живую непрерывную ленту. Фото можно добавлять позже через админку, сами отзывы уже готовы к показу.",
+                "We collected client impressions into a continuous live ribbon. Photos can be added later in the admin panel, while the reviews are already ready to display."
+              )}
           </p>
         </div>
       </section>

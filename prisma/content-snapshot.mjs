@@ -102,6 +102,32 @@ export function createDefaultContentSnapshot() {
         },
         isPublished: true,
       },
+      {
+        key: "reviews",
+        titleRu: "Отзывы",
+        titleEn: "Reviews",
+        blocksJson: {
+          ru: [
+            {
+              id: "reviews-hero-ru",
+              type: "hero",
+              title: "Отзывы, которые не стоят на месте",
+              subtitle: "Мы собрали реальные впечатления клиентов в живую непрерывную ленту. Фото можно добавлять позже через админку, сами отзывы уже готовы к показу.",
+              ctas: [],
+            },
+          ],
+          en: [
+            {
+              id: "reviews-hero-en",
+              type: "hero",
+              title: "Reviews that never stand still",
+              subtitle: "We collected client impressions into a continuous live ribbon. Photos can be added later in the admin panel, while the reviews are already ready to display.",
+              ctas: [],
+            },
+          ],
+        },
+        isPublished: true,
+      },
     ],
     services: serviceSeeds.map((service, index) => ({
       slug: service.slug,
